@@ -16,8 +16,8 @@ import java.sql.SQLException;
 import java.sql.Wrapper;
 
 public class DatabaseAccessManager {
-    private Connection connection;
 
+    private Connection connection;
     private DatabaseAccessManager databaseAccessManager;
 
     final String s = File.separator;
@@ -55,7 +55,10 @@ public class DatabaseAccessManager {
     }
 
     public synchronized DatabaseAccessManager getInstance() throws FileNotFoundException {
-        return (databaseAccessManager == null) ? new DatabaseAccessManager() : databaseAccessManager;
+        if (databaseAccessManager == null) {
+            databaseAccessManager = new DatabaseAccessManager();
+        }
+        return databaseAccessManager;
     }
 
     public Connection getConnection() {

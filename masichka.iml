@@ -11,8 +11,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
-    <orderEntry type="library" name="xstream-1.4.10" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="library" exported="" name="mysql-connector-java-5.1.44-bin" level="project" />
+    <orderEntry type="library" exported="" name="xstream-1.4.10" level="project" />
+    <orderEntry type="library" exported="" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gson-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
