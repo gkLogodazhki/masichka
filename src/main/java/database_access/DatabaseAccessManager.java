@@ -13,6 +13,8 @@ public class DatabaseAccessManager {
     private static final String DATABASE = "/masichka";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
+    //asd das das
+
 
     private DatabaseAccessManager() {
         try {
