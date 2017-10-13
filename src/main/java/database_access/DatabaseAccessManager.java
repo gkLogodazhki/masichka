@@ -12,6 +12,7 @@ public class DatabaseAccessManager {
     private static final String DB_PORT = ":3306";
     private static final String DATABASE = "/masichka";
     private static final String DB_USER = "root";
+    //TEST
     private static final String DB_PASSWORD = "root";
 
     private DatabaseAccessManager() {
