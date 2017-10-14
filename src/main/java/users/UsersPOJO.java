@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 
+import exceptions.ValidateEmailPasswordException;
 import exceptions.ValidateStringException;
 
 public class UsersPOJO {
@@ -36,7 +37,7 @@ public class UsersPOJO {
 	}
 	
 	public UsersPOJO(String mail, String pass, String firstName, String lastName, String phoneNumber
-			, LocalDate date, boolean isAgree, boolean wantNotification) throws ValidateStringException, ParseException {
+			, LocalDate date, boolean isAgree, boolean wantNotification) throws ValidateStringException, ParseException, ValidateEmailPasswordException {
 		setMail(mail);
 		setPass(pass);
 		setFirstName(firstName);
@@ -51,7 +52,7 @@ public class UsersPOJO {
 		return mail;
 	}
 
-	public void setMail(String mail) {
+	public void setMail(String mail) throws ValidateEmailPasswordException {
 		this.mail = ValidateEmailPasswordException.validateEmail(mail);
 	}
 
@@ -59,7 +60,7 @@ public class UsersPOJO {
 		return pass;
 	}
 
-	public void setPass(String pass) {
+	public void setPass(String pass) throws ValidateEmailPasswordException {
 		this.pass = ValidateEmailPasswordException.validatePassword(pass);
 	}
 
