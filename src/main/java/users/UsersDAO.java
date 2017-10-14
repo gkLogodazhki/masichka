@@ -2,7 +2,9 @@ package users;
 
 import java.io.FileNotFoundException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -29,9 +31,35 @@ public class UsersDAO {
 	public static synchronized int insertIntoUsers(UsersPOJO user) throws FileNotFoundException, SQLException {
 		Connection conn = DatabaseAccessManager.getInstance().getConnection();
 		
+		// convert from LocalDate to Date to be compatible with database type
+		int nextId = getNextId(conn);
 		PreparedStatement st = conn.prepareStatement(INSERT_INTO_USERS,Statement.RETURN_GENERATED_KEYS);
 		
-		return 0;
 		
+		st.setString(1, user.getMail());
+		st.setString(2, user.getPass());
+		st.setString(3, user.getFirstName());
+		st.setString(4, user.getLastName());
+		st.setString(5, user.getPhoneNumber());
+		st.setDate(6, Date.valueOf(user.getDate()));
+		st.setBoolean(7, user.isAgree());
+		st.setBoolean(8, user.isWantNotification());
+		st.setInt(9, nextId);
+		st.setInt(10, nextId);
+		
+		st.executeQuery();
+		
+		ResultSet rs = st.getGeneratedKeys();
+		rs.next();
+		
+		return rs.getInt(1);
+	}
+
+
+	private static int getNextId(Connection conn) throws SQLException {
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery("SELECT MAX(id) FROM users;");
+		rs.next();
+		return rs.getInt(1) + 1;
 	}
 }
