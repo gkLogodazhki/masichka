@@ -1,23 +1,44 @@
 package database_access;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Wrapper;
 
 public class DatabaseAccessManager {
+
     private Connection connection;
-    private static DatabaseAccessManager databaseAccessManager;
+    private DatabaseAccessManager databaseAccessManager;
 
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String HOSTNAME = "http://localhost";
-    private static final String DB_PORT = ":3306";
-    private static final String DATABASE = "/masichka";
-    private static final String DB_USER = "root";
-    //TEST
-    private static final String DB_PASSWORD = "root";
-    //asd das das
+    final String s = File.separator;
+    final File path = new File("." + s + "src" + s + "main" + s + "java" + s + "database_access" + s);
+    final File f = new File(path, "DB_INFO.json");
+
+    final Gson gson = new Gson();
+    BufferedReader db_param = new BufferedReader(new FileReader(f));
+    JsonParser parser = new JsonParser();
+    JsonArray db_values = parser.parse(db_param).getAsJsonArray();
 
 
-    private DatabaseAccessManager() {
+    private final String DRIVER = db_values.get(0).toString();
+    private final String HOSTNAME = db_values.get(1).toString();
+    private final String DB_PORT = db_values.get(2).toString();
+    private final String DATABASE = db_values.get(3).toString();
+    private final String DB_USER = db_values.get(4).toString();
+    private final String DB_PASSWORD = db_values.get(5).toString();
+
+
+    private DatabaseAccessManager() throws FileNotFoundException {
         try {
             Class.forName(DRIVER);
         } catch (Exception e) {
@@ -33,8 +54,11 @@ public class DatabaseAccessManager {
 
     }
 
-    public synchronized static DatabaseAccessManager getInstance() {
-        return (databaseAccessManager == null) ? new DatabaseAccessManager() : databaseAccessManager;
+    public synchronized DatabaseAccessManager getInstance() throws FileNotFoundException {
+        if (databaseAccessManager == null) {
+            databaseAccessManager = new DatabaseAccessManager();
+        }
+        return databaseAccessManager;
     }
 
     public Connection getConnection() {
