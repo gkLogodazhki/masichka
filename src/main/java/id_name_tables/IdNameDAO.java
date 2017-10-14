@@ -2,6 +2,8 @@ package id_name_tables;
 
 import database_access.DatabaseAccessManager;
 import exceptions.PlacesInfoException;
+import exceptions.ValidateNumberException;
+import exceptions.ValidateStringException;
 import places.PlacesPOJO;
 
 import java.io.FileNotFoundException;
@@ -9,6 +11,7 @@ import java.sql.*;
 
 public class IdNameDAO {
 
+    private String table;
 
     private static final String INSERT_INTO_TABLE = "INSERT INTO ? VALUES (null,?);";
     private static final String SELECT_ID_FROM_TABLE_BY_NAME_SQL = "SELECT id FROM ? WHERE name = ?;";
@@ -16,12 +19,17 @@ public class IdNameDAO {
     private static final String SELECT_COUNT_FROM_TABLE_SQL = "SELECT count(id) counter FROM ?;";
     private static final String SELECT_NAMES_FROM_TABLE_SQL = "SELECT name FROM ?";
 
-    public int insertInto(IdNamePOJO idNamePOJO, String table) throws FileNotFoundException, PlacesInfoException {
+
+    public IdNameDAO(String table) throws ValidateStringException {
+        this.table = ValidateStringException.validateString(table);
+    }
+
+    public int insertInto(IdNamePOJO idNamePOJO) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
             PreparedStatement ps = connection.prepareStatement(INSERT_INTO_TABLE, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, table);
+            ps.setString(1, this.table);
             ps.setString(2, idNamePOJO.getName());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -32,12 +40,12 @@ public class IdNameDAO {
         }
     }
 
-    public int getIdByName(IdNamePOJO idNamePOJO, String table) throws FileNotFoundException, PlacesInfoException {
+    public int getIdByName(IdNamePOJO idNamePOJO) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
             PreparedStatement ps = connection.prepareStatement(SELECT_ID_FROM_TABLE_BY_NAME_SQL);
-            ps.setString(1, table);
+            ps.setString(1, this.table);
             ps.setString(2, idNamePOJO.getName());
             ResultSet rs = ps.executeQuery();
             rs.next();
@@ -47,12 +55,12 @@ public class IdNameDAO {
         }
     }
 
-    public String getNameById(IdNamePOJO idNamePOJO, String table) throws FileNotFoundException, PlacesInfoException {
+    public String getNameById(IdNamePOJO idNamePOJO) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
             PreparedStatement ps = connection.prepareStatement(SELECT_NAME_FROM_TABLE_BY_ID_SQL);
-            ps.setString(1, table);
+            ps.setString(1, this.table);
             ps.setInt(2, idNamePOJO.getId());
             ResultSet rs = ps.executeQuery();
             rs.next();
@@ -62,7 +70,7 @@ public class IdNameDAO {
         }
     }
 
-    public ResultSet getNames(String table) throws FileNotFoundException, PlacesInfoException {
+    public ResultSet getNames() throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
@@ -73,7 +81,7 @@ public class IdNameDAO {
         }
     }
 
-    public int getCount(String table) throws FileNotFoundException, PlacesInfoException {
+    public int getCount() throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
