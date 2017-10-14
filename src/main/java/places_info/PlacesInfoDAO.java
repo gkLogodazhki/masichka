@@ -34,6 +34,9 @@ public class PlacesInfoDAO {
 
     private static final String INSERT_INTO_PLACES_INFO_SQL = "INSERT INTO places_info VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String SELECT_NAME_FROM_PLACES_INFO_SQL = "SELECT DISTINCT name FROM places_info;";
+    private static final String SELECT_PLACES_INFO_FROM_PLACES_INFO_LIMIT_10_SQL = "SELECT * FROM places_info order by ? DESC LIMIT 10;";
+    private static final String SELECT_ALL_PLACES_INFO_FROM_PLACES_INFO = "SELECT * FROM places_info;";
+    private static final String SELECT_PLACES_INFO_FROM_PLACES_INFO_ORDER_BY = "SELECT * FROM places_info order by ? ?;";
 
     public int InsertPlaceInfo(PlacesInfoPOJO placesInfo) throws PlacesInfoException, FileNotFoundException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
@@ -69,17 +72,48 @@ public class PlacesInfoDAO {
         }
     }
 
-    public List<String> getAllPlaceInfoNames(PlacesInfoPOJO placesInfo) throws PlacesInfoException, FileNotFoundException {
+    // option: mostPopular, newOnes, bestDiscount, fastReservation
+    public ResultSet getStatistic(String option) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
-        List<String> list = new ArrayList();
+        try {
+            PreparedStatement ps = connection.prepareStatement(SELECT_PLACES_INFO_FROM_PLACES_INFO_LIMIT_10_SQL);
+            ps.setString(1,option);
+            return ps.executeQuery();
+
+        } catch (SQLException e) {
+            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
+        }
+    }
+
+    public ResultSet getAllPlaceInfoNames() throws PlacesInfoException, FileNotFoundException {
+        Connection connection = DatabaseAccessManager.getInstance().getConnection();
         try {
             PreparedStatement ps = connection.prepareStatement(SELECT_NAME_FROM_PLACES_INFO_SQL);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(rs.getString("name"));
-            }
-            return list;
+            return ps.executeQuery();
+        } catch (SQLException e) {
+            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
+        }
+    }
 
+    public ResultSet getAllPlacesInfo() throws PlacesInfoException, FileNotFoundException {
+        Connection connection = DatabaseAccessManager.getInstance().getConnection();
+        try {
+            PreparedStatement ps = connection.prepareStatement(SELECT_ALL_PLACES_INFO_FROM_PLACES_INFO);
+            return ps.executeQuery();
+        } catch (SQLException e) {
+            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
+        }
+    }
+
+    // option: popularity, newOnes, rating, byName, closests, bestDiscount
+    // order: ASC, DESC
+    public ResultSet getAllPlacesInfoOrderBy(String option, String order) throws PlacesInfoException, FileNotFoundException {
+        Connection connection = DatabaseAccessManager.getInstance().getConnection();
+        try {
+            PreparedStatement ps = connection.prepareStatement(SELECT_PLACES_INFO_FROM_PLACES_INFO_ORDER_BY);
+            ps.setString(1,option);
+            ps.setString(2,order);
+            return ps.executeQuery();
         } catch (SQLException e) {
             throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
         }
