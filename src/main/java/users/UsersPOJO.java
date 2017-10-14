@@ -1,14 +1,14 @@
 package users;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 
 import exceptions.ValidateEmailPasswordException;
+import exceptions.ValidateNumberException;
 import exceptions.ValidateStringException;
 
-public class UsersPOJO {
+public class UsersPOJO extends UserInfo{
 	/*
 	table users:
 		id  INT AL PK
@@ -24,47 +24,31 @@ public class UsersPOJO {
 		city_id INT FK
 	 */
 	
-	private String mail;
-	private String pass;
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
 	private LocalDate date;
 	private boolean isAgree;
 	private boolean wantNotification;
-//	private int userTypeId;
-//	private int cityId;
+	private int userTypeId;
+	private int cityId;
 	
 	public UsersPOJO() {
 		
 	}
 	
 	public UsersPOJO(String mail, String pass, String firstName, String lastName, String phoneNumber
-			, LocalDate date, boolean isAgree, boolean wantNotification) throws ValidateStringException, ParseException, ValidateEmailPasswordException {
-		setMail(mail);
-		setPass(pass);
+			, LocalDate date, boolean isAgree, boolean wantNotification, int userTypeId,
+			int cityId) throws ValidateStringException, ParseException, ValidateEmailPasswordException, ValidateNumberException {
+		super(mail,pass);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setPhoneNumber(phoneNumber);
 		setDate(date);
 		setAgree(isAgree);
 		setWantNotification(wantNotification);
-	}
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) throws ValidateEmailPasswordException {
-		this.mail = ValidateEmailPasswordException.validateEmail(mail);
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) throws ValidateEmailPasswordException {
-		this.pass = ValidateEmailPasswordException.validatePassword(pass);
+		setUserTypeId(userTypeId);
+		setCityId(cityId);
 	}
 
 	public String getFirstName() {
@@ -117,6 +101,22 @@ public class UsersPOJO {
 
 	public void setWantNotification(boolean wantNotification) {
 		this.wantNotification = wantNotification;
+	}
+
+	public int getUserTypeId() {
+		return userTypeId;
+	}
+
+	public void setUserTypeId(int userTypeId) throws ValidateNumberException {
+		this.userTypeId = ValidateNumberException.validateInteger(userTypeId, 1, userTypeId);
+	}
+
+	public int getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(int cityId) throws ValidateNumberException {
+		this.cityId = ValidateNumberException.validateInteger(cityId, 1, cityId);
 	}
 
 	
