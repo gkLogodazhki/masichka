@@ -52,7 +52,7 @@ public class PlacesInfoPOJO {
     public PlacesInfoPOJO() {
     }
 
-    public PlacesInfoPOJO(String logo, String name, String address, int rating, int placesId, String pathToGallery, float mapLat, float mapLng, String infoPlace, int spots, int avgBillTagId, int moreOptionTagId, int regionTagId, int payMethod, int setupTagsId, int workTimeTagsId) throws ValidateStringException, ValidateNumberException {
+    public PlacesInfoPOJO(String logo, String name, String address, int rating, int placesId, String pathToGallery, float mapLat, float mapLng, String infoPlace, int spots, int avgBillTagId, int moreOptionTagId, int regionTagId, int payMethod, int setupTagsId, int workTimeTagsId) throws ValidateStringException, ValidateNumberException, FileNotFoundException, PlacesInfoException {
         this.setLogo(logo);
         this.setName(name);
         this.setAddress(address);
