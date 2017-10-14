@@ -2,7 +2,11 @@ package exceptions;
 
 public class ValidateNumberException extends Exception {
 
-    public ValidateNumberException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3272630105748228318L;
+	public ValidateNumberException() {
     }
 
     public ValidateNumberException(String message) {

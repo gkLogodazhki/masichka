@@ -1,7 +1,12 @@
 package exceptions;
 
 public class PlacesInfoException extends Exception {
-    public PlacesInfoException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4533034297907937282L;
+
+	public PlacesInfoException() {
     }
 
     public PlacesInfoException(String message) {

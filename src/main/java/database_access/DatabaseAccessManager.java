@@ -3,8 +3,6 @@ package database_access;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,12 +11,12 @@ import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Wrapper;
+
 
 public class DatabaseAccessManager {
 
     private Connection connection;
-    private DatabaseAccessManager databaseAccessManager;
+    private static DatabaseAccessManager databaseAccessManager;
 
     final String s = File.separator;
     final File path = new File("." + s + "src" + s + "main" + s + "java" + s + "database_access" + s);
@@ -54,7 +52,7 @@ public class DatabaseAccessManager {
 
     }
 
-    public synchronized DatabaseAccessManager getInstance() throws FileNotFoundException {
+    public synchronized static DatabaseAccessManager getInstance() throws FileNotFoundException {
         if (databaseAccessManager == null) {
             databaseAccessManager = new DatabaseAccessManager();
         }

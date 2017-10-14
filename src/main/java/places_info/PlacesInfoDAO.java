@@ -3,6 +3,7 @@ package places_info;
 import database_access.DatabaseAccessManager;
 import exceptions.PlacesInfoException;
 
+import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class PlacesInfoDAO {
     private static final String INSERT_INTO_PLACES_INFO_SQL = "INSERT INTO places_info VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String SELECT_NAME_FROM_PLACES_INFO_SQL = "SELECT DISTINCT name FROM places_info;";
 
-    public int InsertPlaceInfo(PlacesInfoPOJO placesInfo) throws PlacesInfoException {
+    public int InsertPlaceInfo(PlacesInfoPOJO placesInfo) throws PlacesInfoException, FileNotFoundException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
@@ -68,7 +69,7 @@ public class PlacesInfoDAO {
         }
     }
 
-    public List<String> getAllPlaceInfoNames(PlacesInfoPOJO placesInfo) throws PlacesInfoException {
+    public List<String> getAllPlaceInfoNames(PlacesInfoPOJO placesInfo) throws PlacesInfoException, FileNotFoundException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
         List<String> list = new ArrayList();
         try {

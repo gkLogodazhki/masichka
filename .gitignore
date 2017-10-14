@@ -22,3 +22,4 @@
 hs_err_pid*
 /src/main/java/database_access/DB_INFO.json
 .idea/workspace.xml
+/target/
