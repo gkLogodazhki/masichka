@@ -7,6 +7,7 @@ public class RegionsPOJO {
 
     private int id;
     private String name;
+    private int cityId;
 
     public int getId() {
         return id;
@@ -24,5 +25,15 @@ public class RegionsPOJO {
 
     public void setName(String name) throws ValidateStringException {
         this.name = ValidateStringException.validateString(name);
+    }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) throws ValidateNumberException {
+        // TODO : get count of cities in table city
+        int cityCounts = 0;
+        this.cityId = ValidateNumberException.validateInteger(cityId,1, cityCounts);
     }
 }
