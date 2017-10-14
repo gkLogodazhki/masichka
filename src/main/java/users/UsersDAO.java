@@ -27,12 +27,10 @@ public class UsersDAO {
 	 */
 	private static final String INSERT_INTO_USERS = "INSERT INTO users VALUES(null,?,?,?,?,?,?,?,?,?,?)";
 	
-	
 	public static synchronized int insertIntoUsers(UsersPOJO user) throws FileNotFoundException, SQLException {
 		Connection conn = DatabaseAccessManager.getInstance().getConnection();
 		
 		// convert from LocalDate to Date to be compatible with database type
-		int nextId = getNextId(conn);
 		PreparedStatement st = conn.prepareStatement(INSERT_INTO_USERS,Statement.RETURN_GENERATED_KEYS);
 		
 		
@@ -44,8 +42,8 @@ public class UsersDAO {
 		st.setDate(6, Date.valueOf(user.getDate()));
 		st.setBoolean(7, user.isAgree());
 		st.setBoolean(8, user.isWantNotification());
-		st.setInt(9, nextId);
-		st.setInt(10, nextId);
+		st.setInt(9, user.getUserTypeId());
+		st.setInt(10, user.getCityId());
 		
 		st.executeQuery();
 		
@@ -55,11 +53,4 @@ public class UsersDAO {
 		return rs.getInt(1);
 	}
 
-
-	private static int getNextId(Connection conn) throws SQLException {
-		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery("SELECT MAX(id) FROM users;");
-		rs.next();
-		return rs.getInt(1) + 1;
-	}
 }
