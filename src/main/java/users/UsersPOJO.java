@@ -31,6 +31,8 @@ public class UsersPOJO {
 	private LocalDate date;
 	private boolean isAgree;
 	private boolean wantNotification;
+//	private int userTypeId;
+//	private int cityId;
 	
 	public UsersPOJO() {
 		
@@ -115,7 +117,6 @@ public class UsersPOJO {
 	public void setWantNotification(boolean wantNotification) {
 		this.wantNotification = wantNotification;
 	}
-	
-	
+
 	
 }
