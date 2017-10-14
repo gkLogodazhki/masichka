@@ -1,7 +1,12 @@
 package places_info;
 
+import database_access.DatabaseAccessManager;
+import exceptions.PlacesInfoException;
 import exceptions.ValidateNumberException;
 import exceptions.ValidateStringException;
+import places.PlacesDAO;
+
+import java.io.FileNotFoundException;
 
 public class PlacesInfoPOJO {
     /*
@@ -26,8 +31,6 @@ public class PlacesInfoPOJO {
             work_time_tags_id	int(11)
      */
 
-    private static int uid;
-
     private int id;
     private String logo;
     private String name;
@@ -47,11 +50,9 @@ public class PlacesInfoPOJO {
     private int workTimeTagsId;
 
     public PlacesInfoPOJO() {
-        this.setId();
     }
 
-    public PlacesInfoPOJO(String logo, String name, String address, int rating, int placesId, String pathToGallery, float mapLat, float mapLng, String infoPlace, int spots, int avgBillTagId, int moreOptionTagId, int regionTagId, int payMethod, int setupTagsId, int workTimeTagsId) throws ValidateStringException, ValidateNumberException {
-        this.setId();
+    public PlacesInfoPOJO(String logo, String name, String address, int rating, int placesId, String pathToGallery, float mapLat, float mapLng, String infoPlace, int spots, int avgBillTagId, int moreOptionTagId, int regionTagId, int payMethod, int setupTagsId, int workTimeTagsId) throws ValidateStringException, ValidateNumberException, FileNotFoundException, PlacesInfoException {
         this.setLogo(logo);
         this.setName(name);
         this.setAddress(address);
@@ -70,16 +71,13 @@ public class PlacesInfoPOJO {
         this.setWorkTimeTagsId(workTimeTagsId);
     }
 
-    public static int getUid() {
-        return uid;
-    }
 
     public int getId() {
         return id;
     }
 
-    public void setId() {
-        this.id = ++uid;
+    public void setId(int id) throws ValidateNumberException {
+        this.id = ValidateNumberException.validateInteger(id,1,id);
     }
 
     public String getLogo() {
@@ -118,9 +116,8 @@ public class PlacesInfoPOJO {
         return placesId;
     }
 
-    public void setPlacesId(int placesId) throws ValidateNumberException {
-        // TODO : get id of the last row in table places
-        int placesRows = 0;
+    public void setPlacesId(int placesId) throws ValidateNumberException, FileNotFoundException, PlacesInfoException {
+        int placesRows = new PlacesDAO().getCount();
         this.placesId = ValidateNumberException.validateInteger(placesId,1, placesRows);
     }
 
