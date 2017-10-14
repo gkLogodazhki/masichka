@@ -9,7 +9,7 @@ import places.PlacesPOJO;
 import java.io.FileNotFoundException;
 import java.sql.*;
 
-public class IdNameDAO {
+public abstract class IdNameDAO {
 
     private String table;
 

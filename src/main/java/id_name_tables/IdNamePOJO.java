@@ -3,7 +3,7 @@ package id_name_tables;
 import exceptions.ValidateNumberException;
 import exceptions.ValidateStringException;
 
-public class IdNamePOJO {
+public abstract class IdNamePOJO {
 
     /*
     Tables:
