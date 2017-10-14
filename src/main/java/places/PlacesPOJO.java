@@ -1,5 +1,6 @@
 package places;
 
+import exceptions.ValidateNumberException;
 import exceptions.ValidateStringException;
 
 public class PlacesPOJO {
@@ -11,25 +12,15 @@ public class PlacesPOJO {
         name	varchar(45)
      */
 
-    private static int uid;
     private int id;
     private String name;
-
-    public PlacesPOJO() {
-        this.setId();
-    }
-
-    public PlacesPOJO(String name) {
-        this();
-        this.name = name;
-    }
 
     public int getId() {
         return id;
     }
 
-    public void setId() {
-        this.id = ++uid;
+    public void setId(int id) throws ValidateNumberException {
+        this.id = ValidateNumberException.validateInteger(id,1,id);
     }
 
     public String getName() {
