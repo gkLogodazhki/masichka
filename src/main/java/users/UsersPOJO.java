@@ -8,7 +8,7 @@ import exceptions.ValidateEmailPasswordException;
 import exceptions.ValidateNumberException;
 import exceptions.ValidateStringException;
 
-public class UsersPOJO {
+public class UsersPOJO extends UserInfo{
 	/*
 	table users:
 		id  INT AL PK
@@ -24,8 +24,6 @@ public class UsersPOJO {
 		city_id INT FK
 	 */
 	
-	private String mail;
-	private String pass;
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
@@ -42,8 +40,7 @@ public class UsersPOJO {
 	public UsersPOJO(String mail, String pass, String firstName, String lastName, String phoneNumber
 			, LocalDate date, boolean isAgree, boolean wantNotification, int userTypeId,
 			int cityId) throws ValidateStringException, ParseException, ValidateEmailPasswordException, ValidateNumberException {
-		setMail(mail);
-		setPass(pass);
+		super(mail,pass);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setPhoneNumber(phoneNumber);
@@ -52,22 +49,6 @@ public class UsersPOJO {
 		setWantNotification(wantNotification);
 		setUserTypeId(userTypeId);
 		setCityId(cityId);
-	}
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) throws ValidateEmailPasswordException {
-		this.mail = ValidateEmailPasswordException.validateEmail(mail);
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) throws ValidateEmailPasswordException {
-		this.pass = ValidateEmailPasswordException.validatePassword(pass);
 	}
 
 	public String getFirstName() {
