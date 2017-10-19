@@ -1,16 +1,20 @@
-package places;
+package placeTypes;
 
 import exceptions.ValidateNumberException;
 import exceptions.ValidateStringException;
 
-public class PlacesPOJO {
+import java.io.File;
+
+public class PlaceTypePOJO {
 
     /*
-    Table: places
+    Table: placeTypes
         Columns:
         id	int(11) AI PK
         name	varchar(45)
      */
+
+
 
     private int id;
     private String name;
@@ -29,6 +33,15 @@ public class PlacesPOJO {
 
     public void setName(String name) throws ValidateStringException {
         this.name = ValidateStringException.validateString(name);
+        String s = File.separator;
+        File fpath = new File("files" + s + "placeTypes" + s + name);
+        if (!fpath.exists()){
+        fpath.mkdirs();
+        }
+
     }
+
+
+
 
 }

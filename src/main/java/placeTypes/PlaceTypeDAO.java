@@ -1,4 +1,4 @@
-package places;
+package placeTypes;
 
 import database_access.DatabaseAccessManager;
 import exceptions.PlacesInfoException;
@@ -6,10 +6,10 @@ import exceptions.PlacesInfoException;
 import java.io.FileNotFoundException;
 import java.sql.*;
 
-public class PlacesDAO {
+public class PlaceTypeDAO {
 
     /*
-    Table: places
+    Table: placeTypes
         Columns:
         id	int(11) AI PK
         name	varchar(45)
@@ -21,7 +21,7 @@ public class PlacesDAO {
     private static final String SELECT_COUNT_FROM_PLACES_SQL = "SELECT count(id) counter FROM places;";
     private static final String SELECT_NAMES_FROM_PLACES_SQL = "SELECT name FROM places";
 
-    public int insertIntoPlaces(PlacesPOJO places) throws FileNotFoundException, PlacesInfoException {
+    public int insertIntoPlaces(PlaceTypePOJO places) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
@@ -33,11 +33,11 @@ public class PlacesDAO {
             return rs.getInt(1);
 
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't insert into table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't insert into table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
-    public int getIdByName(PlacesPOJO places) throws FileNotFoundException, PlacesInfoException {
+    public int getIdByName(PlaceTypePOJO places) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
@@ -47,11 +47,11 @@ public class PlacesDAO {
             rs.next();
             return rs.getInt(1);
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
-    public String getNameById(PlacesPOJO places) throws FileNotFoundException, PlacesInfoException {
+    public String getNameById(PlaceTypePOJO places) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
@@ -61,7 +61,7 @@ public class PlacesDAO {
             rs.next();
             return rs.getString("name");
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
@@ -72,7 +72,7 @@ public class PlacesDAO {
             Statement statement = connection.createStatement();
             return statement.executeQuery(SELECT_NAMES_FROM_PLACES_SQL);
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
@@ -84,7 +84,7 @@ public class PlacesDAO {
             rs.next();
             return rs.getInt("counter");
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
