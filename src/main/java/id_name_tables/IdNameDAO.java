@@ -32,7 +32,7 @@ public abstract class IdNameDAO {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-            return rs.getInt(1);
+            return rs.getInt("id");
         } catch (SQLException e) {
             throw new PlacesInfoException("You can't insert into table placeTypes right now. Please try again later or connect with our supports");
         }
@@ -40,14 +40,13 @@ public abstract class IdNameDAO {
 
     public int getIdByName(IdNamePOJO idNamePOJO) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
-
         try {
             PreparedStatement ps = connection.prepareStatement(SELECT_ID_FROM_TABLE_BY_NAME_SQL);
             ps.setString(1, this.table);
             ps.setString(2, idNamePOJO.getName());
             ResultSet rs = ps.executeQuery();
             rs.next();
-            return rs.getInt(1);
+            return rs.getInt("id");
         } catch (SQLException e) {
             throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
@@ -72,8 +71,9 @@ public abstract class IdNameDAO {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
-            Statement statement = connection.createStatement();
-            return statement.executeQuery(SELECT_COUNT_FROM_TABLE_SQL);
+            PreparedStatement ps = connection.prepareStatement(SELECT_NAMES_FROM_TABLE_SQL);
+            ps.setString(1, this.table);
+            return ps.executeQuery();
         } catch (SQLException e) {
             throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
@@ -83,7 +83,9 @@ public abstract class IdNameDAO {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
-            ResultSet rs = connection.createStatement().executeQuery(SELECT_NAMES_FROM_TABLE_SQL);
+            PreparedStatement ps = connection.prepareStatement(SELECT_COUNT_FROM_TABLE_SQL);
+            ps.setString(1, this.table);
+            ResultSet rs = ps.executeQuery();
             rs.next();
             return rs.getInt("counter");
         } catch (SQLException e) {
