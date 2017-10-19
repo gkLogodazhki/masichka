@@ -2,9 +2,7 @@ package id_name_tables;
 
 import database_access.DatabaseAccessManager;
 import exceptions.PlacesInfoException;
-import exceptions.ValidateNumberException;
 import exceptions.ValidateStringException;
-import places.PlacesPOJO;
 
 import java.io.FileNotFoundException;
 import java.sql.*;
@@ -36,7 +34,7 @@ public abstract class IdNameDAO {
             rs.next();
             return rs.getInt(1);
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't insert into table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't insert into table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
@@ -51,7 +49,7 @@ public abstract class IdNameDAO {
             rs.next();
             return rs.getInt(1);
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
@@ -66,7 +64,7 @@ public abstract class IdNameDAO {
             rs.next();
             return rs.getString("name");
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
@@ -77,7 +75,7 @@ public abstract class IdNameDAO {
             Statement statement = connection.createStatement();
             return statement.executeQuery(SELECT_COUNT_FROM_TABLE_SQL);
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 
@@ -89,7 +87,7 @@ public abstract class IdNameDAO {
             rs.next();
             return rs.getInt("counter");
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't connect to table places right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
     }
 

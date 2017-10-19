@@ -28,13 +28,16 @@ public class DatabaseAccessManager {
     JsonArray db_values = parser.parse(db_param).getAsJsonArray();
 
 
+
     private final String DRIVER = db_values.get(0).toString();
     private final String HOSTNAME = db_values.get(1).toString();
     private final String DB_PORT = db_values.get(2).toString();
     private final String DATABASE = db_values.get(3).toString();
     private final String DB_USER = db_values.get(4).toString();
     private final String DB_PASSWORD = db_values.get(5).toString();
-
+    public static void main(String[] args) {
+        System.out.println();
+    }
 
     private DatabaseAccessManager() throws FileNotFoundException {
         try {
