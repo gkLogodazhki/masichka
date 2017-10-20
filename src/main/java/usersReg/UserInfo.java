@@ -1,4 +1,4 @@
-package users;
+package usersReg;
 
 import exceptions.ValidateEmailPasswordException;
 

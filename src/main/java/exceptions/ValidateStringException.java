@@ -29,4 +29,13 @@ public class ValidateStringException extends Exception{
             throw new ValidateStringException("invalid format of the input text");
         }
     }
+    
+    public static String validatePhone(String number)throws ValidateStringException{
+    	if(number != null && number.startsWith("08") && number.length() == 10) {
+    		return number;
+    	} else {
+    		throw new ValidateStringException("Phone must follow this template 08******** ");
+    	}
+    }
+    
 }

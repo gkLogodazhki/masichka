@@ -1,4 +1,4 @@
-package users;
+package usersReg;
 
 import java.text.ParseException;
 import java.time.DateTimeException;
@@ -72,7 +72,7 @@ public class UsersPOJO extends UserInfo{
 	}
 
 	public void setPhoneNumber(String phoneNumber) throws ValidateStringException {
-		this.phoneNumber = ValidateStringException.validateString(phoneNumber);
+		this.phoneNumber = ValidateStringException.validatePhone(phoneNumber);
 	}
 
 	public LocalDate getDate() {
