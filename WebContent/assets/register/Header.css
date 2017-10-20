@@ -1,7 +1,7 @@
 body{
 	background-color:#e0e0d1;
 }
-#container{
+#main-container{
 	widht:1170px;
 	margin: 0 auto;
 	font-family: "Times New Roman", Times, serif;
@@ -21,20 +21,24 @@ body{
 #logo{
 	float:left;
 	padding-left:3%;
-	padding-top:2%;
+	padding-top:1%;
+}
+#title-field{
+	display:inline-block;
 }
 #headerTitle{
+	margin:0;
+	padding-top:0.5%;
+	padding-bottom:0.5%;
 	display:inline-block;
 	font-size:250%;
-	padding-top:1%;
-	padding-bottom:1%;
 }
 #home{
 	float:right;
 	display:inline-block;
 	font-size:110%;
 	padding-right:3%;
-	padding-top:2%;
+	padding-top:1%;
 }
 .headerFontColor{
 	color:#e0e0d1;
@@ -59,6 +63,10 @@ body{
 #error{
 	color:red;
 }
+#main-options{
+	width:80%;
+	float:left;
+}
 #textField{
 	font-size:140%;
 }
@@ -74,5 +82,4 @@ body{
 	display:inline-block;
 	border:1px solid #0d0d0d;
 	height:10px;
-	
 }
