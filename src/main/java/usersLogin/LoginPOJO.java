@@ -1,7 +1,7 @@
 package usersLogin;
 
 import exceptions.ValidateEmailPasswordException;
-import users.UserInfo;
+import usersReg.UserInfo;
 
 public class LoginPOJO extends UserInfo{
 	
