@@ -1,9 +1,10 @@
 body{
-	background-color:#ccccb3;
+	background-color:#e0e0d1;
 }
 #container{
 	widht:1170px;
 	margin: 0 auto;
+	font-family: "Times New Roman", Times, serif;
 }
 
 
@@ -36,19 +37,42 @@ body{
 	padding-top:2%;
 }
 .headerFontColor{
-	color:#ccccb3;
+	color:#e0e0d1;
 }
 
 #registrationTitle{
 	text-align:center;
-	font-size:200%;
+	font-size:250%;
 	color:#0d0d0d;
 	padding-top:3%;
 	padding-bottom:1%;
+	font-family: Monospace;
 }
 
 #wrapper{
-	width:90%;
-	margin-left:5%;
+	width:86%;
+	margin-left:7%;
 	border-top:1px solid black;
+	font-family: Monospace;
+	text-align:center;
+}
+#error{
+	color:red;
+}
+#textField{
+	font-size:140%;
+}
+.separator{
+	padding-top:3%;
+}
+.input{
+	margin-left:1%;
+	width:25%;
+	height:5%;
+}
+.line{
+	display:inline-block;
+	border:1px solid #0d0d0d;
+	height:10px;
+	
 }
