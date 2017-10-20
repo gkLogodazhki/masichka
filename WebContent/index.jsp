@@ -4,15 +4,6 @@
 <html>
 <head>
 
-<meta charset="UTF-8">
-<title>FullScreen YouTube Video Background In Pure CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<link rel="stylesheet" style="text/css" href="assets/startPage/style.css">
-
-
-</head>
 
 <body>
 	<div class="video-background">

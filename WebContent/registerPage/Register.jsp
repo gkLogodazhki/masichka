@@ -233,6 +233,7 @@
 			</form>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<!-- /.container -->
 	<script
 		src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -241,5 +242,8 @@
 	<script
 		src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 
+=======
+	<a></a>
+>>>>>>> a3d5df5e6fdc443ed1e60f7e2e227bb24bce1f89
 </body>
 </html>
