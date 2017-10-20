@@ -5,11 +5,11 @@
 <head>
 	
   <meta charset="UTF-8">
-  <title>FullScreen YouTube Video Background In Pure CSS</title>
+    <title>Masichka.bg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  
-      <link rel="stylesheet" href="assert/startPage/style.css">
+
+
+    <link rel="stylesheet" href="assets/startPage/style.css?123">
 
   
 </head>
