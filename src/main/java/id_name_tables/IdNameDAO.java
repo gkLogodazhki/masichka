@@ -39,7 +39,6 @@ public abstract class IdNameDAO {
 
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-            System.out.println("pesho");
 
             return rs.getInt(1);
         } catch (SQLException e) {

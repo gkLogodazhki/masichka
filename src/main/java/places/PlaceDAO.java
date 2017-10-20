@@ -8,117 +8,89 @@ import java.sql.*;
 
 public class PlaceDAO {
 
-        /*
-    Table: places_info
-        Columns:
-            id	int(11) AI PK
-            logo	varchar(99)
+    /*
+        Table: places
+            Columns:
+            id	int(11) PK
+            place_type_id	int(11) PK
+            logo	varchar(45)
             name	varchar(99)
             address	varchar(45)
-            rating	int(10) UN
-            places_id	int(11)
             path_to_gallery	varchar(45)
-            map_lat	float
-            map_lng	float
-            info_place	varchar(500)
-            spots	int(10) UN
-            avg_bill_tag_id	int(11)
-            more_opition_tag_id	int(11)
-            region_tags_id	int(11)
-            pay_methods_id	int(11)
-            setup_tags_id	int(11)
-            work_time_tags_id	int(11)
+            map_lat	int(11)
+            map_lng	int(11)
+            info_place	varchar(300)
+            region_id	int(11)
+            avg_bill_id	int(11)
+            work_time_id	int(11)
      */
 
-    private static final String INSERT_INTO_PLACES_INFO_SQL = "INSERT INTO places_info VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-    private static final String SELECT_NAME_FROM_PLACES_INFO_SQL = "SELECT DISTINCT name FROM places_info;";
-    private static final String SELECT_PLACES_INFO_FROM_PLACES_INFO_LIMIT_10_SQL = "SELECT * FROM places_info order by ? DESC LIMIT 10;";
-    private static final String SELECT_ALL_PLACES_INFO_FROM_PLACES_INFO = "SELECT * FROM places_info;";
-    private static final String SELECT_PLACES_INFO_FROM_PLACES_INFO_ORDER_BY = "SELECT * FROM places_info order by ? ?;";
+    private static final String EXCEPTION = "You can't insert into table places right now. Please try again later or connect with our supports";
+    private static final String INSERT_INTO_PLACES_SQL = "INSERT INTO places VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String SELECT_NAMES_FROM_PLACES_TABLE_SQL = "SELECT name FROM places;";
+    private static final String SELECT_COUNT_FROM_PLACES_TABLE_SQL = "SELECT count(id) count FROM places;";
 
-    public int InsertPlace(PlacePOJO place) throws PlacesInfoException, FileNotFoundException {
+    private static final String SELECT_ALL_PLACES_FROM_PLACES_TABLE_SQL = "SELECT * FROM places;";
+
+    public int InsertIntoPlaces(PlacePOJO place) throws PlacesInfoException, FileNotFoundException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
 
         try {
-            PreparedStatement ps = connection.prepareStatement(INSERT_INTO_PLACES_INFO_SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = connection.prepareStatement(INSERT_INTO_PLACES_SQL, Statement.RETURN_GENERATED_KEYS);
 
-            ps.setString(1, place.getLogo());
-            ps.setString(2, place.getName());
-            ps.setString(3, place.getAddress());
-            ps.setInt(4, place.getRating());
-            ps.setInt(5, place.getPlacesId());
-            ps.setString(6, place.getPathToGallery());
-            ps.setFloat(7, place.getMapLat());
-            ps.setFloat(8, place.getMapLng());
-            ps.setString(9, place.getInfoPlace());
-            ps.setInt(10, place.getSpots());
-            ps.setInt(11, place.getAvgBillTagId());
-            ps.setInt(12, place.getMoreOptionTagId());
-            ps.setInt(13, place.getRegionTagId());
-            ps.setInt(14, place.getPayMethod());
-            ps.setInt(15, place.getSetupTagsId());
-            ps.setInt(16, place.getWorkTimeTagsId());
+            ps.setInt(1, place.getPlaceTypeID());
+            ps.setString(2, place.getLogo());
+            ps.setString(3, place.getName());
+            ps.setString(4, place.getAddress());
+            ps.setString(5, place.getPathToGallery());
+            ps.setFloat(6, place.getMapLat());
+            ps.setFloat(7, place.getMapLng());
+            ps.setString(8, place.getInfoPlace());
+            ps.setInt(9, place.getSpots());
+            ps.setInt(10, place.getRegionId());
+            ps.setInt(11, place.getAvgBillId());
+            ps.setInt(12, place.getWorkTimeId());
 
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-            return rs.getInt(1);
+            return rs.getInt("id");
 
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
-        }
-    }
-
-    // option: mostPopular, newOnes, bestDiscount, fastReservation
-    public ResultSet getStatistic(String option) throws FileNotFoundException, PlacesInfoException {
-        Connection connection = DatabaseAccessManager.getInstance().getConnection();
-        try {
-            PreparedStatement ps = connection.prepareStatement(SELECT_PLACES_INFO_FROM_PLACES_INFO_LIMIT_10_SQL);
-            ps.setString(1, option);
-            return ps.executeQuery();
-
-        } catch (SQLException e) {
-            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException(EXCEPTION);
         }
     }
 
     public ResultSet getAllPlaceNames() throws PlacesInfoException, FileNotFoundException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
         try {
-            PreparedStatement ps = connection.prepareStatement(SELECT_NAME_FROM_PLACES_INFO_SQL);
+            PreparedStatement ps = connection.prepareStatement(SELECT_NAMES_FROM_PLACES_TABLE_SQL);
             return ps.executeQuery();
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException(EXCEPTION);
         }
     }
 
     public ResultSet getAllPlaces() throws PlacesInfoException, FileNotFoundException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
         try {
-            PreparedStatement ps = connection.prepareStatement(SELECT_ALL_PLACES_INFO_FROM_PLACES_INFO);
+            PreparedStatement ps = connection.prepareStatement(SELECT_ALL_PLACES_FROM_PLACES_TABLE_SQL);
             return ps.executeQuery();
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException(EXCEPTION);
         }
     }
 
-    // option: popularity, newOnes, rating, byName, closests, bestDiscount
-    // order: ASC, DESC
-    public ResultSet getAllPlacesOrderBy(String option, String order) throws PlacesInfoException, FileNotFoundException {
+    public int getCount() throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
         try {
-            PreparedStatement ps = connection.prepareStatement(SELECT_PLACES_INFO_FROM_PLACES_INFO_ORDER_BY);
-            ps.setString(1, option);
-            ps.setString(2, order);
-            return ps.executeQuery();
+            PreparedStatement ps = connection.prepareStatement(SELECT_COUNT_FROM_PLACES_TABLE_SQL);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt("column");
         } catch (SQLException e) {
-            throw new PlacesInfoException("You can't insert into table places_info right now. Please try again later or connect with our supports");
+            throw new PlacesInfoException(EXCEPTION);
         }
-    }
-
-    public int getCount() {
-        // TODO
-        return 1;
     }
 }
