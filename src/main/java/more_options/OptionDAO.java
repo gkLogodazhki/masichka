@@ -6,7 +6,7 @@ import id_name_tables.IdNameDAO;
 public class OptionDAO extends IdNameDAO {
 
     public OptionDAO() throws ValidateStringException {
-        super("more_options");
+        super("options");
     }
 
 }

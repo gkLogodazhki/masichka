@@ -29,4 +29,12 @@ public class ValidateStringException extends Exception{
             throw new ValidateStringException("invalid format of the input text");
         }
     }
+
+    public static String validateSQLInjection(String str) throws ValidateStringException {
+        if (str != null && str.matches("[a-zA-Z_]*")){
+            return str;
+        } else {
+            throw new ValidateStringException("someone try to make sql injection");
+        }
+    }
 }

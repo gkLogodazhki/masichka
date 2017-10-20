@@ -29,15 +29,19 @@ public class DatabaseAccessManager {
 
 
 
-    private final String DRIVER = db_values.get(0).toString();
-    private final String HOSTNAME = db_values.get(1).toString();
-    private final String DB_PORT = db_values.get(2).toString();
-    private final String DATABASE = db_values.get(3).toString();
-    private final String DB_USER = db_values.get(4).toString();
-    private final String DB_PASSWORD = db_values.get(5).toString();
-    public static void main(String[] args) {
-        System.out.println();
-    }
+
+//    private final String DRIVER = db_values.get(0).toString();
+    private final String DRIVER = "com.mysql.jdbc.Driver";
+//    private final String HOSTNAME = db_values.get(1).toString();
+    private final String HOSTNAME = "localhost";
+//    private final String DB_PORT = db_values.get(2).toString();
+    private final String DB_PORT = ":3306";
+//    private final String DATABASE = db_values.get(3).toString();
+    private final String DATABASE = "/masichka";
+//    private final String DB_USER = db_values.get(4).toString();
+    private final String DB_USER = "root";
+//    private final String DB_PASSWORD = db_values.get(5).toString();
+    private final String DB_PASSWORD = "root";
 
     private DatabaseAccessManager() throws FileNotFoundException {
         try {

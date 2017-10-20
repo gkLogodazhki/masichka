@@ -11,13 +11,13 @@ public class PayMethod extends IdNamePOJO {
         status	tinyint(4)
      */
 
-    private byte status;
+    private Boolean status;
 
-    public byte getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(byte status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
