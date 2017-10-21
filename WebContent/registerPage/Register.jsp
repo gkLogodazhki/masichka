@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="../assets/reset/reset.css?23">
+	href="../assets/reset/reset.css">
 <link rel="stylesheet" type="text/css"
-	href="../assets/register/style.css?138">
+	href="../assets/register/style.css?1111">
 <link rel='stylesheet prefetch'
 	href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch'
@@ -18,13 +18,12 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <title>Регистрация</title>
 </head>
-<body>
+<body >
 
 	<div id="main-container">
-		<header id="header-section"> <a href="#" id="logo"
-			class="headerFontColor">LOGO</a>
-		<h1 id="headerTitle" class="headerFontColor">Masichka.bg</h1>
-		<a href="#" id="home" class="headerFontColor">Home</a> </header>
+		<header id="header-section"> 
+		<a href="../index.jsp" id="headerTitle" class="headerFontColor">Masichka.bg</a>
+		</header>
 
 		<div class="container">
 
@@ -43,7 +42,6 @@
 					<br>
 
 					<!-- Text input-->
-					<div id="main-options">
 						<div class="form-group">
 							<label class="col-md-4 control-label">Име</label>
 							<div class="col-md-4 inputGroupContainer">
@@ -140,14 +138,13 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					
 
 
 					<!-- upload photo -->
-
 					<div class="row image-main-div">
-						<div
-							class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+					<label class="avatar-text">Моля изберете снимка за вашият аватар</label>
+						<div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 							<!-- image-preview-filename input [CUT FROM HERE]-->
 							<div class="input-group image-preview">
 								<input style= "background-color:white;"type="text" class="form-control image-preview-filename"
@@ -158,10 +155,10 @@
 										class="btn btn-default image-preview-clear"
 										style="display: none;">
 										<span class="glyphicon glyphicon-remove"></span> 
-										Clear </button> <!-- image-preview-input -->
+										Изчисти </button> <!-- image-preview-input -->
 									<div class="btn btn-default image-preview-input">
 										<span class="glyphicon glyphicon-folder-open"></span> 
-										<span class="image-preview-input-title">Browse</span> 
+										<span class="image-preview-input-title">Търси</span> 
 										<input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
 										<!-- rename it -->
 									</div>
@@ -171,6 +168,23 @@
 						</div>
 					</div>
 
+
+					<div id="space-maker"></div>
+
+					<!-- Birthday -->
+					<div id="birthday-block">
+							<b style="font-size:110%;">Рожден ден</b>
+							 <div id = "year" class="birthday-field">
+							 	<b>Година</b>
+							 </div>
+							 <div id = "month" class="birthday-field">
+							 	<b>Месец</b>
+							 </div>
+							 <div id = "day" class="birthday-field">
+							 	<b>Ден</b>
+							 </div>
+						</div>
+					
 
 					<!-- Success message -->
 					<div class="alert alert-success" role="alert" id="success_message">
