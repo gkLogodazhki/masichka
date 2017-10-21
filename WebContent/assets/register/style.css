@@ -1,6 +1,7 @@
 body{
 	background-image:url("../../registerPage/images/fade.jpg");
 	background-repeat: no-repeat;
+	background-size: cover;
 	background-color:black;
 }
 #main-container{
