@@ -173,19 +173,71 @@
 
 					<!-- Birthday -->
 					<div id="birthday-block">
-							<b style="font-size:110%;">Рожден ден</b>
-							 <div id = "year" class="birthday-field">
-							 	<b>Година</b>
-							 </div>
-							 <div id = "month" class="birthday-field">
-							 	<b>Месец</b>
-							 </div>
-							 <div id = "day" class="birthday-field">
-							 	<b>Ден</b>
-							 </div>
+						<b style="font-size:110%;">Рожден ден</b>
+							 <button type="button" id = "year" class="birthday-field" onClick="listYears()" required>
+							 	<div class="inner-div-text">
+							 		<b>Година</b>
+							 	</div>
+							 	<div class="inner-div-icon glyphicon glyphicon-menu-down"></div>
+							 	
+							 </button>
+							 <button type="button" id = "month" class="birthday-field" onClick="listMonths()" required>
+								<div class="inner-div-text">
+									<b>Месец</b>
+								</div>
+								<div class="inner-div-icon glyphicon glyphicon-menu-down"></div>
+							
+							 </button>
+							 <button type="button" id = "day" class="birthday-field" onClick="listDays()" required>
+							 	<div class="inner-div-text ">
+							 		<b>Ден</b>
+							 	</div>
+							 	<div class="inner-div-icon glyphicon glyphicon-menu-down"></div>
+							 </button>
 						</div>
 					
-
+						
+						<div id="space-maker"></div>
+						<!-- Security code -->
+						
+						<div class="form-group">
+							<label class="col-md-4 control-label">Код за сигурност</label>
+							<div class="col-md-2 inputGroupContainer">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="glyphicon glyphicon-lock"></i></span> 
+										<input
+										name="securityCode" class="form-control"
+										type="text" readonly>
+										<button type="button" class="glyphicon glyphicon-refresh btn-danger"></button>
+								</div>
+							</div>
+							
+							<div class="col-md-2 inputGroupContainer">
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="glyphicon glyphicon-hand-right"></i></span> <input
+										name="userSecutityCode" class="form-control"
+										type="text">
+								</div>
+							</div>
+						</div>
+						
+						<div id="space-maker"></div>
+						
+						<div id="conditions">
+							<b id="error">*Съгласяването с общите условия е задължително!</b>
+						</div>	
+						
+						<div id="conditions">
+							<input type="checkbox" required>
+							<b>Съгласен съм с общите условия на сайта</b>
+						</div>			
+						<div id="conditions">
+							<input type="checkbox" checked>
+							<b>Желая да получавам новини, оферти и рекламни съобщения от Masichka.bg</b>
+						</div>				
+						
 					<!-- Success message -->
 					<div class="alert alert-success" role="alert" id="success_message">
 						Успешна регистрация<i class="glyphicon glyphicon-thumbs-up"></i>

@@ -111,7 +111,7 @@ body{
 	height:10%;
 }
 #space-maker{
-	height:3em;
+	height:2em;
 }
 
 @media screen and (min-width: 991px) {
@@ -135,7 +135,7 @@ body{
 	height:2em;
 }
 #month{
-	width:8em;
+	width:7em;
 	height:2em;
 }
 #day{
@@ -143,10 +143,39 @@ body{
 	height:2em;
 }
 .birthday-field{
+	padding:0;
 	display:inline-block;
-	margin-top:1%;
 	border-radius:5px 5px 5px 5px;
 	border:1px solid #c2c2a3;
 	margin-left:2em;
 	background-color:white;
+}
+.inner-div-text{
+	padding:5%;
+	width:30%;
+	height:100%;
+	float:left;
+	text-align:center;
+}
+.inner-div-icon{
+	margin:0;
+	padding:0;
+	width:30%;
+	padding:5%;
+	height:100%;
+	float:right;
+	text-align:center;
+	background-color:#ccccb3;
+}
+@media screen and (min-width: 991px) {
+    #conditions {
+		padding-left: 35%;
+		font-family: serif;
+	}
+}
+@media screen and (max-width: 990px) {
+    #conditions {
+		font-family: serif;
+	}
+}
 }
