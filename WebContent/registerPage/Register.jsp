@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="../assets/resetCss/Reset.css">
+	href="../assets/reset/reset.css?23">
 <link rel="stylesheet" type="text/css"
-	href="../assets/register/Header.css?138">
+	href="../assets/register/style.css?138">
 <link rel='stylesheet prefetch'
 	href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch'
@@ -16,11 +16,6 @@
 	href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link href='https://fonts.googleapis.com/css?family=Raleway:400,300'
-	rel='stylesheet' type='text/css'>
-
 <title>Регистрация</title>
 </head>
 <body>
@@ -150,9 +145,31 @@
 
 					<!-- upload photo -->
 
-
-					
-
+					<div class="row image-main-div">
+						<div
+							class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+							<!-- image-preview-filename input [CUT FROM HERE]-->
+							<div class="input-group image-preview">
+								<input style= "background-color:white;"type="text" class="form-control image-preview-filename"
+									disabled="disabled">
+								<!-- don't give a name === doesn't send on POST/GET -->
+								<span class="input-group-btn"> <!-- image-preview-clear button -->
+									<button type="button"
+										class="btn btn-default image-preview-clear"
+										style="display: none;">
+										<span class="glyphicon glyphicon-remove"></span> 
+										Clear </button> <!-- image-preview-input -->
+									<div class="btn btn-default image-preview-input">
+										<span class="glyphicon glyphicon-folder-open"></span> 
+										<span class="image-preview-input-title">Browse</span> 
+										<input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
+										<!-- rename it -->
+									</div>
+								</span>
+							</div>
+							<!-- /input-group image-preview [TO HERE]-->
+						</div>
+					</div>
 
 
 					<!-- Success message -->
@@ -185,16 +202,11 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42" /></script>
 	<script src="../js/register/Wrapper.js?223"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="../js/register/Avatar.js?2441"></script>
+	<script src="../js/register/Avatar.js?99"></script>
 	<script
 		src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 	<script
 		src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
 </body>
 </html>
