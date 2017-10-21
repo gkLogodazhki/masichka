@@ -10,7 +10,7 @@ body{
 
 #header-section{
 	width:100%;
-	background-image: url("../images/bckgImg.jpg");
+	background-image: url("../../registerPage/images/bckgImg.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-color:black;
@@ -82,4 +82,8 @@ body{
 	display:inline-block;
 	border:1px solid #0d0d0d;
 	height:10px;
+}
+
+#success_message{ 
+	display: none;
 }
