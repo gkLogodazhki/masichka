@@ -43,6 +43,7 @@ public class PlacePOJO {
     private int workTimeId;
 
     public PlacePOJO() {
+
     }
 
     public PlacePOJO(int placeTypeID, String logo, String name, String address, String pathToGallery, float mapLat, float mapLng, String infoPlace, int spots, int regionId, int avgBillId, int workTimeId) throws ValidateStringException, ValidateNumberException, FileNotFoundException, PlacesInfoException {
@@ -55,111 +56,127 @@ public class PlacePOJO {
         this.setMapLng(mapLng);
         this.setInfoPlace(infoPlace);
         this.setSpots(spots);
+        this.setRegionId(regionId);
+        this.setAvgBillId(avgBillId);
+        this.setWorkTimeId(workTimeId);
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) throws ValidateNumberException, FileNotFoundException, PlacesInfoException {
+    public PlacePOJO setId(int id) throws ValidateNumberException, FileNotFoundException, PlacesInfoException {
         this.id = ValidateNumberException.validateInteger(id, 1, new PlaceDAO().getCount());
+        return this;
     }
 
     public int getPlaceTypeID() {
         return placeTypeID;
     }
 
-    public void setPlaceTypeID(int placeTypeID) throws ValidateNumberException, FileNotFoundException, PlacesInfoException {
+    public PlacePOJO setPlaceTypeID(int placeTypeID) throws ValidateNumberException, FileNotFoundException, PlacesInfoException {
         this.placeTypeID = ValidateNumberException.validateInteger(placeTypeID, 1, new PlaceDAO().getCount());
+        return this;
     }
 
     public String getLogo() {
         return logo;
     }
 
-    public void setLogo(String logo) throws ValidateStringException {
+    public PlacePOJO setLogo(String logo) throws ValidateStringException {
         this.logo = ValidateStringException.validateString(logo);
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) throws ValidateStringException {
+    public PlacePOJO setName(String name) throws ValidateStringException {
         this.name = ValidateStringException.validateString(name);
+        return this;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) throws ValidateStringException {
+    public PlacePOJO setAddress(String address) throws ValidateStringException {
         this.address = ValidateStringException.validateString(address);
+        return this;
     }
 
     public String getPathToGallery() {
         return pathToGallery;
     }
 
-    public void setPathToGallery(String pathToGallery) throws ValidateStringException {
+    public PlacePOJO setPathToGallery(String pathToGallery) throws ValidateStringException {
         this.pathToGallery = ValidateStringException.validateString(pathToGallery);
+        return this;
     }
 
     public float getMapLat() {
         return mapLat;
     }
 
-    public void setMapLat(float mapLat) throws ValidateNumberException {
+    public PlacePOJO setMapLat(float mapLat) throws ValidateNumberException {
         this.mapLat = ValidateNumberException.validateFloat(mapLat, -90f, 90f);
+        return this;
     }
 
     public float getMapLng() {
         return mapLng;
     }
 
-    public void setMapLng(float mapLng) throws ValidateNumberException {
+    public PlacePOJO setMapLng(float mapLng) throws ValidateNumberException {
         this.mapLng = ValidateNumberException.validateFloat(mapLng, -180f, 180f);
+        return this;
     }
 
     public String getInfoPlace() {
         return infoPlace;
     }
 
-    public void setInfoPlace(String infoPlace) throws ValidateStringException {
+    public PlacePOJO setInfoPlace(String infoPlace) throws ValidateStringException {
         this.infoPlace = ValidateStringException.validateString(infoPlace);
+        return this;
     }
 
     public int getSpots() {
         return spots;
     }
 
-    public void setSpots(int spots) throws ValidateNumberException {
+    public PlacePOJO setSpots(int spots) throws ValidateNumberException {
         int maxSpots = 99;
         this.spots = ValidateNumberException.validateInteger(spots, 1, maxSpots);
+        return this;
     }
 
     public int getAvgBillId() {
         return avgBillId;
     }
 
-    public void setAvgBillId(int avgBillId) throws ValidateNumberException, ValidateStringException, FileNotFoundException, PlacesInfoException {
+    public PlacePOJO setAvgBillId(int avgBillId) throws ValidateNumberException, ValidateStringException, FileNotFoundException, PlacesInfoException {
         this.avgBillId = ValidateNumberException.validateInteger(avgBillId, 1, new AvgBillDAO().getCount());
+        return this;
     }
 
     public int getRegionId() {
         return regionId;
     }
 
-    public void setRegionId(int regionId) throws ValidateNumberException, ValidateStringException, FileNotFoundException, PlacesInfoException {
+    public PlacePOJO setRegionId(int regionId) throws ValidateNumberException, ValidateStringException, FileNotFoundException, PlacesInfoException {
         this.regionId = ValidateNumberException.validateInteger(regionId, 1, new RegionDAO().getCount());
+        return this;
     }
 
     public int getWorkTimeId() {
         return workTimeId;
     }
 
-    public void setWorkTimeId(int workTimeId) throws ValidateNumberException, ValidateStringException, FileNotFoundException, PlacesInfoException {
+    public PlacePOJO setWorkTimeId(int workTimeId) throws ValidateNumberException, ValidateStringException, FileNotFoundException, PlacesInfoException {
         this.workTimeId = ValidateNumberException.validateInteger(workTimeId, 1, new WorkTimeHourDAO().getCount());
+        return this;
     }
 
 }
