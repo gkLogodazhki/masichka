@@ -30,12 +30,10 @@ public class PlaceTypeDAO {
             PreparedStatement ps2 = connection.prepareStatement(SELECT_ID_FROM_PLACES_BY_NAME_SQL);
             ps2.setString(1, places.getName());
             ResultSet rs = ps2.executeQuery();
-            System.out.println(rs.next());
             if (rs.next()) {
                 throw new PlacesInfoException("The place already exists");
             }
             rs = ps.getGeneratedKeys();
-            System.out.println(rs.next());
             return rs.getInt("id");
 
         } catch (SQLException e) {
