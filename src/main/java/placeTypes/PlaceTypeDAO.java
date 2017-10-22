@@ -15,11 +15,11 @@ public class PlaceTypeDAO {
         name	varchar(45)
      */
 
-    private static final String INSERT_INTO_PLACES_INFO_SQL = "INSERT INTO places VALUES (null,?);";
-    private static final String SELECT_ID_FROM_PLACES_BY_NAME_SQL = "SELECT id FROM places WHERE name = ?;";
-    private static final String SELECT_NAME_FROM_PLACES_BY_ID_SQL = "SELECT name FROM places WHERE id = ?;";
-    private static final String SELECT_COUNT_FROM_PLACES_SQL = "SELECT count(id) counter FROM places;";
-    private static final String SELECT_NAMES_FROM_PLACES_SQL = "SELECT name FROM places";
+    private static final String INSERT_INTO_PLACES_INFO_SQL = "INSERT INTO place_types VALUES (null,?);";
+    private static final String SELECT_ID_FROM_PLACES_BY_NAME_SQL = "SELECT id FROM place_types WHERE name = ?;";
+    private static final String SELECT_NAME_FROM_PLACES_BY_ID_SQL = "SELECT name FROM place_types WHERE id = ?;";
+    private static final String SELECT_COUNT_FROM_PLACES_SQL = "SELECT count(id) counter FROM place_types;";
+    private static final String SELECT_NAMES_FROM_PLACES_SQL = "SELECT name FROM place_types";
 
     public int insertIntoPlaces(PlaceTypePOJO places) throws FileNotFoundException, PlacesInfoException {
         Connection connection = DatabaseAccessManager.getInstance().getConnection();
@@ -27,10 +27,16 @@ public class PlaceTypeDAO {
         try {
             PreparedStatement ps = connection.prepareStatement(INSERT_INTO_PLACES_INFO_SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, places.getName());
-            ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            rs.next();
-            return rs.getInt(1);
+            PreparedStatement ps2 = connection.prepareStatement(SELECT_ID_FROM_PLACES_BY_NAME_SQL);
+            ps2.setString(1, places.getName());
+            ResultSet rs = ps2.executeQuery();
+            System.out.println(rs.next());
+            if (rs.next()) {
+                throw new PlacesInfoException("The place already exists");
+            }
+            rs = ps.getGeneratedKeys();
+            System.out.println(rs.next());
+            return rs.getInt("id");
 
         } catch (SQLException e) {
             throw new PlacesInfoException("You can't insert into table placeTypes right now. Please try again later or connect with our supports");
@@ -44,6 +50,9 @@ public class PlaceTypeDAO {
             PreparedStatement ps = connection.prepareStatement(SELECT_ID_FROM_PLACES_BY_NAME_SQL);
             ps.setString(1, places.getName());
             ResultSet rs = ps.executeQuery();
+            if (rs == null){
+                throw new PlacesInfoException("There is no such a place");
+            }
             rs.next();
             return rs.getInt(1);
         } catch (SQLException e) {
@@ -58,6 +67,9 @@ public class PlaceTypeDAO {
             PreparedStatement ps = connection.prepareStatement(SELECT_NAME_FROM_PLACES_BY_ID_SQL);
             ps.setInt(1, places.getId());
             ResultSet rs = ps.executeQuery();
+            if (rs == null){
+                throw new PlacesInfoException("There is no such a place");
+            }
             rs.next();
             return rs.getString("name");
         } catch (SQLException e) {
@@ -70,7 +82,11 @@ public class PlaceTypeDAO {
 
         try {
             Statement statement = connection.createStatement();
-            return statement.executeQuery(SELECT_NAMES_FROM_PLACES_SQL);
+            ResultSet rs = statement.executeQuery(SELECT_NAMES_FROM_PLACES_SQL);
+            if (rs == null){
+                throw new PlacesInfoException("The table is empty");
+            }
+            return rs;
         } catch (SQLException e) {
             throw new PlacesInfoException("You can't connect to table placeTypes right now. Please try again later or connect with our supports");
         }
