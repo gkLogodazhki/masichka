@@ -376,6 +376,8 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42" /></script>
 	<script src="../js/register/Wrapper.js?323"></script>
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42"></script>
+	<script src="../js/register/Wrapper.js?223"></script>
 	<script src="../js/register/Avatar.js?99"></script>
 	<script
 		src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
