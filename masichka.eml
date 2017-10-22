@@ -7,11 +7,15 @@
 	</contentEntry>
 	<lib name="Maven: junit:junit:4.12" scope="TEST"/>
 	<lib name="Maven: org.hamcrest:hamcrest-core:1.3" scope="TEST"/>
+	<lib name="Maven: javax.servlet:javax.servlet-api:3.0.1" scope="PROVIDED"/>
+	<lib name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.2.1" scope="PROVIDED"/>
 	<levels>
 		<level name="mysql-connector-java-5.1.44-bin" value="project"/>
 		<level name="Maven: com.google.code.gson:gson:2.8.0" value="project"/>
 		<level name="Maven: junit:junit:4.12" value="project"/>
 		<level name="Maven: org.hamcrest:hamcrest-core:1.3" value="project"/>
 		<level name="Maven: mysql:mysql-connector-java:5.1.44" value="project"/>
+		<level name="Maven: javax.servlet:javax.servlet-api:3.0.1" value="project"/>
+		<level name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.2.1" value="project"/>
 	</levels>
 </component>
