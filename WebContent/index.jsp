@@ -22,6 +22,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
           type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/startPage/style.css?123">
@@ -84,8 +85,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <input class="btn btn-primary btn-block" type="button" id="sign-in-google"
-                               value="Sign In with Google">
+                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                         <center>
                             <script>
                                 // This is called with the results from from FB.getLoginStatus().
@@ -176,24 +176,45 @@
                             <script type="text/javascript">
                             </script>
                         </center>
+                        <meta name="google-signin-client_id"
+                              content="1085941757281-1jg7a8680fh771alnh5odn5fgftqu6tl.apps.googleusercontent.com">
+
+                        <script>
+                            function onSignIn(googleUser) {
+                                // Useful data for your client-side scripts:
+                                var profile = googleUser.getBasicProfile();
+                                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                                console.log('Full Name: ' + profile.getName());
+                                console.log('Given Name: ' + profile.getGivenName());
+                                console.log('Family Name: ' + profile.getFamilyName());
+                                console.log("Image URL: " + profile.getImageUrl());
+                                console.log("Email: " + profile.getEmail());
+
+                                // The ID token you need to pass to your backend:
+                                var id_token = googleUser.getAuthResponse().id_token;
+                                console.log("ID Token: " + id_token);
+                            };
+                        </script>
                     </li>
                 </ul>
         </ul>
     </div>
 </nav>
-
+<style>.text-muted {
+    color: #fff !important;
+}</style>
 <!-- Header -->
 <header class="masthead">
 
 
     <div class="container">
         <link rel="stylesheet" href="assets/startPage/style.css?123">
-        <%--        <div class="video-background">
+        <div class="video-background">
                     <div class="video-foreground">
-                        <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
+                        <iframe src="https://www.youtube.com/embed/--AgEMm0ZAw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=--AgEMm0ZAw"
                                 frameborder="0" allowfullscreen></iframe>
                     </div>
-                </div>--%>
+        </div>
 
         <div class="intro-text">
             <div class="intro-lead-in">Резервирай маса при нас</div>
