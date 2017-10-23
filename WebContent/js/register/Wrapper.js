@@ -59,6 +59,7 @@
                     }
                 }
             },
+            
             contact_no: {
                 validators: {
                   stringLength: {

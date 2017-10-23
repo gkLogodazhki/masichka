@@ -5,9 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="../assets/reset/reset.css">
-<link rel="stylesheet" type="text/css"
-	href="../assets/register/style.css?3211">
+	href="../assets/register/style.css?341">
 <link rel='stylesheet prefetch'
 	href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch'
@@ -27,7 +25,7 @@
 
 		<div class="container">
 
-			<form class="well form-horizontal" action=" " method="post"
+			<form class="well form-horizontal" action="" method="post"
 				id="contact_form">
 				<fieldset>
 
@@ -312,17 +310,16 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-lock"></i></span> 
-										<input
-										name="securityCode" class="form-control"
-										type="text" readonly required>
-										<button type="button" class="glyphicon glyphicon-refresh btn-danger"></button>
+										<button id= "code-generator" name="securityCode" class="form-control" disabled></button>
+										<button type="button" class="glyphicon glyphicon-refresh btn-danger" onClick="refreshSecurityCode()"></button>
 								</div>
 							</div>
 							
 							<div class="col-md-2 inputGroupContainer">
 								<div class="input-group">
 									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-hand-right"></i></span> <input
+										class="glyphicon glyphicon-hand-right"></i></span> 
+										<input
 										name="userSecutityCode" class="form-control"
 										type="text">
 								</div>
@@ -355,11 +352,18 @@
 						<label class="col-md-4 control-label"></label>
 						<div class="col-md-4">
 							<br>
-							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<div style="display:inline-flex;">
+							
 							<button type="submit" class="btn btn-warning">
-								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span
+								<span>Регистрирай</span> <span
 									class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 							</button>
+							&nbsp&nbsp&nbsp&nbsp&nbsp
+							<a href="../index.jsp" class="btn btn-danger">
+								<span>Начална страница</span> <span
+									class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							</a>
+							</div>
 						</div>
 					</div>
 				</fieldset>
@@ -369,20 +373,22 @@
 
 
 	<!-- /.scripts -->
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+  	<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?2455"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42" /></script>
 	<script src="../js/register/Wrapper.js?323"></script>
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42"></script>
 	<script src="../js/register/Wrapper.js?223"></script>
 	<script src="../js/register/Avatar.js?99"></script>
 	<script
 		src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 	<script
 		src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+	<script src="../js/register/ajaxFunctions.js?24"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
 </body>
 </html>
