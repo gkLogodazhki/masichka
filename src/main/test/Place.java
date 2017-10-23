@@ -1,3 +1,5 @@
+import avg_bills.AvgBillDAO;
+import avg_bills.AvgBillPOJO;
 import com.sun.xml.internal.bind.v2.TODO;
 import exceptions.PlacesInfoException;
 import exceptions.ValidateNumberException;
@@ -42,25 +44,34 @@ public class Place {
 //        PlaceDAO placeDAO = new PlaceDAO();
 //        assertTrue(placeDAO.InsertIntoPlaces(placePOJO) == 1);
 //    }
-
-    @Test
-    public void InsertIntoPlaceType() throws ValidateStringException, FileNotFoundException, PlacesInfoException, ValidateNumberException {
-        PlaceTypePOJO placeTypePOJO = new PlaceTypePOJO();
-        placeTypePOJO.setName("club12345");
-        placeTypePOJO.setId(new PlaceTypeDAO().insertIntoPlaces(placeTypePOJO));
-
-        assertTrue(placeTypePOJO.getName().equals(new PlaceTypeDAO().getNameById(placeTypePOJO)));
-    }
-
-    // TODO must check the logic of the method
-    @Test
-    public void getPlaceTypeByName() throws ValidateStringException, FileNotFoundException, PlacesInfoException, ValidateNumberException {
-        PlaceTypePOJO placeTypePOJO = new PlaceTypePOJO();
-        placeTypePOJO.setName("restaurant23");
-        placeTypePOJO.setId(new PlaceTypeDAO().getIdByName(placeTypePOJO));
-
-        assertTrue(new PlaceTypeDAO().getNameById(placeTypePOJO).equals(placeTypePOJO.getName()));
-    }
+//
+//    @Test
+//    public void InsertIntoPlaceType() throws ValidateStringException, FileNotFoundException, PlacesInfoException, ValidateNumberException {
+//        PlaceTypePOJO placeTypePOJO = new PlaceTypePOJO();
+//        placeTypePOJO.setName("club12345");
+//        placeTypePOJO.setId(new PlaceTypeDAO().insertIntoPlaces(placeTypePOJO));
+//
+//        assertTrue(placeTypePOJO.getName().equals(new PlaceTypeDAO().getNameById(placeTypePOJO)));
+//    }
+//
+//    // TODO must check the logic of the method
+//    @Test
+//    public void getPlaceTypeByName() throws ValidateStringException, FileNotFoundException, PlacesInfoException, ValidateNumberException {
+//        PlaceTypePOJO placeTypePOJO = new PlaceTypePOJO();
+//        placeTypePOJO.setName("restaurant23");
+//        placeTypePOJO.setId(new PlaceTypeDAO().getIdByName(placeTypePOJO));
+//
+//        assertTrue(new PlaceTypeDAO().getNameById(placeTypePOJO).equals(placeTypePOJO.getName()));
+//    }
+//
+//    @Test
+//    public void InsertIntoAvgBills() throws ValidateStringException, FileNotFoundException, PlacesInfoException, ValidateNumberException {
+//        AvgBillPOJO avgBillPOJO = new AvgBillPOJO();
+//        avgBillPOJO.setName("до 10 лв.");
+//        avgBillPOJO.setId(new AvgBillDAO().insertInto(avgBillPOJO));
+//
+//        assertTrue(avgBillPOJO.getName().equals(new AvgBillDAO().getNameById(avgBillPOJO)));
+//    }
 
 
 }
