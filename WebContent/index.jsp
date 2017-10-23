@@ -50,7 +50,7 @@
 
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://www.jquery2dotnet.com">Регистрация </a></li>
+            <li><a href="registerPage/Register.jsp">Регистрация </a></li>
             <li class="dropdown">
                 <a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">&nbsp;| Вход <b
                         class="caret"></b></a>
@@ -86,8 +86,96 @@
                     <li>
                         <input class="btn btn-primary btn-block" type="button" id="sign-in-google"
                                value="Sign In with Google">
-                        <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter"
-                               value="Sign In with Twitter">
+                        <center>
+                            <script>
+                                // This is called with the results from from FB.getLoginStatus().
+                                function statusChangeCallback(response) {
+                                    console.log('statusChangeCallback');
+                                    console.log(response);
+                                    // The response object is returned with a status field that lets the
+                                    // app know the current login status of the person.
+                                    // Full docs on the response object can be found in the documentation
+                                    // for FB.getLoginStatus().
+                                    if (response.status === 'connected') {
+                                        // Logged into your app and Facebook.
+                                        testAPI();
+                                    } else if (response.status === 'not_authorized') {
+                                        // The person is logged into Facebook, but not your app.
+                                        document.getElementById('status').innerHTML = 'Login with Facebook ';
+                                    } else {
+                                        // The person is not logged into Facebook, so we're not sure if
+                                        // they are logged into this app or not.
+                                        document.getElementById('status').innerHTML = 'Login with Facebook ';
+                                    }
+                                }
+
+                                // This function is called when someone finishes with the Login
+                                // Button. See the onlogin handler attached to it in the sample
+                                // code below.
+                                function checkLoginState() {
+                                    FB.getLoginStatus(function (response) {
+                                        statusChangeCallback(response);
+                                    });
+                                }
+
+                                window.fbAsyncInit = function () {
+                                    FB.init({
+                                        appId: '388104551618860',
+                                        cookie: true, // enable cookies to allow the server to access
+                                        // the session
+                                        xfbml: true, // parse social plugins on this page
+                                        version: 'v2.2' // use version 2.2
+                                    });
+                                    // Now that we've initialized the JavaScript SDK, we call
+                                    // FB.getLoginStatus(). This function gets the state of the
+                                    // person visiting this page and can return one of three states to
+                                    // the callback you provide. They can be:
+                                    //
+                                    // 1. Logged into your app ('connected')
+                                    // 2. Logged into Facebook, but not your app ('not_authorized')
+                                    // 3. Not logged into Facebook and can't tell if they are logged into
+                                    // your app or not.
+                                    //
+                                    // These three cases are handled in the callback function.
+
+                                    FB.getLoginStatus(function (response) {
+                                        statusChangeCallback(response);
+                                    });
+                                };
+                                // Load the SDK asynchronously
+                                (function (d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                    if (d.getElementById(id)) return;
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = "//connect.facebook.net/en_US/sdk.js";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));
+
+                                // Here we run a very simple test of the Graph API after login is
+                                // successful. See statusChangeCallback() for when this call is made.
+                                function testAPI() {
+                                    console.log('Welcome! Fetching your information.... ');
+                                    FB.api('/me?fields=name,email', function (response) {
+                                        console.log('Successful login for: ' + response.name);
+
+                                        document.getElementById("status").innerHTML = '<p>Welcome ' + response.name + '! <a href=fblogincontroller.jsp?user_name=' + response.name.replace(" ", "_") + '&user_email=' + response.email + '>Continue with facebook login</a></p>'
+                                    });
+                                }
+                            </script>
+                            <!--
+                             Below we include the Login Button social plugin. This button uses
+                             the JavaScript SDK to present a graphical Login button that triggers
+                             the FB.login() function when clicked.
+                            -->
+                            <br><br>
+                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                            </fb:login-button>
+                            <div id="status">
+                            </div>
+                            <script type="text/javascript">
+                            </script>
+                        </center>
                     </li>
                 </ul>
         </ul>
@@ -100,12 +188,12 @@
 
     <div class="container">
         <link rel="stylesheet" href="assets/startPage/style.css?123">
-        <div class="video-background">
-            <div class="video-foreground">
-                <iframe src="https://www.youtube.com/embed/48eMtkchn5I?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=48eMtkchn5I"
-                        frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
+        <%--        <div class="video-background">
+                    <div class="video-foreground">
+                        <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
+                                frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>--%>
 
         <div class="intro-text">
             <div class="intro-lead-in">Резервирай маса при нас</div>
@@ -122,23 +210,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Portfolio</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Може да изберете от следните ресторанти</h2>
+                <h3 class="section-subheading text-muted">Разполагате с богат избор!</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-
+                    <img class="img-fluid" src="https://rezzo.bg/files/images/1288/fit_431_304.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Threads</h4>
-                    <p class="text-muted">Illustration</p>
+                    <h4>Explore</h4>
+                    <p class="text-muted">Graphic Design</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
@@ -148,7 +236,7 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <%-- <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">--%>
+                    <img class="img-fluid" src="https://rezzo.bg/files/images/3918/fit_431_304.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>Explore</h4>
@@ -162,7 +250,7 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
+                    <img class="img-fluid" src="https://rezzo.bg/files/images/2697/fit_431_304.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>Finish</h4>
@@ -176,7 +264,7 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
+                    <img class="img-fluid" src="https://rezzo.bg/files/images/117/fit_431_304.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>Lines</h4>
@@ -190,7 +278,7 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
+                    <img class="img-fluid" src="https://rezzo.bg/files/images/3515/fit_431_304.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>Southwest</h4>
@@ -204,7 +292,7 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
+                    <img class="img-fluid" src="https://rezzo.bg/files/images/3516/fit_431_304.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>Window</h4>
@@ -219,8 +307,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Services</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">За Masichka.bg</h2>
+                <h3 class="section-subheading text-muted">Информация за нас</h3>
             </div>
         </div>
         <div class="row text-center">
