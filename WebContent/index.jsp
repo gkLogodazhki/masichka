@@ -85,8 +85,9 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
                         <center>
+                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                             <script>
                                 // This is called with the results from from FB.getLoginStatus().
                                 function statusChangeCallback(response) {
@@ -211,7 +212,7 @@
         <link rel="stylesheet" href="assets/startPage/style.css?123">
         <div class="video-background">
                     <div class="video-foreground">
-                        <iframe src="https://www.youtube.com/embed/--AgEMm0ZAw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=--AgEMm0ZAw"
+                        <iframe src="https://www.youtube.com/embed/aLegU_FpR4E?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=aLegU_FpR4E"
                                 frameborder="0" allowfullscreen></iframe>
                     </div>
         </div>
