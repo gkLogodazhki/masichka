@@ -1,4 +1,4 @@
-package usersReg.generateSecurityCode;
+package usersReg.securityCode;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-
-
-@WebServlet("/SecurityCode")
-public class SecurityCodeServlet extends HttpServlet {
+@WebServlet("/CheckSecurityCode")
+public class CheckSecurityCodeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public SecurityCodeServlet() {
+    public CheckSecurityCodeServlet() {
         super();
     }
 
@@ -23,8 +19,15 @@ public class SecurityCodeServlet extends HttpServlet {
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
 		
-		SecurityCodeGenerator generator = new SecurityCodeGenerator();
-		response.getWriter().print(new Gson().toJson(generator.getCode()));
+		String security = request.getParameter("securityCode");
+		String input = request.getParameter("input");
+		
+		if(security.equals(input)){
+			response.getWriter().print(true);
+		}else {
+			response.getWriter().print(false);
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

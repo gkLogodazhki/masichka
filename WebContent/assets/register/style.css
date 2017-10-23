@@ -182,3 +182,6 @@ body{
 		font-family: serif;
 	}
 }
+.security-code-message{
+	display:none;
+}

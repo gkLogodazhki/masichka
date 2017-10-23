@@ -1,4 +1,4 @@
-package usersReg.generateSecurityCode;
+package usersReg.securityCode;
 
 import java.util.Random;
 
