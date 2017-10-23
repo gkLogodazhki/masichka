@@ -16,7 +16,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <title>Регистрация</title>
 </head>
-<body >
+<body onload="refreshSecurityCode()">
 
 	<div id="main-container">
 		<header id="header-section"> 
@@ -89,7 +89,8 @@
 							<div class="col-md-4 inputGroupContainer">
 								<div class="input-group">
 									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-user"></i></span> <input
+										class="glyphicon glyphicon-user"></i></span>
+										 <input
 										name="user_password" placeholder="Парола" class="form-control"
 										type="password">
 								</div>
@@ -103,10 +104,12 @@
 							<div class="col-md-4 inputGroupContainer">
 								<div class="input-group">
 									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-user"></i></span> <input
+										class="glyphicon glyphicon-user"></i></span> 
+										<input
 										name="confirm_password" placeholder="Потвърди парола"
-										class="form-control" type="password">
+										class="form-control" type="password" onkeyUp="checkPassword()">
 								</div>
+								<div id="password-message" class=""></div>
 							</div>
 						</div>
 
@@ -134,6 +137,7 @@
 										name="contact_no" placeholder="(+359)" class="form-control"
 										type="text">
 								</div>
+								<strong id = "error">*</strong><b>В случай че правите резервация, ще ви бъде изпратено съобщение за потвърждения на даденият номер</b>
 							</div>
 						</div>
 					
@@ -380,7 +384,7 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?2455"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42" /></script>
-	<script src="../js/register/Wrapper.js?323"></script>
+	<script src="../js/register/Wrapper.js?27"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42"></script>
 	<script src="../js/register/Wrapper.js?223"></script>
 	<script src="../js/register/Avatar.js?99"></script>

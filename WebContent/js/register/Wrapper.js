@@ -38,17 +38,17 @@
                     }
                 }
             },
-			confirm_password: {
-                validators: {
-                     stringLength: {
-                        min: 8,
-                        message: 'Минимум 8 символа'
-                    },
-                    notEmpty: {
-                        message: 'Моля потвърдете паролата'
-                    }
-                }
-            },
+//			confirm_password: {
+//                validators: {
+//                     stringLength: {
+//                        min: 8,
+//                        message: 'Минимум 8 символа'
+//                    },
+//                    notEmpty: {
+//                        message: 'Моля потвърдете паролата'
+//                    }
+//                }
+//            },
             email: {
                 validators: {
                     notEmpty: {
