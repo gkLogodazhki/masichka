@@ -319,10 +319,10 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-hand-right"></i></span> 
-										<input
-										name="userSecutityCode" class="form-control"
-										type="text">
+										<input name="userSecutityCode" class="form-control"
+										type="text" onkeyUp="isCorrectSecurityCode()">
 								</div>
+								<div id="security-code-message" class=""></div>
 							</div>
 						</div>
 						
