@@ -1,4 +1,4 @@
-package usersReg.checkPhone;
+package usersReg.checkPhoneAndName;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -27,9 +27,7 @@ public class CheckPhoneCodeServlet extends HttpServlet {
 			number = text;
 		}
 		else if(number != null && number.length() < 6) {
-			System.out.println(number);
 			number = "(+359)";
-			System.out.println(number);
 		}
 		response.getWriter().print(new Gson().toJson(number));
 	}

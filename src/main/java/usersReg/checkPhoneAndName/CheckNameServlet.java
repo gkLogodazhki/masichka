@@ -1,4 +1,4 @@
-package usersReg.checkPhone;
+package usersReg.checkPhoneAndName;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,25 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-@WebServlet("/CheckAlphabetics")
-public class CheckAlphabeticsServlet extends HttpServlet {
+@WebServlet("/CheckName")
+public class CheckNameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CheckAlphabeticsServlet() {
+    public CheckNameServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
-		String number = request.getParameter("contact_no");
-		if(number != null && number.length() >= 6) {
-			String text = number.substring(5);
-			number = "(+359)" + text.replaceAll("[^0-9]", "");
-			System.out.println(number);
-		}
-		response.getWriter().print(new Gson().toJson(number));
 		
+		String name = request.getParameter("name");
+		name = name.replaceAll("[^a-zA-Z‡-Á¿-«\b]", "");
+		response.getWriter().print(new Gson().toJson(name));
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

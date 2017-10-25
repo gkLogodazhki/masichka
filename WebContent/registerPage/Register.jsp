@@ -52,7 +52,7 @@
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-user"></i></span> 
 										<input name="first_name"
-										placeholder="Име" class="form-control" type="text">
+										placeholder="Име" class="form-control" type="text" onkeyUp="checkForIllegalName('first_name')">
 								</div>
 							</div>
 						</div>
@@ -65,7 +65,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-user"></i></span> <input name="last_name"
-										placeholder="Фамилия" class="form-control" type="text">
+										placeholder="Фамилия" class="form-control" type="text" onkeyUp="checkForIllegalName('last_name')">
 								</div>
 							</div>
 						</div>
@@ -391,7 +391,7 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?2455"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42" /></script>
-	<script src="../js/register/Wrapper.js?27"></script>
+	<script src="../js/register/Wrapper.js?34"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42"></script>
 	<script src="../js/register/Wrapper.js?223"></script>
 	<script src="../js/register/Avatar.js?99"></script>
@@ -399,7 +399,7 @@
 		src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 	<script
 		src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-	<script src="../js/register/ajaxFunctions.js?45"></script>
+	<script src="../js/register/ajaxFunctions.js?15"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
 </body>
 </html>

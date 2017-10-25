@@ -35,3 +35,7 @@ app.json
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 .settings/org.eclipse.wst.validation.prefs
 .settings/org.eclipse.jdt.core.prefs
+.classpath
+app.json
+target/classes/
+.settings/

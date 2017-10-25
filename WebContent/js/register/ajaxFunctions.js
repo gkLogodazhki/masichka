@@ -58,3 +58,13 @@ function checkForAlphabetic(){
 		}
 	});
 }
+
+function checkForIllegalName(value){
+	var $name = $("[name='" + value + "']").val();
+	console.log($name);
+	$.get("http://localhost:8080/masichka/CheckName?name=" + $name, function(data){
+		if($name !== data){
+			$("[name='" + value + "']").val(data);
+		}
+	});
+}
