@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"
-	href="../assets/register/style.css?341">
+	href="../assets/register/style.css?2">
 <link rel='stylesheet prefetch'
 	href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch'
@@ -25,7 +25,7 @@
 
 		<div class="container">
 
-			<form class="well form-horizontal" action="" method="post"
+			<form class="well form-horizontal" action="Register" method="post"
 				id="contact_form">
 				<fieldset>
 
@@ -36,6 +36,11 @@
 								<b>Регистрация</b>
 							</h2>
 						</center>
+						<center>
+							<h4>
+								<b  id= "error" class ="unsuccessful-registration" >Неуспешна регистрация</b>
+							</h4>
+						</center>
 					</legend>
 					<br>
 
@@ -45,7 +50,8 @@
 							<div class="col-md-4 inputGroupContainer">
 								<div class="input-group">
 									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-user"></i></span> <input name="first_name"
+										class="glyphicon glyphicon-user"></i></span> 
+										<input name="first_name"
 										placeholder="Име" class="form-control" type="text">
 								</div>
 							</div>
@@ -69,8 +75,9 @@
 							<div class="col-md-4 selectContainer">
 								<div class="input-group">
 									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-list"></i></span> <select
-										name="department" class="form-control selectpicker">
+										class="glyphicon glyphicon-list"></i></span> 
+										<select
+										name="city" class="form-control selectpicker">
 										<option>София</option>
 										<option>Пловдив</option>
 										<option>Варна</option>
@@ -135,7 +142,7 @@
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-earphone"></i></span> <input
 										name="contact_no" placeholder="(+359)" class="form-control"
-										type="text">
+										type="text" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()">
 								</div>
 								<strong id = "error">*</strong><b>В случай че правите резервация, ще ви бъде изпратено съобщение за потвърждения на даденият номер</b>
 							</div>
@@ -392,7 +399,7 @@
 		src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 	<script
 		src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-	<script src="../js/register/ajaxFunctions.js?24"></script>
+	<script src="../js/register/ajaxFunctions.js?45"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
 </body>
 </html>

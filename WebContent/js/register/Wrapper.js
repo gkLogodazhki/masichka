@@ -63,11 +63,11 @@
             contact_no: {
                 validators: {
                   stringLength: {
-                        min: 13, 
-                        max: 13,
+                        min: 15, 
+                        max: 15,
                   },
                     notEmpty: {
-                        message: 'Моля въведете номер (+359*********)'
+                        message: 'Моля въведете номер (+359)*********'
                      }
                 },
                 }

@@ -185,3 +185,6 @@ body{
 .security-code-message{
 	display:none;
 }
+.unsuccessful-registration{
+	display:none;
+}

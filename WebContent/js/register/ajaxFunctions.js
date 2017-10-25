@@ -42,3 +42,19 @@ function checkPassword(){
 		});
 	}
 };
+function phoneCode(){
+	var $contact_no = $("[name='contact_no']").val();
+	if(!$contact_no.startsWith("(+359)")){
+		$.get("http://localhost:8080/masichka/PhoneCode?contact_no=" + $contact_no, function(data){
+			$("[name='contact_no']").val(data);
+		});
+	}
+}
+function checkForAlphabetic(){
+	var $contact_no = $("[name='contact_no']").val();
+	$.get("http://localhost:8080/masichka/CheckAlphabetics?contact_no=" + $contact_no, function(data){
+		if($contact_no !== data){
+			$("[name='contact_no']").val(data);
+		}
+	});
+}
