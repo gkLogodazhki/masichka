@@ -157,7 +157,7 @@
 							<!-- image-preview-filename input [CUT FROM HERE]-->
 							<div class="input-group image-preview">
 								<input style= "background-color:white;"type="text" class="form-control image-preview-filename"
-									disabled="disabled">
+									name = "img" disabled="disabled">
 								<!-- don't give a name === doesn't send on POST/GET -->
 								<span class="input-group-btn"> <!-- image-preview-clear button -->
 									<button type="button"
@@ -221,7 +221,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-4 multibox">
-                                        <select name="mounth" class="form-control">
+                                        <select name="month" class="form-control">
                                             <option>Месец</option>
                                             <option value="01">Януари</option>
                                             <option value="02">Февруари</option>
@@ -344,11 +344,11 @@
 						</div>	
 						
 						<div id="conditions">
-							<input type="checkbox" required>
+							<input type="checkbox" name="Agreement" value="1" required>
 							<b>Съгласен съм с общите условия на сайта</b>
 						</div>			
 						<div id="conditions">
-							<input type="checkbox" checked>
+							<input type="checkbox" value="1" name="wantNotifications" checked>
 							<b>Желая да получавам новини, оферти и рекламни съобщения от Masichka.bg</b>
 						</div>				
 						
@@ -387,19 +387,14 @@
 	
 	<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
   	<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js?55"></script>
 	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?2455"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42" /></script>
-	<script src="../js/register/Wrapper.js?34"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?42"></script>
-	<script src="../js/register/Wrapper.js?223"></script>
-	<script src="../js/register/Avatar.js?99"></script>
-	<script
-		src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
-	<script
-		src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-	<script src="../js/register/ajaxFunctions.js?15"></script>
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?22" ></script>
+	<!-- <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>  -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js'></script>
+	<script src="../js/register/Wrapper.js?60"></script>
+	<script src="../js/register/Avatar.js?87"></script>
+	<script src="../js/register/ajaxFunctions.js?20"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
 </body>
 </html>

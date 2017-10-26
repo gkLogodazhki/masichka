@@ -38,24 +38,24 @@
                     }
                 }
             },
-//			confirm_password: {
-//                validators: {
-//                     stringLength: {
-//                        min: 8,
-//                        message: 'Минимум 8 символа'
-//                    },
-//                    notEmpty: {
-//                        message: 'Моля потвърдете паролата'
-//                    }
-//                }
-//            },
+			confirm_password: {
+                validators: {
+                     stringLength: {
+                        min: 8,
+                        message: 'Минимум 8 символа'
+                    },
+                    notEmpty: {
+                        message: 'Моля потвърдете паролата'
+                    }
+                }
+            },
             email: {
                 validators: {
                     notEmpty: {
                         message: 'Моля въведете Email'
                     },
                     emailAddress: {
-                        message: 'Моля въведете валитен Email'
+                        message: 'Моля въведете валиден Email'
                     }
                 }
             },

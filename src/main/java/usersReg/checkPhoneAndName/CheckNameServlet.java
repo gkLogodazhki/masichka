@@ -22,8 +22,11 @@ public class CheckNameServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		String name = request.getParameter("name");
-		name = name.replaceAll("[^a-zA-Zà-çÀ-Ç\b]", "");
-		response.getWriter().print(new Gson().toJson(name));
+		if(name != null) {
+			name = name.replaceAll("[^a-zA-Zà-ÿÀ-ß\b]", "");
+			response.getWriter().print(new Gson().toJson(name));
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

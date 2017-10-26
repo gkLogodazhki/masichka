@@ -44,6 +44,7 @@ function checkPassword(){
 };
 function phoneCode(){
 	var $contact_no = $("[name='contact_no']").val();
+	$contact_no = $contact_no.replace(/{|}|\||\\/, " ");
 	if(!$contact_no.startsWith("(+359)")){
 		$.get("http://localhost:8080/masichka/PhoneCode?contact_no=" + $contact_no, function(data){
 			$("[name='contact_no']").val(data);
@@ -52,6 +53,7 @@ function phoneCode(){
 }
 function checkForAlphabetic(){
 	var $contact_no = $("[name='contact_no']").val();
+	$contact_no = $contact_no.replace(/{|}|\||\\/, " ");
 	$.get("http://localhost:8080/masichka/CheckAlphabetics?contact_no=" + $contact_no, function(data){
 		if($contact_no !== data){
 			$("[name='contact_no']").val(data);
@@ -61,10 +63,11 @@ function checkForAlphabetic(){
 
 function checkForIllegalName(value){
 	var $name = $("[name='" + value + "']").val();
-	console.log($name);
+	$name = $name.replace(/{|}|\||\\/, " ");
 	$.get("http://localhost:8080/masichka/CheckName?name=" + $name, function(data){
 		if($name !== data){
 			$("[name='" + value + "']").val(data);
 		}
 	});
 }
+

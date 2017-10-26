@@ -37,5 +37,5 @@ app.json
 .settings/org.eclipse.jdt.core.prefs
 .classpath
 app.json
-target/classes/
+target/classes/database_access/DB_INFO.json
 .settings/

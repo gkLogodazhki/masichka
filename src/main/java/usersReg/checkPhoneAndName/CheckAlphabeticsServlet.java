@@ -24,7 +24,6 @@ public class CheckAlphabeticsServlet extends HttpServlet {
 		if(number != null && number.length() >= 6) {
 			String text = number.substring(5);
 			number = "(+359)" + text.replaceAll("[^0-9]", "");
-			System.out.println(number);
 		}
 		response.getWriter().print(new Gson().toJson(number));
 		
