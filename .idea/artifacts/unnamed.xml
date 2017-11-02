@@ -1,6 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="exploded-ear" build-on-make="true" name="unnamed">
-    <output-path>E:/apache-tomcat-9.0.0.M26-windows-x64</output-path>
-    <root id="root" />
-  </artifact>
-</component>
