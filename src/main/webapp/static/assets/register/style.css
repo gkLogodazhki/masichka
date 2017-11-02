@@ -1,0 +1,208 @@
+body {
+    background-image: url("../../registerPage/images/woodbckg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
+
+#main-container {
+    widht: 1170px;
+    margin: 0 auto;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#header-section {
+    width: 100%;
+    background-image: url("../../registerPage/images/fade.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: black;
+    display: inline-block;
+    border: 1px solid black;
+    text-align: center;
+    border-bottom: 2px solid #ff8000;
+}
+
+#title-field {
+    display: inline-block;
+}
+
+#headerTitle {
+    margin: 0;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 250%;
+}
+
+#headerTitle:hover {
+    color: #ff8000;
+}
+
+.headerFontColor {
+    color: #eaeae1;
+}
+
+#registrationTitle {
+    text-align: center;
+    font-size: 250%;
+    color: #0d0d0d;
+    padding-top: 3%;
+    padding-bottom: 1%;
+    font-family: Monospace;
+}
+
+#wrapper {
+    width: 86%;
+    margin-left: 7%;
+    border-top: 1px solid black;
+    font-family: Monospace;
+    text-align: center;
+}
+
+#error {
+    color: red;
+}
+
+#textField {
+    font-size: 140%;
+}
+
+.separator {
+    padding-top: 3%;
+}
+
+.input {
+    margin-left: 1%;
+    width: 25%;
+    height: 5%;
+}
+
+.line {
+    display: inline-block;
+    border: 1px solid #0d0d0d;
+    height: 10px;
+}
+
+#success_message {
+    display: none;
+}
+
+.image-preview-input {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.image-preview-input input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.image-preview-input-title {
+    margin-left: 2px;
+}
+
+.avatar-text {
+    display: block;
+    text-align: center;
+}
+
+#birthday-inline-field {
+    background-color: black;
+    widht: 50%;
+    height: 10%;
+}
+
+#space-maker {
+    height: 2em;
+}
+
+@media screen and (min-width: 991px) {
+    #birthday-block {
+        padding-left: 35%;
+        text-align: center;
+        display: inline-block;
+        font-family: serif;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    #birthday-block {
+        padding-left: 28%;
+        text-align: center;
+        display: inline-block;
+        font-family: serif;
+    }
+}
+
+#year {
+    width: 6em;
+    height: 2em;
+}
+
+#month {
+    width: 7em;
+    height: 2em;
+}
+
+#day {
+    width: 5em;
+    height: 2em;
+}
+
+.birthday-field {
+    padding: 0;
+    display: inline-block;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #c2c2a3;
+    margin-left: 2em;
+    background-color: white;
+}
+
+.inner-div-text {
+    padding: 5%;
+    width: 30%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+.inner-div-icon {
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    padding: 5%;
+    height: 100%;
+    float: right;
+    text-align: center;
+    background-color: #ccccb3;
+}
+
+@media screen and (min-width: 991px) {
+    #conditions {
+        padding-left: 35%;
+        font-family: serif;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    #conditions {
+        font-family: serif;
+    }
+}
+
+.security-code-message {
+    display: none;
+}
