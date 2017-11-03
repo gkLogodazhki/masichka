@@ -69,13 +69,13 @@ gulp.task('copy', function () {
         '!**/bootstrap-theme.*',
         '!**/*.map'
     ])
-        .pipe(gulp.dest('vendor/bootstrap'))
+        .pipe(gulp.dest('vendor/bootstrap'));
 
     gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
-        .pipe(gulp.dest('vendor/jquery'))
+        .pipe(gulp.dest('vendor/jquery'));
 
     gulp.src(['node_modules/jquery.easing/*.js'])
-        .pipe(gulp.dest('vendor/jquery-easing'))
+        .pipe(gulp.dest('vendor/jquery-easing'));
 
     gulp.src([
         'node_modules/font-awesome/**',
@@ -86,7 +86,7 @@ gulp.task('copy', function () {
         '!node_modules/font-awesome/*.json'
     ])
         .pipe(gulp.dest('vendor/font-awesome'))
-})
+});
 
 // Default task
 gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
@@ -98,7 +98,7 @@ gulp.task('browserSync', function () {
             baseDir: ''
         },
     })
-})
+});
 
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function () {

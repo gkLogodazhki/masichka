@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Masichka:war exploded">
-    <output-path>$PROJECT_DIR$/classes/artifacts/Masichka_war_exploded</output-path>
+  <artifact type="exploded-war" name="masichka:war exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/masichka_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -61,7 +61,7 @@
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.13" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="Masichka/web/Web" />
+      <element id="javaee-facet-resources" facet="masichka/web/Web" />
     </root>
   </artifact>
 </component>

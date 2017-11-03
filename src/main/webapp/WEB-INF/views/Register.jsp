@@ -1,401 +1,268 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css"
-          href="static/css/register/style.css?4">
-    <link rel='stylesheet prefetch'
-          href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <link rel='stylesheet prefetch'
-          href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
-    <link rel='stylesheet prefetch'
-          href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <title>Регистрация</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Masichka.bg</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <!-- Custom fonts for this template -->
+    <link href="/static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
+
+
+    <link href="/static/assets/css/agency.min.css" rel="stylesheet">
+
 </head>
-<body onload="refreshSecurityCode()">
+<%@ include file="authheader.jsp" %>
+<body id="page-top">
+<style>.text-muted {
+    color: #fff !important;
+}</style>
+<!-- Header -->
+<header class="masthead">
 
-<div id="main-container">
-    <%@ include file="authheader.jsp" %>
+    <%--
+        <div class="container">
+            <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
+            &lt;%&ndash;<div class="video-background">
+                <div class="video-foreground">
+                    <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
+                            frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+    &ndash;%&gt;
+        </div>--%>
+</header>
 
+
+
+<section class="bg-light" id="favoriteRestorant">
     <div class="container">
-        <form:form id="contact_form" class="well form-horizontal" method="post"
-                   action="${pageContext.request.contextPath}/registerUser">
-            <fieldset>
-
-                <!-- Form Name -->
-                <legend>
-                    <center>
-                        <h2>
-                            <b>Регистрация</b>
-                        </h2>
-                    </center>
-                </legend>
-                <br>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Име</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-user"></i></span>
-                            <input name="first_name"
-                                   placeholder="Име" class="form-control" type="text"
-                                   onkeyUp="checkForIllegalName('firstName')"/>
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Регистрация</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <form id="editProfile" name="sentMessage" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <span class="badge">Нова парола*</span>
+                                <input name="last_name"
+                                       placeholder="Фамилия" class="form-control" type="text"
+                                       onkeyUp="checkForIllegalName('lastName')"/>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Повтори нова парола*</span>
+                                <span class="input-group-addon"><i
+                                        class="glyphicon glyphicon-list"></i></span>
+                                <select
+                                        name="city" class="form-control selectpicker">
+                                    <option value=1>София</option>
+                                    <option value=2>Пловдив</option>
+                                    <option value=3>Варна</option>
+                                    <option value=4>Бургас</option>
+                                    <option value=5>Русе</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Текуща парола*</span>
+                                <span class="input-group-addon"><i
+                                        class="glyphicon glyphicon-user"></i></span>
+                                <input
+                                        name="user_password" placeholder="Парола" class="form-control"
+                                        type="password"/>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Фамилия</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-user"></i></span>
-                            <input name="last_name"
-                                   placeholder="Фамилия" class="form-control" type="text"
-                                   onkeyUp="checkForIllegalName('lastName')"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Град</label>
-                    <div class="col-md-4 selectContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-list"></i></span>
-                            <select
-                                    name="city" class="form-control selectpicker">
-                                <option value=1>София</option>
-                                <option value=2>Пловдив</option>
-                                <option value=3>Варна</option>
-                                <option value=4>Бургас</option>
-                                <option value=5>Русе</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Парола</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-user"></i></span>
-                            <input
-                                    name="user_password" placeholder="Парола" class="form-control"
-                                    type="password"/>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Потвърди парола</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-user"></i></span>
-                            <input
-                                    name="confirm_password" placeholder="Потвърди парола"
-                                    class="form-control" type="password" onkeyUp="checkPassword()"/>
-                        </div>
-                        <div id="password-message" class=""></div>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label">E-Mail</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-envelope"></i></span>
-                            <input name="email"
-                                   placeholder="E-Mail" class="form-control" type="text"/>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Text input-->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Номер</label>
-                    <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-earphone"></i></span>
-                            <input
-                                    name="contact_no" placeholder="(+359)" class="form-control"
-                                    type="text" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()"/>
-                        </div>
-                        <strong id="error">*</strong><b>В случай че правите резервация, ще ви бъде изпратено съобщение
-                        за потвърждения на даденият номер</b>
-                    </div>
-                </div>
-
-
-                <!-- upload photo -->
-                <div class="row image-main-div">
-                    <label class="avatar-text">Моля изберете снимка за вашият аватар</label>
-                    <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                        <!-- image-preview-filename input [CUT FROM HERE]-->
-                        <div class="input-group image-preview">
-                            <input style="background-color:white;" type="text"
-                                   class="form-control image-preview-filename"
-                                   name="img" disabled="disabled">
-                            <!-- don't give a name === doesn't send on POST/GET -->
-                            <span class="input-group-btn"> <!-- image-preview-clear button -->
-									<button type="button"
-                                            class="btn btn-default image-preview-clear"
-                                            style="display: none;">
-										<span class="glyphicon glyphicon-remove"></span> 
-										Изчисти </button> <!-- image-preview-input -->
-									<div class="btn btn-default image-preview-input">
-										<span class="glyphicon glyphicon-folder-open"></span> 
-										<span class="image-preview-input-title">Търси</span> 
-										<input type="file" accept="image/png, image/jpeg, image/gif"
-                                               name="input-file-preview"/>
-                                        <!-- rename it -->
-									</div>
-								</span>
-                        </div>
-                        <!-- /input-group image-preview [TO HERE]-->
-                    </div>
-                </div>
-
-
-                <div id="space-maker"></div>
-
-                <!-- Birthday -->
-                <div id="birthday-block">
-                    <b style="font-size: 110%;margin-bottom:1em;">Рожден ден</b>
-                    <div class="form-group">
-                        <div class="col-sm-4 multibox">
-                            <select name="day" class="form-control">
-                                <option>Ден</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-4 multibox">
-                            <select name="month" class="form-control">
-                                <option>Месец</option>
-                                <option value="01">Януари</option>
-                                <option value="02">Февруари</option>
-                                <option value="03">Март</option>
-                                <option value="04">Април</option>
-                                <option value="05">Май</option>
-                                <option value="06">Юни</option>
-                                <option value="07">Юли</option>
-                                <option value="08">Август</option>
-                                <option value="09">Септември</option>
-                                <option value="10">Октомври</option>
-                                <option value="11">Ноември</option>
-                                <option value="12">Декември</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-4 multibox">
-                            <select name="year" class="form-control">
-                                <option>Година</option>
-                                <option value="1935">1935</option>
-                                <option value="1936">1936</option>
-                                <option value="1937">1937</option>
-                                <option value="1938">1938</option>
-                                <option value="1939">1939</option>
-                                <option value="1940">1940</option>
-                                <option value="1941">1941</option>
-                                <option value="1942">1942</option>
-                                <option value="1943">1943</option>
-                                <option value="1944">1944</option>
-                                <option value="1945">1945</option>
-                                <option value="1946">1946</option>
-                                <option value="1947">1947</option>
-                                <option value="1948">1948</option>
-                                <option value="1949">1949</option>
-                                <option value="1950">1950</option>
-                                <option value="1951">1951</option>
-                                <option value="1952">1952</option>
-                                <option value="1953">1953</option>
-                                <option value="1954">1954</option>
-                                <option value="1955">1955</option>
-                                <option value="1956">1956</option>
-                                <option value="1957">1957</option>
-                                <option value="1958">1958</option>
-                                <option value="1959">1959</option>
-                                <option value="1960">1960</option>
-                                <option value="1961">1961</option>
-                                <option value="1962">1962</option>
-                                <option value="1963">1963</option>
-                                <option value="1964">1964</option>
-                                <option value="1965">1965</option>
-                                <option value="1966">1966</option>
-                                <option value="1967">1967</option>
-                                <option value="1968">1968</option>
-                                <option value="1969">1969</option>
-                                <option value="1970">1970</option>
-                                <option value="1971">1971</option>
-                                <option value="1972">1972</option>
-                                <option value="1973">1973</option>
-                                <option value="1974">1974</option>
-                                <option value="1975">1975</option>
-                                <option value="1976">1976</option>
-                                <option value="1977">1977</option>
-                                <option value="1978">1978</option>
-                                <option value="1979">1979</option>
-                                <option value="1980">1980</option>
-                                <option value="1981">1981</option>
-                                <option value="1982">1982</option>
-                                <option value="1983">1983</option>
-                                <option value="1984">1984</option>
-                                <option value="1985">1985</option>
-                                <option value="1986">1986</option>
-                                <option value="1987">1987</option>
-                                <option value="1988">1988</option>
-                                <option value="1989">1989</option>
-                                <option value="1990">1990</option>
-                                <option value="1991">1991</option>
-                                <option value="1992">1992</option>
-                                <option value="1993">1993</option>
-                                <option value="1994">1994</option>
-                                <option value="1995">1995</option>
-                                <option value="1996">1996</option>
-                                <option value="1997">1997</option>
-                                <option value="1998">1998</option>
-                                <option value="1999">1999</option>
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div id="space-maker"></div>
-                <!-- Security code -->
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">Код за сигурност</label>
-                    <div class="col-md-2 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-lock"></i></span>
-                            <button id="code-generator" name="securityCode" class="form-control" disabled></button>
-                            <button type="button" class="glyphicon glyphicon-refresh btn-danger"
-                                    onClick="refreshSecurityCode()"></button>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2 inputGroupContainer">
-                        <div class="input-group">
-									<span class="input-group-addon"><i
-                                            class="glyphicon glyphicon-hand-right"></i></span>
-                            <input name="userSecutityCode" class="form-control"
-                                   type="text" onkeyUp="isCorrectSecurityCode()">
-                        </div>
-                        <div id="security-code-message" class=""></div>
-                    </div>
-                </div>
-
-                <div id="space-maker"></div>
-
-                <div id="conditions">
-                    <b id="error">*Съгласяването с общите условия е задължително!</b>
-                </div>
-
-                <div id="conditions">
-                    <input type="checkbox" name="agreeConditions" value="1" required>
-                    <b>Съгласен съм с общите условия на сайта</b>
-                </div>
-                <div id="conditions">
-                    <input type="checkbox" value=true name="wantNotifications" checked>
-                    <b>Желая да получавам новини, оферти и рекламни съобщения от Masichka.bg</b>
-                </div>
-
-                <!-- Success message -->
-                <div class="alert alert-success" role="alert" id="success_message">
-                    Успешна регистрация<i class="glyphicon glyphicon-thumbs-up"></i>
-                    Успешна регистрация!
-                </div>
-
-                <!-- Button -->
-                <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4">
-                        <br>
-                        <div style="display:inline-flex;">
-
-                            <button type="submit" class="btn btn-warning">
-                                <span>Регистрирай</span> <span
-                                    class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
+                                ПРОМЯНА НА ПАРОЛА
                             </button>
-                            &nbsp&nbsp&nbsp&nbsp&nbsp
-                            <a href="../index.jsp" class="btn btn-danger">
-                                <span>Начална страница</span> <span
-                                    class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                            </a>
                         </div>
                     </div>
+                </form>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <form id="contactForm" name="sentMessage" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <span class="badge">Нов Email*</span>
+                                <input class="form-control" id="name" type="text" required
+                                       data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Повтори E-mail*</span>
+                                <input class="form-control" id="email" type="email" required
+                                       data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Парола*</span>
+                                <input class="form-control" id="phone" type="tel" required
+                                       data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
+                                ПРОМЯНА НА E-MAIL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="portfolio-caption">
+
                 </div>
-            </fieldset>
-        </form:form>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <form id="contactForm" name="sentMessage" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <span class="badge">Име</span>
+                                <input class="form-control" id="name" type="text" required
+                                       data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Фамилия</span>
+                                <input class="form-control" id="email" type="email" required
+                                       data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <span class="badge">Град</span>
+                                    <select class="form-control" id="sel1">
+                                        <option>София</option>
+                                        <option>Хасково</option>
+                                        <option>Перник</option>
+                                        <option>Малу Бучино</option>
+                                    </select>
+                                </div>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Мобилен номер</span>
+                                <input class="form-control" id="email" type="email" placeholder="(+359) 8xx-xxx-xxx"
+                                       required
+                                       data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                                <script>
+                                    $(function () {
+                                        $("#datepicker").datepicker();
+                                    });
+                                </script>
+                                <input type="text" id="datepicker">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
+                                ПРОМЯНА ЛИЧНИ ДАННИ
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
 
-<!-- /.scripts -->
 
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>  -->
-<script src="static/js/register/Avatar.js?97"></script>
-<script src="static/js/register/ajaxFunctions.js?33"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script> -->
+
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="copyright">Copyright &copy; Your Website 2017</span>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Portfolio Modals -->
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Contact form JavaScript -->
+<script src="/static/js/jqBootstrapValidation.js"></script>
+<script src=/static/js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="/static/js/agency.min.js"></script>
+
 </body>
+
 </html>
