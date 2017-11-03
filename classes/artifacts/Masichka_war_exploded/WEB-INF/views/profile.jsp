@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,12 +23,12 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-
     <!-- Custom fonts for this template -->
     <link href="/static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
@@ -47,17 +47,17 @@
 <!-- Header -->
 <header class="masthead">
 
-<%--
-    <div class="container">
-        <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
-        &lt;%&ndash;<div class="video-background">
-            <div class="video-foreground">
-                <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
-                        frameborder="0" allowfullscreen></iframe>
+    <%--
+        <div class="container">
+            <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
+            &lt;%&ndash;<div class="video-background">
+                <div class="video-foreground">
+                    <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
+                            frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
-        </div>
-&ndash;%&gt;
-    </div>--%>
+    &ndash;%&gt;
+        </div>--%>
 </header>
 <!-- Portfolio Grid -->
 <section class="bg-light" id="myRezervation">
@@ -394,73 +394,73 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item">
-                    <form id="editProfile" name="sentMessage" novalidate>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <span class="badge">Нова парола*</span>
-                                    <input class="form-control" id="name" type="text"  required
-                                           data-validation-required-message="Please enter your name.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <span class="badge">Повтори нова парола*</span>
-                                    <input class="form-control" id="email" type="email"  required
-                                           data-validation-required-message="Please enter your email address.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <span class="badge">Текуща парола*</span>
-                                    <input class="form-control" id="phone" type="tel"  required
-                                           data-validation-required-message="Please enter your phone number.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                <form id="editProfile" name="sentMessage" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <span class="badge">Нова парола*</span>
+                                <input class="form-control" id="name" type="text" required
+                                       data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
-                                    ПРОМЯНА НА ПАРОЛА
-                                </button>
+                            <div class="form-group">
+                                <span class="badge">Повтори нова парола*</span>
+                                <input class="form-control" id="email" type="email" required
+                                       data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Текуща парола*</span>
+                                <input class="form-control" id="phone" type="tel" required
+                                       data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                    </form>
-            </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                        <form id="contactForm" name="sentMessage" novalidate>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <span class="badge">Нов Email*</span>
-                                        <input class="form-control" id="name" type="text"  required
-                                               data-validation-required-message="Please enter your name.">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <span class="badge">Повтори E-mail*</span>
-                                        <input class="form-control" id="email" type="email"  required
-                                               data-validation-required-message="Please enter your email address.">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="form-group">
-                                        <span class="badge">Парола*</span>
-                                        <input class="form-control" id="phone" type="tel"  required
-                                               data-validation-required-message="Please enter your phone number.">
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="col-lg-12 text-center">
-                                    <div id="success"></div>
-                                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
-                                        ПРОМЯНА НА E-MAIL
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    <div class="portfolio-caption">
-
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
+                                ПРОМЯНА НА ПАРОЛА
+                            </button>
+                        </div>
                     </div>
+                </form>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <form id="contactForm" name="sentMessage" novalidate>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <span class="badge">Нов Email*</span>
+                                <input class="form-control" id="name" type="text" required
+                                       data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Повтори E-mail*</span>
+                                <input class="form-control" id="email" type="email" required
+                                       data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <span class="badge">Парола*</span>
+                                <input class="form-control" id="phone" type="tel" required
+                                       data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
+                                ПРОМЯНА НА E-MAIL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="portfolio-caption">
+
+                </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
                 <form id="contactForm" name="sentMessage" novalidate>
@@ -468,13 +468,13 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <span class="badge">Име</span>
-                                <input class="form-control" id="name" type="text"  required
+                                <input class="form-control" id="name" type="text" required
                                        data-validation-required-message="Please enter your name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                 <span class="badge">Фамилия</span>
-                                <input class="form-control" id="email" type="email"  required
+                                <input class="form-control" id="email" type="email" required
                                        data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -492,13 +492,14 @@
                             </div>
                             <div class="form-group">
                                 <span class="badge">Мобилен номер</span>
-                                <input class="form-control" id="email" type="email" placeholder="(+359) 8xx-xxx-xxx"  required
+                                <input class="form-control" id="email" type="email" placeholder="(+359) 8xx-xxx-xxx"
+                                       required
                                        data-validation-required-message="Please enter your email address.">
                                 <p class="help-block text-danger"></p>
                                 <script>
-                                    $( function() {
-                                        $( "#datepicker" ).datepicker();
-                                    } );
+                                    $(function () {
+                                        $("#datepicker").datepicker();
+                                    });
                                 </script>
                                 <input type="text" id="datepicker">
                             </div>
@@ -625,8 +626,6 @@
         </div>
     </div>
 </section>--%>
-
-
 
 
 <!-- Contact -->
@@ -949,8 +948,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <!-- Bootstrap core JavaScript -->
