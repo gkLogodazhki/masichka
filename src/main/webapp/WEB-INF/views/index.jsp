@@ -133,93 +133,216 @@
                 <h3 class="section-subheading text-muted">Разполагате с богат избор!</h3>
             </div>
         </div>
-        <div class="row">
+
+        <div class="bs-docs-example">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Ресторанти</a></li>
+                <li><a href="#profile" data-toggle="tab">Клубове</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <div class="row">
 
 
-            <div align="center" style="width: 1200px;">
-                <button class="btn btn-primary btn-xl text-uppercase" data-filter="hdpe">Популярни</button>
-                <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови</button>
-                <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока отстъпка</button>
-                <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи резервации</button>
-            </div>
+                        <div align="center" style="width: 1200px;">
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="hdpe">Популярни</button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока
+                                отстъпка
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи
+                                резервации
+                            </button>
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
 
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Simple Pricing Tables -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-9155049400353686"
-                     data-ad-slot="6591520258"
-                     data-ad-format="auto"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Simple Pricing Tables -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9155049400353686"
+                                 data-ad-slot="6591520258"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"    class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Simple Pricing Tables -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-9155049400353686"
-                     data-ad-slot="6591520258"
-                     data-ad-format="auto"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Simple Pricing Tables -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9155049400353686"
+                                 data-ad-slot="6591520258"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Simple Pricing Tables -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-9155049400353686"
-                     data-ad-slot="6591520258"
-                     data-ad-format="auto"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Simple Pricing Tables -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9155049400353686"
+                                 data-ad-slot="6591520258"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
 
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile">
+                    <div class="row">
+
+
+                        <div align="center" style="width: 1200px;">
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="hdpe">Популярни</button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока
+                                отстъпка
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи
+                                резервации
+                            </button>
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Simple Pricing Tables -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9155049400353686"
+                                 data-ad-slot="6591520258"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Simple Pricing Tables -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9155049400353686"
+                                 data-ad-slot="6591520258"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Simple Pricing Tables -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9155049400353686"
+                                 data-ad-slot="6591520258"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </section>
 <!-- Services -->
@@ -361,233 +484,6 @@
 
 <!-- Portfolio Modals -->
 
-<!-- Modal 1 -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Threads</li>
-                                <li>Category: Illustration</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 2 -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Explore</li>
-                                <li>Category: Graphic Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 3 -->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Finish</li>
-                                <li>Category: Identity</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 4 -->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Lines</li>
-                                <li>Category: Branding</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 5 -->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Southwest</li>
-                                <li>Category: Website Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 6 -->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Window</li>
-                                <li>Category: Photography</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Bootstrap core JavaScript -->
 <script src="/static/vendor/jquery/jquery.min.js"></script>
@@ -628,5 +524,18 @@
 
     });
 </script></body>
+
+<script type="text/javascript">
+    $('#myTab a').click(function (e) {
+        var tab = $(this);
+        if (tab.parent('li').hasClass('active')) {
+            window.setTimeout(function () {
+                $(".tab-pane").removeClass('active');
+                tab.parent('li').removeClass('active');
+            }, 1);
+        }
+    });
+
+</script>
 
 </html>
