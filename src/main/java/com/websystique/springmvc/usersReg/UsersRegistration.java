@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-@Service
-public class UsersRegistration extends UserInfo {
+
+public class UsersRegistration {
 
     private String firstName;
     private String lastName;
@@ -44,13 +44,6 @@ public class UsersRegistration extends UserInfo {
 
     public String getConfirmPassword() {
         return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) throws RegistrationException {
-        if (confirmPassword == null || !confirmPassword.equals(getPass())) {
-            throw new RegistrationException("�������� �� ��������");
-        }
-        this.confirmPassword = confirmPassword;
     }
 
     public String getPhoneNumber() {

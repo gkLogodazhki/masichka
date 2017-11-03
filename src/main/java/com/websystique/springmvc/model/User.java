@@ -40,33 +40,17 @@ public class User implements Serializable {
     @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}", message = "not a valid")
     private String email;
 
-    @Column(name = "reset_token")
-    private String resetToken;
+//    @Column(name = "reset_token")
+//    private String resetToken;
+
 
     @NotNull
-    @Column(name = "picture", nullable = true, length = 100)
-    private String picture;
-
-    @Basic
-    @Column(name = "birthday", nullable = true)
-    private Date birthday;
-
-
-    @Basic
-    @Column(name = "agree_with_general_terms", nullable = false)
-    private byte agreeWithGeneralTerms;
-
-    @Basic
-    @Column(name = "want_notification", nullable = false)
-    private byte wantNotification;
-
-    @NotNull
-    @ManyToOne // owner side: it doesn't have mappedBy, and can decide how the association is mapped: with a join table
+    @ManyToOne
     @JoinColumn(name = "user_type_id")
     private UserType userType;
 
     @NotNull
-    @ManyToOne // owner side: it doesn't have mappedBy, and can decide how the association is mapped: with a join table
+    @ManyToOne 
     @JoinColumn(name = "city_id")
     private City city;
 
@@ -126,13 +110,13 @@ public class User implements Serializable {
         this.userType = userType;
     }
 
-    public String getResetToken() {
-        return resetToken;
-    }
-
-    public void setResetToken(String resetToken) {
-        this.resetToken = resetToken;
-    }
+//    public String getResetToken() {
+//        return resetToken;
+//    }
+//
+//    public void setResetToken(String resetToken) {
+//        this.resetToken = resetToken;
+//    }
 
     public City getCity() {
         return city;
@@ -142,37 +126,6 @@ public class User implements Serializable {
         this.city = city;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public byte getAgreeWithGeneralTerms() {
-        return agreeWithGeneralTerms;
-    }
-
-    public void setAgreeWithGeneralTerms(byte agreeWithGeneralTerms) {
-        this.agreeWithGeneralTerms = agreeWithGeneralTerms;
-    }
-
-    public byte getWantNotification() {
-        return wantNotification;
-    }
-
-    public void setWantNotification(byte wantNotification) {
-        this.wantNotification = wantNotification;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -201,11 +154,7 @@ public class User implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", resetToken='" + resetToken + '\'' +
-                ", picture='" + picture + '\'' +
-                ", birthday=" + birthday +
-                ", agreeWithGeneralTerms=" + agreeWithGeneralTerms +
-                ", wantNotification=" + wantNotification +
+//                ", resetToken='" + resetToken + '\'' +
                 ", userType=" + userType +
                 ", city=" + city +
                 '}';

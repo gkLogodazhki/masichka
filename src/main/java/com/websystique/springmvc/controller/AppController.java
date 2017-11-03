@@ -89,7 +89,7 @@ public class AppController {
     /**
      * This method will provide the medium to add a new user.
      */
-    @RequestMapping(value = {"/newuser"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String newUser(ModelMap model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -98,20 +98,13 @@ public class AppController {
         return "Register";
     }
 
-    @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
-    public String reg(ModelMap model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "Register";
-    }
+    
 
     /**
      * This method will be called on form submission, handling POST request for
      * saving user in database. It also validates the user input
      */
-    @RequestMapping(value = {"/newuser"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/reg"}, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result,
                            ModelMap model) {
         if (result.hasErrors()) {
@@ -139,7 +132,7 @@ public class AppController {
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "registrationsuccess";
+        return "Register";
     }
 
 
