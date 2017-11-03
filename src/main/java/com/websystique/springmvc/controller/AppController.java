@@ -6,6 +6,8 @@ import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -74,6 +76,8 @@ public class AppController {
     @Autowired
     AuthenticationTrustResolver authenticationTrustResolver;
 
+    @Autowired
+    MailSender mailSender;
 
     /**
      * This method will list all existing users.
@@ -328,5 +332,19 @@ public class AppController {
 	/*
         ADD NEW PLACE END
 	 */
+
+    @RequestMapping(path = "emailTest", method = {RequestMethod.GET})
+    public void emailTest() {
+
+        SimpleMailMessage smm = new SimpleMailMessage();
+
+        smm.setFrom("i.margichev@gmail.com");
+        smm.setTo("i.margichev@gmail.com");
+        smm.setSubject("Test");
+        smm.setText("testtatat");
+
+        mailSender.send(smm);
+
+    }
 
 }

@@ -146,9 +146,14 @@
 
                         <div align="center" style="width: 1200px;">
                             <button class="btn btn-primary btn-xl text-uppercase" data-filter="hdpe">Популярни</button>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови</button>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока отстъпка</button>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи резервации</button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока
+                                отстъпка
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи
+                                резервации
+                            </button>
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
@@ -167,19 +172,23 @@
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"    class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
@@ -196,7 +205,8 @@
                                  data-ad-format="auto"></ins>
                             <script>
                                 (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
@@ -221,7 +231,8 @@
                                  data-ad-format="auto"></ins>
                             <script>
                                 (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
@@ -235,9 +246,14 @@
 
                         <div align="center" style="width: 1200px;">
                             <button class="btn btn-primary btn-xl text-uppercase" data-filter="hdpe">Популярни</button>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови</button>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока отстъпка</button>
-                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи резервации</button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока
+                                отстъпка
+                            </button>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи
+                                резервации
+                            </button>
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
@@ -256,19 +272,23 @@
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"    class="img-responsive">
+                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
+                                 class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
@@ -285,7 +305,8 @@
                                  data-ad-format="auto"></ins>
                             <script>
                                 (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
@@ -310,7 +331,8 @@
                                  data-ad-format="auto"></ins>
                             <script>
                                 (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
+                            </script>
+                            <img src="http://fakeimg.pl/365x365/" class="img-responsive">
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
@@ -374,34 +396,34 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Свържете се с нас</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Тук може да се свържете с нас</h2>
+                <h3 class="section-subheading text-muted">Може да се направи запитване за да бъдете наши партньори</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm" name="sentMessage" novalidate>
+                <form id="contactForm" name="sentMessage" path="emailTest" method="post" novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" required
+                                <input class="form-control" id="name" name="name"  type="text" placeholder="Вашето име" required
                                        data-validation-required-message="Въведете вашето име">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" required
+                                <input class="form-control" id="email" name="recipient" type="email" placeholder="Вашият имейл" required
                                        data-validation-required-message="Въведете вашият мейл">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required
+                                <input class="form-control" id="phone" type="tel" name="phone" placeholder="Вашият телефон" required
                                        data-validation-required-message="Въведете вашият телефон">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea class="form-control" id="message" placeholder="Your Message *" required
+                                <textarea class="form-control" id="message" name="content" placeholder="Вашето съобщеие" required
                                           data-validation-required-message="Въведете съобщение"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -504,10 +526,10 @@
 </script></body>
 
 <script type="text/javascript">
-    $('#myTab a').click(function(e) {
+    $('#myTab a').click(function (e) {
         var tab = $(this);
         if (tab.parent('li').hasClass('active')) {
-            window.setTimeout(function() {
+            window.setTimeout(function () {
                 $(".tab-pane").removeClass('active');
                 tab.parent('li').removeClass('active');
             }, 1);

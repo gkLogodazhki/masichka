@@ -396,34 +396,38 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Свържете се с нас</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="section-heading text-uppercase">Тук може да се свържете с нас</h2>
+                <h3 class="section-subheading text-muted">Може да се направи запитване за да бъдете наши партньори</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm" name="sentMessage" novalidate>
+                <form id="contactForm" name="sentMessage" path="emailTest" method="post" novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" required
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Вашето име"
+                                       required
                                        data-validation-required-message="Въведете вашето име">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" required
+                                <input class="form-control" id="email" name="recipient" type="email"
+                                       placeholder="Вашият имейл" required
                                        data-validation-required-message="Въведете вашият мейл">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required
+                                <input class="form-control" id="phone" type="tel" name="phone"
+                                       placeholder="Вашият телефон" required
                                        data-validation-required-message="Въведете вашият телефон">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea class="form-control" id="message" placeholder="Your Message *" required
+                                <textarea class="form-control" id="message" name="content" placeholder="Вашето съобщеие"
+                                          required
                                           data-validation-required-message="Въведете съобщение"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
