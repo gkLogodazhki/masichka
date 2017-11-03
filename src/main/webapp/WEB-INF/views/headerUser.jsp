@@ -10,12 +10,12 @@
 
     <div class="container">
         <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
-       <%-- <div class="video-background">
+        <div class="video-background">
             <div class="video-foreground">
                 <iframe src="https://www.youtube.com/embed/--AgEMm0ZAw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=2mXKf9azmgY"
                         frameborder="0" allowfullscreen></iframe>
             </div>
-        </div>--%>
+        </div>
 
 
     </div>
