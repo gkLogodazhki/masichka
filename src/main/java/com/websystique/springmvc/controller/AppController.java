@@ -243,6 +243,8 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         return "addPlace";
     }
+    
+    
 
     @ModelAttribute("placesRestaurants")
     public List<Place> initializePlacesRestaurants() {
