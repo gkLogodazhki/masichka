@@ -28,6 +28,65 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+
+    <style type="text/css">
+
+        .gallery-title
+        {
+            font-size: 36px;
+            color: #42B32F;
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 70px;
+        }
+        .gallery-title:after {
+            content: "";
+            position: absolute;
+            width: 7.5%;
+            left: 46.5%;
+            height: 45px;
+            border-bottom: 1px solid #5e5e5e;
+        }
+        .filter-button
+        {
+            font-size: 18px;
+            border: 1px solid #42B32F;
+            border-radius: 5px;
+            text-align: center;
+            color: #42B32F;
+            margin-bottom: 30px;
+
+        }
+        .filter-button:hover
+        {
+            font-size: 18px;
+            border: 1px solid #42B32F;
+            border-radius: 5px;
+            text-align: center;
+            color: #ffffff;
+            background-color: #42B32F;
+
+        }
+        .filter-button.active
+        {
+            background-color: #42B32F;
+            color: white;
+        }
+        .port-image
+        {
+            width: 100%;
+        }
+
+        .gallery_product
+        {
+            margin-bottom: 30px;
+        }
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
 
@@ -75,89 +134,90 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/1288/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>SASA Asian Pub Radisson</h4>
-                    <p class="text-muted">Graphic Design</p>
-                </div>
+
+
+            <div align="center" style="width: 1200px;">
+                <button class="btn btn-primary btn-xl text-uppercase" data-filter="hdpe">Популярни</button>
+                <button class="btn btn-primary btn-xl text-uppercase" data-filter="sprinkle">Най-нови</button>
+                <button class="btn btn-primary btn-xl text-uppercase" data-filter="spray">Най-висока отстъпка</button>
+                <button class="btn btn-primary btn-xl text-uppercase" data-filter="irrigation">Бързи резервации</button>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/3918/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Aтлантик</h4>
-                    <p class="text-muted">Graphic Design</p>
-                </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Simple Pricing Tables -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9155049400353686"
+                     data-ad-slot="6591520258"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/2697/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Raffy Bar & Gelato Park</h4>
-                    <p class="text-muted">Identity</p>
-                </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/117/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Captain Cook Хотел Marinela</h4>
-                    <p class="text-muted">Branding</p>
-                </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/3515/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Account Bar and Dinner</h4>
-                    <p class="text-muted">Website Design</p>
-                </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg" class="img-responsive">
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/3516/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Emotion Kitchen</h4>
-                    <p class="text-muted">Photography</p>
-                </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"    class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Simple Pricing Tables -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9155049400353686"
+                     data-ad-slot="6591520258"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
+                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Simple Pricing Tables -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9155049400353686"
+                     data-ad-slot="6591520258"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script><img src="http://fakeimg.pl/365x365/" class="img-responsive">
+            </div>
+
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
         </div>
     </div>
@@ -541,10 +601,32 @@
 <script src="/static/js/jqBootstrapValidation.js"></script>
 
 <script src=/static/js/contact_me.js"></script>
-\
+
 <!-- Custom scripts for this template -->
 <script src="/static/js/agency.min.js"></script>
 
-</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".text-uppercase").click(function(){
+            var value = $(this).attr('data-filter');
+
+            if(value == "all")
+            {
+                //$('.filter').removeClass('hidden');
+                $('.filter').show('1000');
+            }
+            else
+            {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                $(".filter").not('.'+value).hide('3000');
+                $('.filter').filter('.'+value).show('3000');
+
+            }
+        });
+
+    });
+</script></body>
 
 </html>

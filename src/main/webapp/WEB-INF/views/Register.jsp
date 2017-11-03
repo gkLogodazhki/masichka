@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
@@ -17,11 +18,14 @@
     <!-- Bootstrap core CSS -->
     <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <%--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">--%>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
     <!-- Custom fonts for this template -->
+    <link href="static/assets/register/style.css?23" rel="stylesheet" type="text/css">
     <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -35,6 +39,7 @@
 
 
     <link href="static/assets/css/agency.min.css" rel="stylesheet">
+
 
 </head>
 <div class="authbar">
@@ -317,8 +322,8 @@
             <h2 class="section-heading text-uppercase">Регистрация</h2>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <form id="editProfile" name="sentMessage" novalidate>
+        <form id="editProfile" name="sentMessage" >
+            <div class="col-md-4 col-sm-6 portfolio-item centerDiv">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -326,128 +331,100 @@
                                 <span class="badge">Първо име</span>
                                 <input name="first_name"
                                    placeholder="Име" class="form-control" type="text"
-                                   onkeyUp="checkForIllegalName('firstName')"/>
+                                   onkeyUp="checkForIllegalName('firstName')" required />
                             </div>
                             <div class="form-group">
-                                <span class="badge">Повтори нова парола*</span>
-                                <span class="input-group-addon"><i
-                                        class="glyphicon glyphicon-list"></i></span>
-                                <select
-                                        name="city" class="form-control selectpicker">
-                                    <option value=1>София</option>
-                                    <option value=2>Пловдив</option>
-                                    <option value=3>Варна</option>
-                                    <option value=4>Бургас</option>
-                                    <option value=5>Русе</option>
-                                </select>
+                                <span class = "error">*</span>
+                                <span class="badge">E-Mail</span>
+                                <i class="glyphicon glyphicon-list"></i></span>
+                                <input name="email"
+                                   placeholder="E-Mail" class="form-control" type="text" required/>
                             </div>
                             <div class="form-group">
-                                <span class="badge">Текуща парола*</span>
-                                <span class="input-group-addon"><i
-                                        class="glyphicon glyphicon-user"></i></span>
-                                <input
-                                        name="user_password" placeholder="Парола" class="form-control"
-                                        type="password"/>
+                                <span class = "error">*</span>
+                                <span class="badge">Номер</span>
+                                <input name="contact_no" placeholder="(+359)" class="form-control"
+                                    type="text" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()"/> 
                             </div>
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
-                                ПРОМЯНА НА ПАРОЛА
-                            </button>
+                            <b>В случай че правите резервация, ще ви бъде изпратено съобщение
+                        за потвърждениe на даденият номер</b>
                         </div>
                     </div>
-                </form>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <form id="contactForm" name="sentMessage" novalidate>
-                    <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item centerDiv">
+                    <div class="row ">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <span class="badge">Нов Email*</span>
-                                <input class="form-control" id="name" type="text" required
-                                       data-validation-required-message="Please enter your name.">
+                                <span class = "error">*</span>
+                                <span class="badge">Фамилия</span>
+                                <input name="last_name"
+                                   placeholder="Фамилия" class="form-control" type="text"
+                                   onkeyUp="checkForIllegalName('lastName')" required/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <span class="badge">Повтори E-mail*</span>
-                                <input class="form-control" id="email" type="email" required
-                                       data-validation-required-message="Please enter your email address.">
+                                 <span class = "error">*</span>
+                                <span class="badge">Парола</span>
+                                <input name="user_password" placeholder="Парола" class="form-control" type="password" required/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <span class="badge">Парола*</span>
-                                <input class="form-control" id="phone" type="tel" required
-                                       data-validation-required-message="Please enter your phone number.">
-                                <p class="help-block text-danger"></p>
+                                 <span class = "error">*</span>
+                                <span class="badge">Град</span>
+                                <i class="glyphicon glyphicon-user"></i></span>
+                                 <form:select path="cities" items="${citiesList}" multiple="false" itemValue="id" itemLabel="name"
+                                 class="selectpicker" data-width="auto"/>
                             </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="col-lg-12 text-center">
-                            <div id="success"></div>
-                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
-                                ПРОМЯНА НА E-MAIL
-                            </button>
                         </div>
                     </div>
-                </form>
                 <div class="portfolio-caption">
 
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <form id="contactForm" name="sentMessage" novalidate>
+            <div class="col-md-4 col-sm-6 portfolio-item centerDiv">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <span class="badge">Име</span>
-                                <input class="form-control" id="name" type="text" required
-                                       data-validation-required-message="Please enter your name.">
+                                <span class = "error">*</span>
+                                <span class="badge">Потребителско име(служи за вход)</span>
+                                <input name="ss_od"
+                                   placeholder="потребителско име" class="form-control" type="text"  required/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <span class="badge">Фамилия</span>
-                                <input class="form-control" id="email" type="email" required
-                                       data-validation-required-message="Please enter your email address.">
+                                 <span class = "error">*</span>
+                                <span class="badge">Потвърди парола</span>
+                                <input name="confirm_password" placeholder="Потвърди парола"
+                                    class="form-control" type="password" onkeyUp="checkPassword()" required/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                 <div class="form-group">
-                                    <span class="badge">Град</span>
-                                    <select class="form-control" id="sel1">
-                                        <option>София</option>
-                                        <option>Хасково</option>
-                                        <option>Перник</option>
-                                        <option>Малу Бучино</option>
-                                    </select>
+                                <span class="badge">Код за сигурност</span>
+                                  <input id="code-generator" name="securityCode" class="form-control" disabled />
+                                	<button id="refreshButton" type="button" class="glyphicon glyphicon-refresh btn-danger"
+                                    onClick="refreshSecurityCode()"></button>
                                 </div>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <span class="badge">Мобилен номер</span>
-                                <input class="form-control" id="email" type="email" placeholder="(+359) 8xx-xxx-xxx"
-                                       required
-                                       data-validation-required-message="Please enter your email address.">
+                                <span class="badge">Потвърдете кода</span>
+                                <input name="userSecutityCode" class="form-control"
+                                   type="text" onkeyUp="isCorrectSecurityCode()" required>
                                 <p class="help-block text-danger"></p>
-                                <script>
-                                    $(function () {
-                                        $("#datepicker").datepicker();
-                                    });
-                                </script>
-                                <input type="text" id="datepicker">
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="col-lg-12 text-center">
-                            <div id="success"></div>
-                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
-                                ПРОМЯНА ЛИЧНИ ДАННИ
-                            </button>
-                        </div>
                     </div>
-                </form>
             </div>
+            <div id="submitButtonDiv">
+                           <input type = "submit" value = "Регистрирай" class="btn btn-primary btn-xl text-uppercase" />
+                     </div>
+            </form>
         </div>
     </div>
 </section>
@@ -508,7 +485,6 @@
 
 <!-- Contact form JavaScript -->
 <script src="static/js/jqBootstrapValidation.js"></script>
-<script src=static/js/contact_me.js"></script>
 
 <!-- Custom scripts for this template -->
 <script src="static/js/agency.min.js"></script>

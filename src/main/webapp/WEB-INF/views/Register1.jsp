@@ -140,8 +140,7 @@
                         <div class="input-group">
 									<span class="input-group-addon"><i
                                             class="glyphicon glyphicon-earphone"></i></span>
-                            <input
-                                    name="contact_no" placeholder="(+359)" class="form-control"
+                            <input name="contact_no" placeholder="(+359)" class="form-control"
                                     type="text" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()"/>
                         </div>
                         <strong id="error">*</strong><b>В случай че правите резервация, ще ви бъде изпратено съобщение
