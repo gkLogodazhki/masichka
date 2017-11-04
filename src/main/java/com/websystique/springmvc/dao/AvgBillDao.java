@@ -15,13 +15,7 @@ import java.util.List;
 public class AvgBillDao extends AbstractDao<Integer, AvgBill> implements IIdNameDao<AvgBill> {
 
     @Override
-    public AvgBill findById(Integer id) {
-        AvgBill avgBill = getByKey(id);
-        if (avgBill != null) {
-            Hibernate.initialize(avgBill.getPlaces());
-        }
-        return avgBill;
-    }
+    public AvgBill findById(Integer id) { return getByKey(id);}
 
     @Override
     public AvgBill findByName(String name) {
