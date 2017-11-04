@@ -2,7 +2,6 @@ package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.PayMethod;
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -16,10 +15,6 @@ public class PayMethodDao extends AbstractDao<Integer, PayMethod> implements IId
 
     @Override
     public PayMethod findById(Integer id) {
-        PayMethod payMethod = getByKey(id);
-        if (payMethod != null) {
-            Hibernate.initialize(payMethod.getPayMethods());
-        }
         return getByKey(id);
     }
 
