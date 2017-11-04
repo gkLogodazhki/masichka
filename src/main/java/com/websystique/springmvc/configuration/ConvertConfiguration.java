@@ -43,6 +43,7 @@ public class ConvertConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(userTypeConverter);
+        registry.addConverter(avgBillConverter);
         registry.addConverter(cityConverter);
         registry.addConverter(optionConverter);
         registry.addConverter(payMethodConverter);

@@ -261,160 +261,125 @@
         <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Добави ресторант</h2>
         </div>
-        <div class="row">
+
+        <div class="generic-container">
+
+        </div>
+        <form:form method="POST" modelAttribute="place" class="form-horizontal">
+        <form:input type="hidden" path="id" id="id"/>
+            <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <form:form method="POST" modelAttribute="place" class="form-horizontal">
                 <div class="row">
-
-
-                    <form:input type="hidden" path="id" id="id"/>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <span class="badge">Нова парола*</span>
-                            <form:input type="text" path="logo" id="logo" class="form-control input-sm"/>
-                            <div class="has-error">
-                                <form:errors path="logo" class="help-block text-danger"/>
+                            <label class="badge" for="logo">Лого*</label>
+                            <div>
+                                <form:input type="text" path="logo" id="logo" class="form-control input-sm"/>
+                                <div class="has-error">
+                                    <form:errors path="logo" class="help-inline"/>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Повтори нова парола*</span>
+                            <span class="badge">Име*</span>
                             <form:input type="text" path="name" id="name" class="form-control input-sm"/>
-                            <div class="has-error">
-                                <form:errors path="name" class="help-inline"/>
-                            </div>
+                            <div class="has-error"><form:errors path="name" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Текуща парола*</span>
+                            <span class="badge">Адрес*</span>
                             <form:input type="text" path="address" id="address" class="form-control input-sm"/>
-                            <div class="has-error">
-                                <form:errors path="address" class="help-inline"/>
-                            </div>
+                            <div class="has-error"><form:errors path="address" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Текуща парола*</span>
-                            <form:input type="number" path="mapLng" id="mapLng" class="form-control input-sm"/>
-                            <div class="has-error">
-                                <form:errors path="mapLng" class="help-inline"/>
-                            </div>
+                            <span class="badge">Тип на мястото*</span>
+                            <form:select path="placeType" items="${placeTypes}" multiple="false" itemValue="id" itemLabel="name" class="selectpicker" data-width="auto"/>
+                            <div class="has-error"><form:errors path="placeType" class="help-inline"/></div>
                         </div>
-
                     </div>
                     <div class="clearfix"></div>
                 </div>
 
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <form id="contactForm" name="sentMessage" novalidate>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <span class="badge">Брой места*</span>
-                                <form:input type="number" path="spots" id="spots" class="form-control input-sm"/>
-                                <div class="has-error">
-                                    <form:errors path="spots" class="help-inline"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <span class="badge">Тип на мястото*</span>
-                                <form:select path="placeType" items="${placeTypes}" multiple="false" itemValue="id" itemLabel="name"
-                                             class="selectpicker" data-width="auto"/>
-                                <div class="has-error">
-                                    <form:errors path="placeType" class="help-inline"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <span class="badge">Квартал*</span>
-                                <form:select path="region" items="${regions}" multiple="false" itemValue="id" itemLabel="name"
-                                             class="selectpicker" data-width="auto"/>
-                                <div class="has-error">
-                                    <form:errors path="region" class="help-inline"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <span class="badge">Квартал*</span>
-                                <form:select path="avgBill" items="${avgBills}" multiple="false" itemValue="id" itemLabel="name"
-                                             class="selectpicker" data-width="auto"/>
-                                <div class="has-error">
-                                    <form:errors path="avgBill" class="help-inline"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <span class="badge">Квартал*</span>
-                                <form:select path="options" items="${options}" multiple="true" itemValue="id" itemLabel="name"
-                                             class="selectpicker" data-width="auto"/>
-                                <div class="has-error">
-                                    <form:errors path="options" class="help-inline"/>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <span class="badge">Брой места*</span>
+                            <form:input type="number" path="spots" id="spots" class="form-control input-sm"/>
+                            <div class="has-error"><form:errors path="spots" class="help-inline"/></div>
                         </div>
-                        <div class="clearfix"></div>
-                        <div class="col-lg-12 text-center">
-                            <div id="success"></div>
-                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
-                                ПРОМЯНА НА E-MAIL
-                            </button>
+                        <div class="form-group">
+                            <span class="badge">Map length*</span>
+                            <form:input type="number" path="mapLng" id="mapLng" class="form-control input-sm"/>
+                            <div class="has-error"><form:errors path="mapLng" class="help-inline"/></div>
                         </div>
-                    </div>
-                </form>
-                <div class="portfolio-caption">
+                        <div class="form-group">
+                            <span class="badge">Фамилия</span>
+                            <form:input type="number" path="mapLat" id="mapLat" class="form-control input-sm"/>
+                            <div class="has-error"><form:errors path="mapLat" class="help-inline"/></div>
+                        </div>
+                        <div class="form-group">
+                            <span class="badge">Фамилия</span>
+                            <form:input type="text" path="pathToGallery" id="pathToGallery" class="form-control input-sm"/>
+                            <div class="has-error"><form:errors path="pathToGallery" class="help-inline"/></div>
+                        </div>
 
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
 
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <form id="contactForm" name="sentMessage" novalidate>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <span class="badge">Име</span>
-                                <input class="form-control" id="name" type="text" required
-                                       data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <span class="badge">Фамилия</span>
-                                <input class="form-control" id="email" type="email" required
-                                       data-validation-required-message="Please enter your email address.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group">
-                                    <span class="badge">Град</span>
-                                    <select class="form-control" id="sel1">
-                                        <option>София</option>
-                                        <option>Хасково</option>
-                                        <option>Перник</option>
-                                        <option>Малу Бучино</option>
-                                    </select>
-                                </div>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <span class="badge">Мобилен номер</span>
-                                <input class="form-control" id="email" type="email" placeholder="(+359) 8xx-xxx-xxx"
-                                       required
-                                       data-validation-required-message="Please enter your email address.">
-                                <p class="help-block text-danger"></p>
-                                <script>
-                                    $(function () {
-                                        $("#datepicker").datepicker();
-                                    });
-                                </script>
-                                <input type="text" id="datepicker">
-                            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <span class="badge">Екстри*</span>
+                            <form:select path="setups" items="${setups}" itemValue="id" itemLabel="name"
+                                         class="selectpocker" multiple="true" data-width="auto"/>
+                            <div class="has-error"><form:errors path="setups" class="help-inline"/></div>
                         </div>
-                        <div class="clearfix"></div>
-                        <div class="col-lg-12 text-center">
-                            <div id="success"></div>
-                            <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">
-                                ПРОМЯНА ЛИЧНИ ДАННИ
-                            </button>
+                        <div class="form-group">
+                            <span class="badge">Квартал*</span>
+                            <form:select path="region" items="${regions}" multiple="false" itemValue="id" itemLabel="name"
+                                         class="selectpicker" data-width="auto"/>
+                            <div class="has-error"><form:errors path="region" class="help-inline"/></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span class="badge">Фамилия</span>
+                            <form:select path="payMethods" items="${payMethods}" multiple="true" itemValue="id" itemLabel="name"
+                                         class="selectpicker" data-width="auto"/>
+                            <div class="has-error"><form:errors path="payMethods" class="help-inline"/></div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="badge">Средна сметка*</span>
+                            <form:select path="avgBill" items="${avgBills}" multiple="false" itemValue="id" itemLabel="name"
+                                         class="selectpicker" data-width="auto"/>
+                            <div class="has-error"><form:errors path="avgBill" class="help-inline"/></div>
+                        </div>
+                        <div class="form-group">
+                            <span class="badge">Опции*</span>
+                            <form:select path="options" items="${options}" multiple="true" itemValue="id" itemLabel="name" class="selectpicker" data-width="auto"/>
+                            <div class="has-error"><form:errors path="options" class="help-inline"/></div>
                         </div>
                     </div>
-                </form>
+                    <div class="clearfix"></div>
+                </div>
             </div>
-            </form:form>
         </div>
+        <div class="col-sm-12 text-center">
+            <c:choose>
+                <c:when test="${edit}">
+                    <input type="submit" value="Update place" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
+                </c:when>
+                <c:otherwise>
+                    <input type="submit" value="Add place" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
+                </c:otherwise>
+            </c:choose>
+        </div>
+        </form:form>
     </div>
 </section>
 

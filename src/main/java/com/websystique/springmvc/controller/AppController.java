@@ -90,18 +90,6 @@ public class AppController {
         return "index";
     }
 
-    
-    /**
-     * This method will provide the medium to add a new user.
-     */
-    @RequestMapping(value = "/reg", method = RequestMethod.GET)
-    public String newUser(ModelMap model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "Register";
-    }
 
     @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String reg(ModelMap model) {
@@ -150,14 +138,6 @@ public class AppController {
             return "Register";
         }
 
-		/*
-         * Preferred way to achieve uniqueness of field [sso] should be implementing custom @Unique annotation
-		 * and applying it on field [sso] of Model class [User].
-		 * 
-		 * Below mentioned peace of code [if block] is to demonstrate that you can fill custom errors outside the validation
-		 * framework as well while still using internationalized messages.
-		 * 
-		 */
         if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
             FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
             result.addError(ssoError);
@@ -169,7 +149,6 @@ public class AppController {
 
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
         return "Register";
     }
 
@@ -363,18 +342,18 @@ public class AppController {
         ADD NEW PLACE END
 	 */
 
-    @RequestMapping(path = "emailTest", method = {RequestMethod.GET})
-    public void emailTest() {
-
-        SimpleMailMessage smm = new SimpleMailMessage();
-
-        smm.setFrom("i.margichev@gmail.com");
-        smm.setTo("i.margichev@gmail.com");
-        smm.setSubject("Test");
-        smm.setText("testtatat");
-
-        mailSender.send(smm);
-
-    }
+//    @RequestMapping(path = "emailTest", method = {RequestMethod.GET})
+//    public void emailTest() {
+//
+//        SimpleMailMessage smm = new SimpleMailMessage();
+//
+//        smm.setFrom("i.margichev@gmail.com");
+//        smm.setTo("i.margichev@gmail.com");
+//        smm.setSubject("Test");
+//        smm.setText("testtatat");
+//
+//        mailSender.send(smm);
+//
+//    }
 
 }

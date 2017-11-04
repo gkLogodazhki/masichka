@@ -54,7 +54,7 @@ public class UserType implements Serializable {
     public String toString() {
         return "UserType{" +
                 "id=" + id +
-                ", type='" + name + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
