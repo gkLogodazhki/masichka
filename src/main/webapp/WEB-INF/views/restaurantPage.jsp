@@ -17,7 +17,7 @@
 	integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css"
-	href="static/assets/restaurantPage/style.css?32">
+	href="static/assets/restaurantPage/style.css?111">
 <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -111,14 +111,47 @@
 		</div>
 
 		<div id = "detailInfo">
-			<div></div>
-			<h2>Тук е името</h2>
+			<div id= "logoAndTitleRow">
+				<img id = "smallLogo" src="static/img/restaurantPage/logo.jpg" alt = "logo">
+				<div id = "restNameDiv">
+					<p id = "restaurantName">Име на ресторанта</p>
+					<b>адрес</b>
+				</div>
+				 	
+				</div>
+				<div id = "addToFavouriteDiv">
+					<input id="addToFavourite"  type="button" value = "добави в любими" name = "addToFavourite">
+				</div>
+				
+				<div id = "moreInfo">
+					<span class = "glyphicon glyphicon-cutlery"></span>
+					<b>Кухня: </b> 
+					<span>видове кухня</span>
+				</div>
+				<div class = "moreInfo-space">
+					<span class = "glyphicon glyphicon-home"></span>
+					<b>Район: </b> 
+					<span>да речем Перник</span>
+				</div>
+				<div class = "moreInfo-space">
+					<span class = "glyphicon glyphicon-euro"></span>
+					<b>Средна сметка: </b> 
+					<span>от 50 до 100лв</span>
+				</div>
+				<div >
+					<span style =  "font-size:90%;">(цената е само ориентировъчна)</span>
+				</div>
+				<div id = "welcomeMessage">
+					<h3>Заповядайте при нас</h3>
+				</div>
+				
+			</div>
+			
 		
 		
 		</div>
 
 
-	</div>
 
 </body>
 </html>

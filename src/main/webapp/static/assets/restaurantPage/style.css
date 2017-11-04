@@ -123,8 +123,7 @@ p {
 	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
 }
 #wrapper{
-	margin:0;
-	padding-top:4%;
+	padding-top:4.5%;
 	padding-left:10%;
 	width:100%;
 	height:auto;
@@ -139,7 +138,47 @@ p {
 }
 #detailInfo{
 	margin-left:10px;
+	padding-left:1%;
+	height:auto;
 	float:left;
 	background-color:white;
-	
+}
+#restNameDiv{
+	width:100%;	
+	text-align:center;
+}
+#restaurantName{
+	float:center;
+	font-size:170%;
+	font-family:serif;
+}
+#logoAndTitleRow{
+	height:auto;
+}
+#smallLogo{
+	float:left;
+	width:30%;
+}
+#addToFavouriteDiv{
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+#addToFavourite{
+	margin-top:3%;
+	background-color:#fed136;
+	border:1px solid #fed136;
+	font-family:serif;
+	font-size:120%;
+	border-radius:7px;
+}
+#moreInfo{
+	margin-top:10%;
+}
+.moreInfo-space{
+	margin-top:3%;
+}
+#welcomeMessage{
+	border-bottom:1px solid #b7b795;
+	margin-bottom:15.7%;
 }
