@@ -106,6 +106,32 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         return "Register";
     }
+    
+	@RequestMapping(value = { "/reg" }, method = RequestMethod.POST)
+	public String saveReg(@Valid User user, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			System.out.println(result.getFieldErrorCount());
+			model.addAttribute("loggedinuser", getPrincipal());
+			return "Register";
+		}
+
+		if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
+			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
+					new String[] { user.getSsoId() }, Locale.getDefault()));
+			System.out.println(ssoError.getDefaultMessage());
+			result.addError(ssoError);
+			model.addAttribute("loggedinuser", getPrincipal());
+			return "Register";
+		}
+
+		userService.save(user);
+
+		model.addAttribute("success",
+				"User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
+		model.addAttribute("loggedinuser", getPrincipal());
+		// return "success";
+		return "index";
+    }
 
     /**
      * This method will be called on form submission, handling POST request for

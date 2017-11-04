@@ -330,21 +330,24 @@
                             	<span class = "error">*</span>
                                 <span class="badge">Първо име</span>
                                 <input name="first_name"
-                                   placeholder="Име" class="form-control" type="text"
-                                   onkeyUp="checkForIllegalName('firstName')" required />
+                                   placeholder="Име" class="form-control" type="text" path="firstName"
+                                   onkeyUp="checkForIllegalName('firstName')" tabindex="1" required />
+                           			<div class="has-error">
+				                        <form:errors path="firstName" class="help-inline"/>
+				                    </div>
                             </div>
                             <div class="form-group">
                                 <span class = "error">*</span>
                                 <span class="badge">E-Mail</span>
                                 <i class="glyphicon glyphicon-list"></i></span>
-                                <input name="email"
-                                   placeholder="E-Mail" class="form-control" type="text" required/>
+                                <input name="email" path="email"
+                                   placeholder="E-Mail" class="form-control" type="text" tabindex="4" required/>
                             </div>
                             <div class="form-group">
                                 <span class = "error">*</span>
                                 <span class="badge">Номер</span>
-                                <input name="contact_no" placeholder="(+359)" class="form-control"
-                                    type="text" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()"/> 
+                                <input name="contact_no" placeholder="(+359)" class="form-control" path="phoneNumber"
+                                    type="text" tabindex="7" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()"/> 
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -362,21 +365,21 @@
                                 <span class = "error">*</span>
                                 <span class="badge">Фамилия</span>
                                 <input name="last_name"
-                                   placeholder="Фамилия" class="form-control" type="text"
-                                   onkeyUp="checkForIllegalName('lastName')" required/>
+                                   placeholder="Фамилия" class="form-control" type="text" path="lastName"
+                                   onkeyUp="checkForIllegalName('lastName')" tabindex="2" required/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Парола</span>
-                                <input name="user_password" placeholder="Парола" class="form-control" type="password" required/>
+                                <input name="user_password" placeholder="Парола" class="form-control" type="password" tabindex="5" required path="password"/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Град</span>
                                 <i class="glyphicon glyphicon-user"></i></span>
-                                 <form:select path="cities" items="${citiesList}" multiple="false" itemValue="id" itemLabel="name"
+                                 <form:select path="cities" items="${cities}" multiple="false" itemValue="id" itemLabel="name" tabindex="8"
                                  class="selectpicker" data-width="auto"/>
                             </div>
                         </div>
@@ -391,15 +394,15 @@
                             <div class="form-group">
                                 <span class = "error">*</span>
                                 <span class="badge">Потребителско име(служи за вход)</span>
-                                <input name="ss_od"
-                                   placeholder="потребителско име" class="form-control" type="text"  required/>
+                                <input name="ssoId" path="ssoId"
+                                   placeholder="потребителско име" class="form-control" type="text" tabindex="3" required/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Потвърди парола</span>
                                 <input name="confirm_password" placeholder="Потвърди парола"
-                                    class="form-control" type="password" onkeyUp="checkPassword()" required/>
+                                    class="form-control" type="password" onkeyUp="checkPassword()" tabindex="6" required/>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
@@ -408,12 +411,14 @@
                                   <input id="code-generator" name="securityCode" class="form-control" disabled />
                                 	<button id="refreshButton" type="button" class="glyphicon glyphicon-refresh btn-danger"
                                     onClick="refreshSecurityCode()"></button>
+                                    <b style="font-size:75%;">нов код</b>
                                 </div>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
+                            	<span class = "error">*</span>
                                 <span class="badge">Потвърдете кода</span>
-                                <input name="userSecutityCode" class="form-control"
+                                <input name="userSecutityCode" class="form-control" tabindex="9"
                                    type="text" onkeyUp="isCorrectSecurityCode()" required>
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -422,7 +427,7 @@
                     </div>
             </div>
             <div id="submitButtonDiv">
-                           <input type = "submit" value = "Регистрирай" class="btn btn-primary btn-xl text-uppercase" />
+                           <input type = "submit" value = "Регистрирай" class="btn btn-primary btn-xl text-uppercase" tabindex="10"/>
                      </div>
             </form>
         </div>
