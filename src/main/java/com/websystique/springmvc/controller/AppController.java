@@ -6,6 +6,8 @@ import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -74,6 +76,8 @@ public class AppController {
     @Autowired
     AuthenticationTrustResolver authenticationTrustResolver;
 
+    @Autowired
+    MailSender mailSender;
 
     /**
      * This method will list all existing users.
@@ -86,10 +90,11 @@ public class AppController {
         return "index";
     }
 
+    
     /**
      * This method will provide the medium to add a new user.
      */
-    @RequestMapping(value = {"/newuser"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/reg", method = RequestMethod.GET)
     public String newUser(ModelMap model) {
         User user = new User();
         model.addAttribute("user", user);
@@ -98,6 +103,9 @@ public class AppController {
         return "Register";
     }
 
+<<<<<<< HEAD
+    
+=======
     @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String reg(ModelMap model) {
         User user = new User();
@@ -106,12 +114,39 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         return "Register";
     }
+    
+	@RequestMapping(value = { "/reg" }, method = RequestMethod.POST)
+	public String saveReg(@Valid User user, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			System.out.println(result.getFieldErrorCount());
+			model.addAttribute("loggedinuser", getPrincipal());
+			return "Register";
+		}
+
+		if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
+			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
+					new String[] { user.getSsoId() }, Locale.getDefault()));
+			System.out.println(ssoError.getDefaultMessage());
+			result.addError(ssoError);
+			model.addAttribute("loggedinuser", getPrincipal());
+			return "Register";
+		}
+
+		userService.save(user);
+
+		model.addAttribute("success",
+				"User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
+		model.addAttribute("loggedinuser", getPrincipal());
+		// return "success";
+		return "index";
+    }
+>>>>>>> HEAD@{1}
 
     /**
      * This method will be called on form submission, handling POST request for
      * saving user in database. It also validates the user input
      */
-    @RequestMapping(value = {"/newuser"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/reg", method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result,
                            ModelMap model) {
         if (result.hasErrors()) {
@@ -139,9 +174,12 @@ public class AppController {
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "registrationsuccess";
+        return "Register";
     }
 
+    
+    
+    
 
     /**
      * This method will provide the medium to update an existing user.
@@ -243,6 +281,8 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         return "addPlace";
     }
+    
+    
 
     @ModelAttribute("placesRestaurants")
     public List<Place> initializePlacesRestaurants() {
@@ -326,5 +366,19 @@ public class AppController {
 	/*
         ADD NEW PLACE END
 	 */
+
+    @RequestMapping(path = "emailTest", method = {RequestMethod.GET})
+    public void emailTest() {
+
+        SimpleMailMessage smm = new SimpleMailMessage();
+
+        smm.setFrom("i.margichev@gmail.com");
+        smm.setTo("i.margichev@gmail.com");
+        smm.setSubject("Test");
+        smm.setText("testtatat");
+
+        mailSender.send(smm);
+
+    }
 
 }

@@ -23,7 +23,7 @@ public class User implements Serializable {
     private String ssoId;
 
     @Column(name = "password", nullable = false)
-    @Size(min = 3, max = 100, message = "size must be between 3 and 100")
+    @Size(min = 6, max = 100, message = "size must be between 6 and 100")
     private String password;
 
     @NotNull
@@ -40,13 +40,30 @@ public class User implements Serializable {
     @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}", message = "not a valid")
     private String email;
 
+<<<<<<< HEAD
+//    @Column(name = "reset_token")
+//    private String resetToken;
+
+
     @NotNull
-    @ManyToOne // owner side: it doesn't have mappedBy, and can decide how the association is mapped: with a join table
+    @ManyToOne
+=======
+    @Column(name = "reset_token")
+    private String resetToken;
+
+    @NotNull
+    @Column(name = "phone_number", nullable = false, length = 10)
+    private String phoneNumber;
+    
+    
+    @NotNull
+    @ManyToOne 
+>>>>>>> HEAD@{1}
     @JoinColumn(name = "user_type_id")
     private UserType userType;
 
     @NotNull
-    @ManyToOne // owner side: it doesn't have mappedBy, and can decide how the association is mapped: with a join table
+    @ManyToOne 
     @JoinColumn(name = "city_id")
     private City city;
 
@@ -106,6 +123,14 @@ public class User implements Serializable {
         this.userType = userType;
     }
 
+//    public String getResetToken() {
+//        return resetToken;
+//    }
+//
+//    public void setResetToken(String resetToken) {
+//        this.resetToken = resetToken;
+//    }
+
     public City getCity() {
         return city;
     }
@@ -113,6 +138,7 @@ public class User implements Serializable {
     public void setCity(City city) {
         this.city = city;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -132,6 +158,7 @@ public class User implements Serializable {
         return result;
     }
 
+<<<<<<< HEAD
     @Override
     public String toString() {
         return "User{" +
@@ -141,8 +168,28 @@ public class User implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+//                ", resetToken='" + resetToken + '\'' +
                 ", userType=" + userType +
                 ", city=" + city +
                 '}';
     }
+=======
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		String configuredNumer = "0" + phoneNumber.substring(6);
+		this.phoneNumber = configuredNumer;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", resetToken=" + resetToken + ", phoneNumber="
+				+ phoneNumber + ", userType=" + userType + ", city=" + city + "]";
+	}
+	
+	
+>>>>>>> HEAD@{1}
 }

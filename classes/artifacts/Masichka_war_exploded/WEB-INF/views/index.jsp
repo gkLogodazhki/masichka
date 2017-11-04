@@ -406,28 +406,24 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Вашето име"
-                                       required
+                                <input class="form-control" id="name" name="name"  type="text" placeholder="Вашето име" required
                                        data-validation-required-message="Въведете вашето име">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="email" name="recipient" type="email"
-                                       placeholder="Вашият имейл" required
+                                <input class="form-control" id="email" name="recipient" type="email" placeholder="Вашият имейл" required
                                        data-validation-required-message="Въведете вашият мейл">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="phone" type="tel" name="phone"
-                                       placeholder="Вашият телефон" required
+                                <input class="form-control" id="phone" type="tel" name="phone" placeholder="Вашият телефон" required
                                        data-validation-required-message="Въведете вашият телефон">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea class="form-control" id="message" name="content" placeholder="Вашето съобщеие"
-                                          required
+                                <textarea class="form-control" id="message" name="content" placeholder="Вашето съобщеие" required
                                           data-validation-required-message="Въведете съобщение"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
