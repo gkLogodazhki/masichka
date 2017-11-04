@@ -103,9 +103,6 @@ public class AppController {
         return "Register";
     }
 
-<<<<<<< HEAD
-    
-=======
     @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String reg(ModelMap model) {
         User user = new User();
@@ -140,7 +137,6 @@ public class AppController {
 		// return "success";
 		return "index";
     }
->>>>>>> HEAD@{1}
 
     /**
      * This method will be called on form submission, handling POST request for

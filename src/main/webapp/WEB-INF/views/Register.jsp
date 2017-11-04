@@ -73,7 +73,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-<<<<<<< HEAD
                                 <span class="badge">Нова парола*</span>
                                 <input name="last_name"
                                        placeholder="Фамилия" class="form-control" type="text"
@@ -121,7 +120,6 @@
                                 <span class="badge">Номер</span>
                                 <input name="contact_no" placeholder="(+359)" class="form-control" path="phoneNumber"
                                     type="text" tabindex="7" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()"/> 
->>>>>>> HEAD@{1}
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -139,7 +137,6 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-<<<<<<< HEAD
                                 <span class="badge">Нов Email*</span>
                                 <input class="form-control" id="name" type="text" required
                                        data-validation-required-message="Please enter your name.">
@@ -156,7 +153,6 @@
                                 <input class="form-control" id="phone" type="tel" required
                                        data-validation-required-message="Please enter your phone number.">
                                 <p class="help-block text-danger"></p>
-=======
                                 <span class = "error">*</span>
                                 <span class="badge">Фамилия</span>
                                 <input name="last_name"
@@ -176,7 +172,6 @@
                                 <i class="glyphicon glyphicon-user"></i></span>
                                  <form:select path="cities" items="${cities}" multiple="false" itemValue="id" itemLabel="name" tabindex="8"
                                  class="selectpicker" data-width="auto"/>
->>>>>>> HEAD@{1}
                             </div>
                         </div>
                         <div class="clearfix"></div>
