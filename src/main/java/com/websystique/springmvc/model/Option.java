@@ -16,14 +16,6 @@ public class Option implements Serializable {
     @Column(name = "name", nullable = false, unique = true, length = 45)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "place_type_id", referencedColumnName = "id", nullable = false)
-    private PlaceType placeType;
-
-    @OneToMany(mappedBy = "option")
-    private List<PlacesHasOption> options;
-
-
     public Integer getId() {
         return id;
     }
@@ -59,30 +51,11 @@ public class Option implements Serializable {
         return result;
     }
 
-
-    public PlaceType getPlaceType() {
-        return placeType;
-    }
-
-    public void setPlaceType(PlaceType placeType) {
-        this.placeType = placeType;
-    }
-
-    public List<PlacesHasOption> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<PlacesHasOption> options) {
-        this.options = options;
-    }
-
     @Override
     public String toString() {
         return "Option{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", placeType=" + placeType +
-                ", options=" + options +
                 '}';
     }
 }
