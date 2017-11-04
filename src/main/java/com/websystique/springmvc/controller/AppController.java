@@ -89,6 +89,7 @@ public class AppController {
 
     @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String reg(ModelMap model) {
+    	System.err.println("Again back");
         User user = new User();
         model.addAttribute("user", user);
         model.addAttribute("edit", false);
@@ -104,9 +105,8 @@ public class AppController {
     @RequestMapping(value = {"/makeRegister"}, method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("users") User user, BindingResult result,
                            ModelMap model) {
-    	if (result.hasErrors()) {
-    		model.addAttribute("errors",result);
-            model.addAttribute("user",user);
+    	System.err.println("Finally got here");
+        if (result.hasErrors()) {
             model.addAttribute("loggedinuser", getPrincipal());
             return "Register";
         }
@@ -114,8 +114,6 @@ public class AppController {
         if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
             FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
             result.addError(ssoError);
-            model.addAttribute("errors",result);
-            model.addAttribute("user",user);
             model.addAttribute("loggedinuser", getPrincipal());
             return "Register";
         }
@@ -124,6 +122,7 @@ public class AppController {
 
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
+        //return "success";
         return "redirect:/reg";
     }
 
@@ -184,7 +183,12 @@ public class AppController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-        return "index";
+        if (isCurrentAuthenticationAnonymous()) {
+            return "index";
+        } else {
+            return "index";
+        }
+
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -313,11 +317,13 @@ public class AppController {
 	/*
         ADD NEW PLACE END
 	 */
-    
-    //View single restaurant page
-    @RequestMapping(value = "/viewPage", method = RequestMethod.GET)
-    public String goToRestaurant() {
-    	return "restaurantPage";
+
+    /**
+     * This method returns true if users is already authenticated [logged-in], else false.
+     */
+    private boolean isCurrentAuthenticationAnonymous() {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authenticationTrustResolver.isAnonymous(authentication);
     }
-    
+
 }

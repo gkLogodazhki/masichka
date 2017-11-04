@@ -19,16 +19,6 @@
     <!-- Bootstrap core CSS -->
     <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<<<<<<< HEAD
-    <!-- Custom fonts for this template -->
-    <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
-          type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-=======
     <%--<!-- Custom fonts for this template -->--%>
     <%--<link href="/static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">--%>
     <%--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">--%>
@@ -37,19 +27,18 @@
     <%--type='text/css'>--%>
     <%--<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>--%>
     <%--<script src="https://apis.google.com/js/platform.js" async defer></script>--%>
->>>>>>> 94f5c26e117f1ba4ee8e60869564d872bcb34032
 
 
     <style type="text/css">
 
-        .gallery-title
-        {
+        .gallery-title {
             font-size: 36px;
             color: #42B32F;
             text-align: center;
             font-weight: 500;
             margin-bottom: 70px;
         }
+
         .gallery-title:after {
             content: "";
             position: absolute;
@@ -58,8 +47,8 @@
             height: 45px;
             border-bottom: 1px solid #5e5e5e;
         }
-        .filter-button
-        {
+
+        .filter-button {
             font-size: 18px;
             border: 1px solid #42B32F;
             border-radius: 5px;
@@ -68,8 +57,8 @@
             margin-bottom: 30px;
 
         }
-        .filter-button:hover
-        {
+
+        .filter-button:hover {
             font-size: 18px;
             border: 1px solid #42B32F;
             border-radius: 5px;
@@ -78,18 +67,17 @@
             background-color: #42B32F;
 
         }
-        .filter-button.active
-        {
+
+        .filter-button.active {
             background-color: #42B32F;
             color: white;
         }
-        .port-image
-        {
+
+        .port-image {
             width: 100%;
         }
 
-        .gallery_product
-        {
+        .gallery_product {
             margin-bottom: 30px;
         }
 
@@ -102,7 +90,7 @@
     <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
 
 
-    <link href="static/assets/css/agency.min.css" rel="stylesheet">
+    <link href="/static/assets/css/agency.min.css" rel="stylesheet">
 
 </head>
 
@@ -517,28 +505,27 @@
 <script src="/static/js/agency.min.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        $(".text-uppercase").click(function(){
+        $(".text-uppercase").click(function () {
             var value = $(this).attr('data-filter');
 
-            if(value == "all")
-            {
+            if (value == "all") {
                 //$('.filter').removeClass('hidden');
                 $('.filter').show('1000');
             }
-            else
-            {
+            else {
 //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
 //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-                $(".filter").not('.'+value).hide('3000');
-                $('.filter').filter('.'+value).show('3000');
+                $(".filter").not('.' + value).hide('3000');
+                $('.filter').filter('.' + value).show('3000');
 
             }
         });
 
     });
-</script></body>
+</script>
+</body>
 
 <script type="text/javascript">
     $('#myTab a').click(function (e) {

@@ -43,11 +43,13 @@ public class User implements Serializable {
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
-    
     @NotNull
     @ManyToOne 
     @JoinColumn(name = "user_type_id")
-    private UserType userType = new UserType(2 , "USER");
+    private UserType userType;
+
+    @Column(name = "reset_token")
+    private String resetToken;
 
     @NotNull
     @ManyToOne 
@@ -129,7 +131,10 @@ public class User implements Serializable {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-    
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -158,6 +163,7 @@ public class User implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", resetToken='" + resetToken + '\'' +
                 ", userType=" + userType +
                 ", city=" + city +
                 '}';

@@ -7,12 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="masichka" />
-        <module name="SpringMVCHibernateManyToManyCRUDExample" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="masichka" target="1.8" />
-      <module name="SpringMVCHibernateManyToManyCRUDExample" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

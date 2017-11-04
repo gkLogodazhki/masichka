@@ -20,30 +20,30 @@ import java.util.List;
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
 
-    static final Logger logger = LoggerFactory.getLogger(CustomUserDetailsService.class);
+	static final Logger logger = LoggerFactory.getLogger(CustomUserDetailsService.class);
 
-    @Autowired
-    private IUserDao userDao;
+	@Autowired
+	private IUserDao userDao;
 
-    @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String ssoId)
-            throws UsernameNotFoundException {
-        User user = userDao.findBySSO(ssoId);
-        logger.info("User : {}", user);
-        if (user == null) {
-            logger.info("User not found");
-            throw new UsernameNotFoundException("Username not found");
-        }
-        return new org.springframework.security.core.userdetails.User(user.getSsoId(), user.getPassword(),
-                true, true, true, true, getGrantedAuthorities(user));
-    }
+	@Transactional(readOnly = true)
+	public UserDetails loadUserByUsername(String ssoId)
+			throws UsernameNotFoundException {
+		User user = userDao.findBySSO(ssoId);
+		logger.info("User : {}", user);
+		if (user == null) {
+			logger.info("User not found");
+			throw new UsernameNotFoundException("Username not found");
+		}
+		return new org.springframework.security.core.userdetails.User(user.getSsoId(), user.getPassword(),
+				true, true, true, true, getGrantedAuthorities(user));
+	}
 
-    private List<GrantedAuthority> getGrantedAuthorities(User user) {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        logger.info("UserType : {}", user.getUserType());
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getUserType().getName()));
-        logger.info("authorities : {}", authorities);
-        return authorities;
-    }
-
+	private List<GrantedAuthority> getGrantedAuthorities(User user) {
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		logger.info("UserType : {}", user.getUserType());
+		authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getUserType().getName()));
+		logger.info("authorities : {}", authorities);
+		return authorities;
+	}
+	
 }

@@ -9,7 +9,6 @@ import java.util.Date;
 public class PersistentLogin implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "series", nullable = false, length = 64)
     private String series;
 
