@@ -287,15 +287,13 @@
                                 class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Изход</a>
                     </li>
                 </ul>
-                </li>
             </div>
         </sec:authorize>
 
     </div>
 </nav>
-</div>
 
-<body id="page-top">
+<body id="page-top" onload="refreshSecurityCode()">
 <style>.text-muted {
     color: #fff !important;
 }</style>
@@ -490,6 +488,8 @@
 
 <!-- Custom scripts for this template -->
 <script src="static/js/agency.min.js"></script>
+<script src = "static/js/register/ajaxFunctions.js"></script>
+
 
 </body>
 
