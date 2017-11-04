@@ -15,13 +15,7 @@ import java.util.List;
 public class PayMethodDao extends AbstractDao<Integer, PayMethod> implements IIdNameDao<PayMethod> {
 
     @Override
-    public PayMethod findById(Integer id) {
-        PayMethod payMethod = getByKey(id);
-        if (payMethod != null) {
-            Hibernate.initialize(payMethod.getPayMethods());
-        }
-        return getByKey(id);
-    }
+    public PayMethod findById(Integer id) { return getByKey(id); }
 
     @Override
     public PayMethod findByName(String name) {
