@@ -2,15 +2,13 @@ package com.websystique.springmvc.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "place_types", schema = "masichka", catalog = "")
 public class PlaceType implements Serializable {
+
     private Integer id;
     private String name;
-    private List<PlacesHasOption> options;
-    private List<Place> places;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -50,31 +48,11 @@ public class PlaceType implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "option")
-    public List<PlacesHasOption> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<PlacesHasOption> options) {
-        this.options = options;
-    }
-
-    @OneToMany(mappedBy = "placeType")
-    public List<Place> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(List<Place> places) {
-        this.places = places;
-    }
-
     @Override
     public String toString() {
         return "PlaceType{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", options=" + options +
-                ", places=" + places +
                 '}';
     }
 }
