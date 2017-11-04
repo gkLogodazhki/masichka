@@ -2,7 +2,6 @@ package com.websystique.springmvc.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "avg_bills", schema = "masichka", catalog = "")
@@ -16,9 +15,6 @@ public class AvgBill implements Serializable {
     @Basic
     @Column(name = "name", nullable = false, unique = true, length = 45)
     private String name;
-
-    @OneToMany(mappedBy = "avgBill")
-    private List<Place> places;
 
     public Integer getId() {
         return id;
@@ -34,14 +30,6 @@ public class AvgBill implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Place> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(List<Place> places) {
-        this.places = places;
     }
 
     @Override
@@ -67,7 +55,6 @@ public class AvgBill implements Serializable {
         return "AvgBill{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", places=" + places +
                 '}';
     }
 }

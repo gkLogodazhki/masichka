@@ -2,7 +2,6 @@ package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.AvgBill;
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -16,11 +15,7 @@ public class AvgBillDao extends AbstractDao<Integer, AvgBill> implements IIdName
 
     @Override
     public AvgBill findById(Integer id) {
-        AvgBill avgBill = getByKey(id);
-        if (avgBill != null) {
-            Hibernate.initialize(avgBill.getPlaces());
-        }
-        return avgBill;
+        return getByKey(id);
     }
 
     @Override

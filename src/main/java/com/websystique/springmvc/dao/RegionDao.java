@@ -2,7 +2,6 @@ package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.Region;
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -16,13 +15,9 @@ public class RegionDao extends AbstractDao<Integer, Region> implements IIdNameDa
 
     @Override
     public Region findById(Integer id) {
-        Region region = getByKey(id);
-        if (region != null) {
-            Hibernate.initialize(region.getPlaces());
-            Hibernate.initialize(region.getCity());
-        }
         return getByKey(id);
     }
+
 
     @Override
     public Region findByName(String name) {

@@ -28,6 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     PersistentTokenRepository tokenRepository;
 
+<<<<<<< HEAD
 //    @Autowired
 //    private ConnectionFactoryLocator connectionFactoryLocator;
 //
@@ -37,6 +38,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //    @Autowired
 //    private FacebookConnectionSignup facebookConnectionSignup;
 
+=======
+  /*  @Autowired
+    private ConnectionFactoryLocator connectionFactoryLocator;
+
+    @Autowired
+    private UsersConnectionRepository usersConnectionRepository;
+
+    @Autowired
+    private FacebookConnectionSignup facebookConnectionSignup;
+*/
+>>>>>>> 54f6550c7b4d91a42ae52c205eb14b5a4fce49e3
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
@@ -86,6 +98,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new AuthenticationTrustResolverImpl();
     }
 
+<<<<<<< HEAD
 //    /*Facebook*/
 //    @Bean
 //    public ProviderSignInController providerSignInController() {
@@ -97,4 +110,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                usersConnectionRepository,
 //                new FacebookSignInAdapter());
 //    }
+=======
+   /* *//*Facebook*//*
+    @Bean
+    public ProviderSignInController providerSignInController() {
+        ((InMemoryUsersConnectionRepository) usersConnectionRepository)
+                .setConnectionSignUp(facebookConnectionSignup);
+
+        return new ProviderSignInController(
+                connectionFactoryLocator,
+                usersConnectionRepository,
+                new FacebookSignInAdapter());
+    }*/
+>>>>>>> 54f6550c7b4d91a42ae52c205eb14b5a4fce49e3
 }

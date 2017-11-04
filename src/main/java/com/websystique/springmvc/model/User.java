@@ -1,13 +1,10 @@
 package com.websystique.springmvc.model;
 
-import org.hibernate.validator.constraints.Email;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Entity
 @Table(name = "users")
@@ -19,11 +16,11 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "sso_id", unique = true, nullable = false)
-    @Size(min = 3, max = 30, message = "Размера трябва да бъде между 3 и 100 символа")
+    @Size(min = 3, max = 30, message = "??????? ?????? ?? ???? ????? 3 ? 100 ???????")
     private String ssoId;
 
     @Column(name = "password", nullable = false)
-    @Size(min = 3, max = 100, message = "Размера трябва да бъде между 6 и 100 символа")
+    @Size(min = 3, max = 100, message = "??????? ?????? ?? ???? ????? 6 ? 100 ???????")
     private String password;
 
     @NotNull
@@ -36,11 +33,11 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "email", nullable = false)
-    @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}", message = "Невалиден имейл")
+    @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}")
     private String email;
 
     @NotNull
-    @Size(min=10, max = 10 , message = "Моля введете валиден номер (+359)*********")
+    @Size(min = 10, max = 10)
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
@@ -54,8 +51,6 @@ public class User implements Serializable {
     @ManyToOne 
     @JoinColumn(name = "city_id")
     private City city;
-    
-    
 
     public Integer getId() {
         return id;

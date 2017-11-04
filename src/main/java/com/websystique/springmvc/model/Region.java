@@ -2,7 +2,6 @@ package com.websystique.springmvc.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "regions", schema = "masichka", catalog = "")
@@ -15,9 +14,6 @@ public class Region implements Serializable {
     @Basic
     @Column(name = "name", nullable = false, length = 45)
     private String name;
-
-    @OneToMany(mappedBy = "region")
-    private List<Place> places;
 
     @ManyToOne
     @JoinColumn(name = "city_id", referencedColumnName = "id", nullable = false)
@@ -60,15 +56,6 @@ public class Region implements Serializable {
         return result;
     }
 
-    public List<Place> getPlaces() {
-        return places;
-    }
-
-    public void setPlaces(List<Place> places) {
-        this.places = places;
-    }
-
-
     public City getCity() {
         return city;
     }
@@ -82,7 +69,6 @@ public class Region implements Serializable {
         return "Region{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", places=" + places +
                 ", city=" + city +
                 '}';
     }
