@@ -16,9 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
-import org.springframework.social.connect.ConnectionFactoryLocator;
-import org.springframework.social.connect.UsersConnectionRepository;
-import org.springframework.social.connect.mem.InMemoryUsersConnectionRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -31,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     PersistentTokenRepository tokenRepository;
 
-    @Autowired
+  /*  @Autowired
     private ConnectionFactoryLocator connectionFactoryLocator;
 
     @Autowired
@@ -39,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private FacebookConnectionSignup facebookConnectionSignup;
-
+*/
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
@@ -89,7 +86,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new AuthenticationTrustResolverImpl();
     }
 
-    /*Facebook*/
+   /* *//*Facebook*//*
     @Bean
     public ProviderSignInController providerSignInController() {
         ((InMemoryUsersConnectionRepository) usersConnectionRepository)
@@ -99,5 +96,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 connectionFactoryLocator,
                 usersConnectionRepository,
                 new FacebookSignInAdapter());
-    }
+    }*/
 }
