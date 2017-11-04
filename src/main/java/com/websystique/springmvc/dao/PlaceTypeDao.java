@@ -2,7 +2,6 @@ package com.websystique.springmvc.dao;
 
 
 import com.websystique.springmvc.model.PlaceType;
-import com.websystique.springmvc.model.Region;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
