@@ -15,14 +15,7 @@ import java.util.List;
 public class OptionDao extends AbstractDao<Integer, Option> implements IIdNameDao<Option> {
 
     @Override
-    public Option findById(Integer id) {
-        Option option = getByKey(id);
-        if (option != null) {
-            Hibernate.initialize(option.getPlaceType());
-            Hibernate.initialize(option.getOptions());
-        }
-        return option;
-    }
+    public Option findById(Integer id) { return getByKey(id);}
 
     @Override
     public Option findByName(String name) {
