@@ -28,6 +28,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     PersistentTokenRepository tokenRepository;
 
+//    @Autowired
+//    private ConnectionFactoryLocator connectionFactoryLocator;
+//
+//    @Autowired
+//    private UsersConnectionRepository usersConnectionRepository;
+//
+//    @Autowired
+//    private FacebookConnectionSignup facebookConnectionSignup;
+
   /*  @Autowired
     private ConnectionFactoryLocator connectionFactoryLocator;
 
@@ -86,6 +95,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new AuthenticationTrustResolverImpl();
     }
 
+//    /*Facebook*/
+//    @Bean
+//    public ProviderSignInController providerSignInController() {
+//        ((InMemoryUsersConnectionRepository) usersConnectionRepository)
+//                .setConnectionSignUp(facebookConnectionSignup);
+//
+//        return new ProviderSignInController(
+//                connectionFactoryLocator,
+//                usersConnectionRepository,
+//                new FacebookSignInAdapter());
+//    }
    /* *//*Facebook*//*
     @Bean
     public ProviderSignInController providerSignInController() {
