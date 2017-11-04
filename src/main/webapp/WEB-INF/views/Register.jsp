@@ -347,7 +347,7 @@
                                 <span class = "error">*</span>
                                 <span class="badge">Номер</span>
                                 <form:input  name="contact_no" placeholder="08********" class="form-control"  path = "phoneNumber" tabindex="7"
-                                    type="text" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()" required="required"/> 
+                                    type="text"  required="required"/> 
                            		<div class="has-error">
 			                        <form:errors path="phoneNumber" class="help-inline"/>
 			                    </div>
@@ -369,7 +369,7 @@
                                 <span class="badge">Фамилия</span>
                                 <form:input name="last_name"
                                    placeholder="Фамилия" class="form-control" type="text" path = "lastName" tabindex="2"
-                                   onkeyUp="checkForIllegalName('lastName')" required="required"/>
+                                    required="required"/>
                                		<div class="has-error">
 				                        <form:errors path="lastName" class="help-inline"/>
 				                    </div>
@@ -408,8 +408,8 @@
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Потвърди парола</span>
-                                <input name="confirm_password" placeholder="Потвърди парола"
-                                    class="form-control" type="password" onkeyUp="checkPassword()" required="required" tabindex="6"/>
+                                <input name="confirm_password" placeholder="Потвърди парола" onClick="message()"
+                                    class="form-control" type="password"  required="required" tabindex="6"/>
                                	<div class="has-error">
 			                        <form:errors path="ssoId" class="help-inline"/>
 			                    </div>
@@ -493,7 +493,6 @@
 
 <!-- Custom scripts for this template -->
 <script src="static/js/agency.min.js"></script>
-<script src = "static/js/register/ajaxFunctions.js?23"></script>
 
 
 </body>
