@@ -1,6 +1,5 @@
 package com.websystique.springmvc.dao;
 
-import com.websystique.springmvc.model.Option;
 import com.websystique.springmvc.model.Region;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
@@ -16,8 +15,14 @@ import java.util.List;
 public class RegionDao extends AbstractDao<Integer, Region> implements IIdNameDao<Region> {
 
     @Override
-    public Region findById(Integer id) { return getByKey(id);}
-
+    public Region findById(Integer id) {
+        Region region = getByKey(id);
+        if (region != null) {
+            Hibernate.initialize(region.getPlaces());
+            Hibernate.initialize(region.getCity());
+        }
+        return getByKey(id);
+    }
 
     @Override
     public Region findByName(String name) {

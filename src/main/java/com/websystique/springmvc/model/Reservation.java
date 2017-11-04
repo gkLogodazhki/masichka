@@ -25,11 +25,11 @@ public class Reservation implements Serializable {
 
     @Basic
     @Column(name = "spots", nullable = false, precision = 0)
-    private Byte spots;
+    private BigInteger spots;
 
     @Basic
     @Column(name = "discount", nullable = true, precision = 2)
-    private Byte discount;
+    private BigDecimal discount;
 
     @Id
     @ManyToOne
@@ -42,11 +42,11 @@ public class Reservation implements Serializable {
     private Place place;
 
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -68,21 +68,43 @@ public class Reservation implements Serializable {
     }
 
 
-    public Byte getSpots() {
+    public BigInteger getSpots() {
         return spots;
     }
 
-    public void setSpots(Byte spots) {
+    public void setSpots(BigInteger spots) {
         this.spots = spots;
     }
 
 
-    public Byte getDiscount() {
+    public BigDecimal getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Byte discount) {
+    public void setDiscount(BigDecimal discount) {
         this.discount = discount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Reservation that = (Reservation) o;
+
+        if (id != that.id) return false;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (spots != null ? !spots.equals(that.spots) : that.spots != null) return false;
+        return discount != null ? discount.equals(that.discount) : that.discount == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (spots != null ? spots.hashCode() : 0);
+        result = 31 * result + (discount != null ? discount.hashCode() : 0);
+        return result;
     }
 
     public User getUser() {
@@ -99,26 +121,6 @@ public class Reservation implements Serializable {
 
     public void setPlace(Place place) {
         this.place = place;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Reservation that = (Reservation) o;
-
-        if (!getId().equals(that.getId())) return false;
-        if (!getUser().equals(that.getUser())) return false;
-        return getPlace().equals(that.getPlace());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getId().hashCode();
-        result = 31 * result + getUser().hashCode();
-        result = 31 * result + getPlace().hashCode();
-        return result;
     }
 
     @Override

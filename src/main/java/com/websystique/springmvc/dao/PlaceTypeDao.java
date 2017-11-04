@@ -1,8 +1,8 @@
 package com.websystique.springmvc.dao;
 
-
 import com.websystique.springmvc.model.PlaceType;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -15,8 +15,14 @@ import java.util.List;
 public class PlaceTypeDao extends AbstractDao<Integer, PlaceType> implements IIdNameDao<PlaceType> {
 
     @Override
-    public PlaceType findById(Integer id) { return getByKey(id);}
-
+    public PlaceType findById(Integer id) {
+        PlaceType placeType = new PlaceType();
+        if (placeType != null) {
+            Hibernate.initialize(placeType.getPlaces());
+            Hibernate.initialize(placeType.getOptions());
+        }
+        return placeType;
+    }
 
     @Override
     public PlaceType findByName(String name) {

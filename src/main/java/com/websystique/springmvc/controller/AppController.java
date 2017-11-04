@@ -6,8 +6,6 @@ import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -76,8 +74,6 @@ public class AppController {
     @Autowired
     AuthenticationTrustResolver authenticationTrustResolver;
 
-    @Autowired
-    MailSender mailSender;
 
     /**
      * This method will list all existing users.
@@ -93,39 +89,47 @@ public class AppController {
 
     @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String reg(ModelMap model) {
+    	System.err.println("Again back");
         User user = new User();
         model.addAttribute("user", user);
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
         return "Register";
     }
+
+    /**
+     * This method will be called on form submission, handling POST request for
+     * saving user in database. It also validates the user input
+     */
     
-	@RequestMapping(value = { "/reg" }, method = RequestMethod.POST)
-	public String saveReg(@Valid User user, BindingResult result, ModelMap model) {
-		if (result.hasErrors()) {
-			System.out.println(result.getFieldErrorCount());
-			model.addAttribute("loggedinuser", getPrincipal());
-			return "Register";
-		}
+    @RequestMapping(value = {"/makeRegister"}, method = RequestMethod.POST)
+    public String saveUser(@ModelAttribute("users") User user, BindingResult result,
+                           ModelMap model) {
+    	System.err.println("Finally got here");
+        if (result.hasErrors()) {
+            model.addAttribute("loggedinuser", getPrincipal());
+            return "Register";
+        }
 
-		if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
-			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
-					new String[] { user.getSsoId() }, Locale.getDefault()));
-			System.out.println(ssoError.getDefaultMessage());
-			result.addError(ssoError);
-			model.addAttribute("loggedinuser", getPrincipal());
-			return "Register";
-		}
+        if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
+            FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
+            result.addError(ssoError);
+            model.addAttribute("loggedinuser", getPrincipal());
+            return "Register";
+        }
 
-		userService.save(user);
+        userService.save(user);
 
-		model.addAttribute("success",
-				"User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
-		model.addAttribute("loggedinuser", getPrincipal());
-		// return "success";
-		return "index";
+        model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
+        model.addAttribute("loggedinuser", getPrincipal());
+        //return "success";
+        return "redirect:/reg";
     }
 
+
+    /**
+     * This method will provide the medium to update an existing user.
+     */
     @RequestMapping(value = {"/edit-user-{ssoId}"}, method = RequestMethod.GET)
     public String editUser(@PathVariable String ssoId, ModelMap model) {
         User user = userService.findBySSO(ssoId);
@@ -179,11 +183,7 @@ public class AppController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-        if (isCurrentAuthenticationAnonymous()) {
-            return "index";
-        } else {
-            return "redirect:/";
-        }
+        return "index";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -199,10 +199,11 @@ public class AppController {
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
+            //new SecurityContextLogoutHandler().logout(request, response, auth);
             persistentTokenBasedRememberMeServices.logout(request, response, auth);
             SecurityContextHolder.getContext().setAuthentication(null);
         }
-        return "redirect:/login?logout";
+        return "redirect:/";
     }
 
     /**
@@ -308,30 +309,8 @@ public class AppController {
         return "registrationsuccess";
     }
 
-    /**
-     * This method returns true if users is already authenticated [logged-in], else false.
-     */
-    private boolean isCurrentAuthenticationAnonymous() {
-        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authenticationTrustResolver.isAnonymous(authentication);
-    }
-
 	/*
         ADD NEW PLACE END
 	 */
-
-//    @RequestMapping(path = "emailTest", method = {RequestMethod.GET})
-//    public void emailTest() {
-//
-//        SimpleMailMessage smm = new SimpleMailMessage();
-//
-//        smm.setFrom("i.margichev@gmail.com");
-//        smm.setTo("i.margichev@gmail.com");
-//        smm.setSubject("Test");
-//        smm.setText("testtatat");
-//
-//        mailSender.send(smm);
-//
-//    }
 
 }

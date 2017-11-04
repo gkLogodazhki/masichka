@@ -2,6 +2,7 @@ package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.Option;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,14 @@ import java.util.List;
 public class OptionDao extends AbstractDao<Integer, Option> implements IIdNameDao<Option> {
 
     @Override
-    public Option findById(Integer id) { return getByKey(id);}
+    public Option findById(Integer id) {
+        Option option = getByKey(id);
+        if (option != null) {
+            Hibernate.initialize(option.getPlaceType());
+            Hibernate.initialize(option.getOptions());
+        }
+        return option;
+    }
 
     @Override
     public Option findByName(String name) {

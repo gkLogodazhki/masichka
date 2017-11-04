@@ -1,4 +1,4 @@
-package com.websystique.springmvc.usersReg;
+package com.websystique.springmvc.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
