@@ -313,5 +313,11 @@ public class AppController {
 	/*
         ADD NEW PLACE END
 	 */
-
+    
+    //View single restaurant page
+    @RequestMapping(value = "/viewPage", method = RequestMethod.GET)
+    public String goToRestaurant() {
+    	return "restaurantPage";
+    }
+    
 }
