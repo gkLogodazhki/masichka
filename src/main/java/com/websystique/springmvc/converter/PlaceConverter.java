@@ -17,7 +17,7 @@ public class PlaceConverter implements Converter<Object, Place> {
     public Place convert(Object element) {
         Integer id = Integer.parseInt((String) element);
         Place converted = PlaceService.findById(id);
-        logger.info("PayMethod : {}", converted);
+        logger.info("Place : {}", converted);
         return converted;
     }
 
