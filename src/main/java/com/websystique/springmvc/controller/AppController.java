@@ -183,7 +183,12 @@ public class AppController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-        return "index";
+        if (isCurrentAuthenticationAnonymous()) {
+            return "index";
+        } else {
+            return "index";
+        }
+
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -312,5 +317,13 @@ public class AppController {
 	/*
         ADD NEW PLACE END
 	 */
+
+    /**
+     * This method returns true if users is already authenticated [logged-in], else false.
+     */
+    private boolean isCurrentAuthenticationAnonymous() {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authenticationTrustResolver.isAnonymous(authentication);
+    }
 
 }
