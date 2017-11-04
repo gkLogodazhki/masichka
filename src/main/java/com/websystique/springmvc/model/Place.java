@@ -1,14 +1,10 @@
 package com.websystique.springmvc.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "places", schema = "masichka", catalog = "")
@@ -43,6 +39,7 @@ public class Place implements Serializable {
     @Column(name = "map_lng", nullable = false)
     private Integer mapLng;
 
+    @Basic
     @NotNull
     @Column(name = "info_place", nullable = false, length = 300)
     private String infoPlace;
@@ -50,6 +47,12 @@ public class Place implements Serializable {
     @NotNull
     @Column(name = "spots", nullable = false)
     private Integer spots;
+
+    @OneToMany(mappedBy = "place")
+    private Collection<Comment> comments;
+
+    @OneToMany(mappedBy = "place")
+    private Collection<FavouritePlace> favouritePlaces;
 
     @NotNull
     @ManyToOne
@@ -66,41 +69,26 @@ public class Place implements Serializable {
     @JoinColumn(name = "avg_bill_id", referencedColumnName = "id", nullable = false)
     private AvgBill avgBill;
 
+    @NotNull
+    @OneToMany(mappedBy = "place")
+    private List<PlacesHasOption> options;
 
-    @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "places_has_options",
-            joinColumns = { @JoinColumn(name = "place_id") },
-            inverseJoinColumns = { @JoinColumn(name = "option_id") })
-    private Set<Option> options = new HashSet<Option>();
+    @NotNull
+    @OneToMany(mappedBy = "place")
+    private List<PlacesHasPayMethod> payMethods;
 
-    @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "places_has_pay_methods",
-            joinColumns = { @JoinColumn(name = "place_id") },
-            inverseJoinColumns = { @JoinColumn(name = "pay_method_id") })
-    private Set<PayMethod> payMethods = new HashSet<PayMethod>();
+    @NotNull
+    @OneToMany(mappedBy = "place")
+    private List<PlacesHasSetup> setups;
 
-    @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "places_has_setups",
-            joinColumns = { @JoinColumn(name = "place_id") },
-            inverseJoinColumns = { @JoinColumn(name = "setup_id") })
-    private Set<Setup> setups = new HashSet<Setup>();
+    @NotNull
+    @OneToMany(mappedBy = "place")
+    private List<PlacesHasWeekDay> weekDays;
 
-//    @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "places_has_week_days",
-            joinColumns = { @JoinColumn(name = "place_id") },
-            inverseJoinColumns = { @JoinColumn(name = "week_day_id") })
-    private Set<WeekDay> weekDays = new HashSet<WeekDay>();
+    @NotNull
+    @OneToMany(mappedBy = "place")
+    private List<Reservation> reservations;
 
-//    @NotEmpty
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "comments",
-//            joinColumns = { @JoinColumn(name = "place_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "user_id") })
-//    private Set<Comment> comments = new HashSet<Comment>();
 
     public Integer getId() {
         return id;
@@ -181,14 +169,22 @@ public class Place implements Serializable {
     public void setSpots(Integer spots) {
         this.spots = spots;
     }
-//
-//    public Set<Comment> getComments() {
-//        return comments;
-//    }
-//
-//    public void setComments(Set<Comment> comments) {
-//        this.comments = comments;
-//    }
+
+    public Collection<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Collection<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Collection<FavouritePlace> getFavouritePlaces() {
+        return favouritePlaces;
+    }
+
+    public void setFavouritePlaces(Collection<FavouritePlace> favouritePlaces) {
+        this.favouritePlaces = favouritePlaces;
+    }
 
     public PlaceType getPlaceType() {
         return placeType;
@@ -214,38 +210,46 @@ public class Place implements Serializable {
         this.avgBill = avgBill;
     }
 
-    public Set<Option> getOptions() {
+
+    public List<PlacesHasOption> getOptions() {
         return options;
     }
 
-    public void setOptions(Set<Option> options) {
+    public void setOptions(List<PlacesHasOption> options) {
         this.options = options;
     }
 
-    public Set<PayMethod> getPayMethods() {
+    public List<PlacesHasPayMethod> getPayMethods() {
         return payMethods;
     }
 
-    public void setPayMethods(Set<PayMethod> payMethods) {
+    public void setPayMethods(List<PlacesHasPayMethod> payMethods) {
         this.payMethods = payMethods;
     }
 
-    public Set<Setup> getSetups() {
+    public List<PlacesHasSetup> getSetups() {
         return setups;
     }
 
-    public void setSetups(Set<Setup> setups) {
+    public void setSetups(List<PlacesHasSetup> setups) {
         this.setups = setups;
     }
 
-    public Set<WeekDay> getWeekDays() {
+    public List<PlacesHasWeekDay> getWeekDays() {
         return weekDays;
     }
 
-    public void setWeekDays(Set<WeekDay> weekDays) {
+    public void setWeekDays(List<PlacesHasWeekDay> weekDays) {
         this.weekDays = weekDays;
     }
 
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -274,7 +278,8 @@ public class Place implements Serializable {
                 ", mapLng=" + mapLng +
                 ", infoPlace='" + infoPlace + '\'' +
                 ", spots=" + spots +
-//                ", comments=" + comments +
+                ", comments=" + comments +
+                ", favouritePlaces=" + favouritePlaces +
                 ", placeType=" + placeType +
                 ", region=" + region +
                 ", avgBill=" + avgBill +
@@ -282,6 +287,7 @@ public class Place implements Serializable {
                 ", payMethods=" + payMethods +
                 ", setups=" + setups +
                 ", weekDays=" + weekDays +
+                ", reservations=" + reservations +
                 '}';
     }
 }

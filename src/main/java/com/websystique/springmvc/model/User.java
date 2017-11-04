@@ -19,11 +19,11 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "sso_id", unique = true, nullable = false)
-    @Size(min = 3, max = 30, message = "size must be between 3 and 30")
+    @Size(min = 3, max = 30, message = "Размера трябва да бъде между 3 и 100 символа")
     private String ssoId;
 
     @Column(name = "password", nullable = false)
-    @Size(min = 6, max = 100, message = "size must be between 6 and 100")
+    @Size(min = 3, max = 100, message = "Размера трябва да бъде между 6 и 100 символа")
     private String password;
 
     @NotNull
@@ -36,23 +36,26 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "email", nullable = false)
-    @Email(message = "not a valid email")
-    @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}", message = "not a valid")
+    @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}", message = "Невалиден имейл")
     private String email;
 
     @NotNull
-    @Column(name = "phone_number", nullable = false, length = 10)
+    @Size(min=10, max = 10 , message = "Моля введете валиден номер (+359)*********")
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
-
+    
+    
     @NotNull
     @ManyToOne 
     @JoinColumn(name = "user_type_id")
-    private UserType userType;
+    private UserType userType = new UserType(2 , "USER");
 
     @NotNull
     @ManyToOne 
     @JoinColumn(name = "city_id")
     private City city;
+    
+    
 
     public Integer getId() {
         return id;
@@ -110,6 +113,10 @@ public class User implements Serializable {
         this.userType = userType;
     }
 
+    public String getResetToken() {
+        return getResetToken();
+    }
+
     public City getCity() {
         return city;
     }
@@ -118,6 +125,16 @@ public class User implements Serializable {
         this.city = city;
     }
 
+    public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		String number = "0" + phoneNumber.substring(6);
+		System.out.println(number);
+		this.phoneNumber = number;
+	}
+    
 
     @Override
     public boolean equals(Object o) {
@@ -137,15 +154,6 @@ public class User implements Serializable {
         return result;
     }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		String configuredNumer = "0" + phoneNumber.substring(6);
-		this.phoneNumber = configuredNumer;
-	}
-
     @Override
     public String toString() {
         return "User{" +
@@ -155,9 +163,10 @@ public class User implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
                 ", userType=" + userType +
                 ", city=" + city +
                 '}';
     }
+
+	
 }

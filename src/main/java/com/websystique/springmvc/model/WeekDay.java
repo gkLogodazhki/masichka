@@ -16,6 +16,9 @@ public class WeekDay implements Serializable {
     @Column(name = "name", nullable = false, length = 45)
     private String name;
 
+    @OneToMany(mappedBy = "weekDay")
+    private List<PlacesHasWeekDay> weekDays;
+
     public Integer getId() {
         return id;
     }
@@ -30,6 +33,14 @@ public class WeekDay implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<PlacesHasWeekDay> getWeekDays() {
+        return weekDays;
+    }
+
+    public void setWeekDays(List<PlacesHasWeekDay> weekDays) {
+        this.weekDays = weekDays;
     }
 
     @Override
@@ -55,6 +66,7 @@ public class WeekDay implements Serializable {
         return "WeekDay{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", weekDays=" + weekDays +
                 '}';
     }
 }

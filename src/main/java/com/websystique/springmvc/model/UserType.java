@@ -6,14 +6,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "user_types")
-public class UserType implements Serializable{
+public class UserType implements Serializable {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = -819491519228212002L;
-
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -21,7 +16,16 @@ public class UserType implements Serializable{
     @Column(name = "name", length = 15, unique = true, nullable = false)
     private String name;
 
-    public Integer getId() {
+    public UserType() {
+    	
+    }
+    
+    public UserType(int id, String name) {
+    	this.id = id;
+    	this.name = name;
+    }
+
+	public Integer getId() {
         return id;
     }
 
@@ -59,7 +63,7 @@ public class UserType implements Serializable{
     public String toString() {
         return "UserType{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", type='" + name + '\'' +
                 '}';
     }
 }

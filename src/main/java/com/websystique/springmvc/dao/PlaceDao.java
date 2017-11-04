@@ -28,12 +28,14 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
     public Place findById(Integer id) {
         Place place = getByKey(id);
         if (place != null) {
+            Hibernate.initialize(place.getFavouritePlaces());
             Hibernate.initialize(place.getWeekDays());
             Hibernate.initialize(place.getSetups());
+            Hibernate.initialize(place.getReservations());
             Hibernate.initialize(place.getRegion());
             Hibernate.initialize(place.getPlaceType());
             Hibernate.initialize(place.getPayMethods());
-//            Hibernate.initialize(place.getComments());
+            Hibernate.initialize(place.getComments());
             Hibernate.initialize(place.getAvgBill());
             Hibernate.initialize(place.getOptions());
         }

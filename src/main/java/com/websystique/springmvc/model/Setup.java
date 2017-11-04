@@ -16,6 +16,9 @@ public class Setup implements Serializable {
     @Column(name = "name", nullable = false, length = 45)
     private String name;
 
+    @OneToMany(mappedBy = "setup")
+    private Collection<PlacesHasSetup> setups;
+
     public Integer getId() {
         return id;
     }
@@ -30,6 +33,14 @@ public class Setup implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Collection<PlacesHasSetup> getSetups() {
+        return setups;
+    }
+
+    public void setSetups(Collection<PlacesHasSetup> setups) {
+        this.setups = setups;
     }
 
     @Override
@@ -55,6 +66,7 @@ public class Setup implements Serializable {
         return "Setup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", setups=" + setups +
                 '}';
     }
 }
