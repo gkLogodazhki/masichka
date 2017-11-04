@@ -15,14 +15,7 @@ import java.util.List;
 public class PlaceTypeDao extends AbstractDao<Integer, PlaceType> implements IIdNameDao<PlaceType> {
 
     @Override
-    public PlaceType findById(Integer id) {
-        PlaceType placeType = new PlaceType();
-        if (placeType != null) {
-            Hibernate.initialize(placeType.getPlaces());
-            Hibernate.initialize(placeType.getOptions());
-        }
-        return placeType;
-    }
+    public PlaceType findById(Integer id) { return getByKey(id);}
 
     @Override
     public PlaceType findByName(String name) {
