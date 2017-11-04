@@ -325,10 +325,13 @@
                         <div class="col-md-12">
                             <div class="form-group">
                             	<span class = "error">*</span>
-                                <span class="badge">Първо име</span>
+                               	<span class="badge">Първо име</span>
                                 <form:input name="firstName" path="firstName"
                                    placeholder="Име" class="form-control" type="text"
                                    onkeyUp="checkForIllegalName('firstName')" tabindex="1" required="required" />
+                            		<div class="has-error">
+				                        <form:errors path="firstName" class="help-inline"/>
+				                    </div>
                             </div>
                             <div class="form-group">
                                 <span class = "error">*</span>
@@ -336,12 +339,18 @@
                                 <i class="glyphicon glyphicon-list"></i></span>
                                 <form:input name="email" path = "email"
                                    placeholder="E-Mail" class="form-control" type="text" tabindex="4" required="required"/>
+                            	<div class="has-error">
+			                        <form:errors path="email" class="help-inline"/>
+			                    </div>
                             </div>
                             <div class="form-group">
                                 <span class = "error">*</span>
                                 <span class="badge">Номер</span>
-                                <form:input name="contact_no" placeholder="(+359)" class="form-control"  path = "phoneNumber" tabindex="7"
-                                    type="text" onClick="phoneCode()" onkeyUp="phoneCode(); checkForAlphabetic()" required="required"/> 
+                                <form:input  name="contact_no" placeholder="08********" class="form-control"  path = "phoneNumber" tabindex="7"
+                                    type="text"  required="required"/> 
+                           		<div class="has-error">
+			                        <form:errors path="phoneNumber" class="help-inline"/>
+			                    </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -360,21 +369,21 @@
                                 <span class="badge">Фамилия</span>
                                 <form:input name="last_name"
                                    placeholder="Фамилия" class="form-control" type="text" path = "lastName" tabindex="2"
-                                   onkeyUp="checkForIllegalName('lastName')" required="required"/>
+                                    required="required"/>
+                               		<div class="has-error">
+				                        <form:errors path="lastName" class="help-inline"/>
+				                    </div>
                                 <p class="help-block text-danger"></p>
+                                
                             </div>
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Парола</span>
                                 <form:input name="user_password" placeholder="Парола" class="form-control" type="password" path = "password" required="required" tabindex="5"/>
+                                <div class="has-error">
+			                        <form:errors path="password" class="help-inline"/>
+			                    </div>
                                 <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                 <span class = "error">*</span>
-                                <span class="badge">Град</span>
-                                <i class="glyphicon glyphicon-user"></i></span>
-                                 <form:select style = "width:100%;" path="city" items="${cities}" multiple="false" itemValue="id" itemLabel="name" tabindex="8"
-                                 class="selectpicker" data-width="auto"/>
                             </div>
                         </div>
                     </div>
@@ -390,37 +399,35 @@
                                 <span class="badge">Потребителско име(служи за вход)</span>
                                 <form:input name="ss_od"
                                    placeholder="потребителско име" class="form-control" type="text" path = "ssoId" required="required" tabindex="3"/>
+                               	<div class="has-error">
+                               		
+			                        <form:errors path="ssoId" class="help-inline"/>
+			                    </div>	
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Потвърди парола</span>
-                                <input name="confirm_password" placeholder="Потвърди парола"
-                                    class="form-control" type="password" onkeyUp="checkPassword()" required="required" tabindex="6"/>
+                                <input name="confirm_password" placeholder="Потвърди парола" onClick="message()"
+                                    class="form-control" type="password"  required="required" tabindex="6"/>
+                               	<div class="has-error">
+			                        <form:errors path="ssoId" class="help-inline"/>
+			                    </div>
                                 <p class="help-block text-danger"></p>
                             </div>
-                            <div class="form-group">
-                                <div class="form-group">
-                                <span class="badge">Код за сигурност</span>
-                                  <input id="code-generator" name="securityCode" class="form-control" disabled />
-                                	<button id="refreshButton" type="button" class="glyphicon glyphicon-refresh btn-danger"
-                                    onClick="refreshSecurityCode()"></button>
-                                </div>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                            	<span class = "error">*</span>
-                                <span class="badge">Потвърдете кода</span>
-                                <input name="userSecutityCode" class="form-control"
-                                   type="text" onkeyUp="isCorrectSecurityCode()" required="required" tabindex="9">
-                                <p class="help-block text-danger"></p>
+                           <div class="form-group">
+                                 <span class = "error">*</span>
+                                <span class="badge">Град</span>
+                                <i class="glyphicon glyphicon-user"></i></span>
+                                 <form:select style = "width:100%;" path="city" items="${cities}" multiple="false" itemValue="id" itemLabel="name" tabindex="8"
+                                 class="selectpicker" data-width="auto"/>
                             </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
             </div>
-            <div id="submitButtonDiv">
-                           <input type = "submit" value = "Регистрирай" class="btn btn-primary btn-xl text-uppercase" tabindex="10" />
+            <div >
+                           <input type = "submit" value = "Регистрирай" class="btn btn-primary btn-xl text-uppercase submitButton" tabindex="10" />
                      </div>
             </form:form>
         </div>
@@ -486,7 +493,6 @@
 
 <!-- Custom scripts for this template -->
 <script src="static/js/agency.min.js"></script>
-<script src = "static/js/register/ajaxFunctions.js"></script>
 
 
 </body>

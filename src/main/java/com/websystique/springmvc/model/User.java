@@ -16,18 +16,20 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "sso_id", unique = true, nullable = false)
-    @Size(min = 3, max = 30, message = "??????? ?????? ?? ???? ????? 3 ? 100 ???????")
+    @Size(min = 3, max = 30, message = "Поне 3 символа")
     private String ssoId;
 
     @Column(name = "password", nullable = false)
-    @Size(min = 3, max = 100, message = "??????? ?????? ?? ???? ????? 6 ? 100 ???????")
+    @Size(min = 6, max = 100, message = "Паролата трябва да бъде поне 6 символа")
     private String password;
 
     @NotNull
+    @Size(min = 2, max = 50, message = "Невалидно име")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @NotNull
+    @Size(min = 2, max = 50, message = "Невалидна фамилия")
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
@@ -37,7 +39,7 @@ public class User implements Serializable {
     private String email;
 
     @NotNull
-    @Size(min = 10, max = 10)
+    @Size(min = 10, max = 10, message = "Моля въведете валиден номер")
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
@@ -127,9 +129,7 @@ public class User implements Serializable {
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
-		String number = "0" + phoneNumber.substring(6);
-		System.out.println(number);
-		this.phoneNumber = number;
+		this.phoneNumber = phoneNumber;
 	}
 
     public void setResetToken(String resetToken) {
