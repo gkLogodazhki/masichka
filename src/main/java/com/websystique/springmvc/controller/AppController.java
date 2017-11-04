@@ -89,7 +89,6 @@ public class AppController {
 
     @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String reg(ModelMap model) {
-    	System.err.println("Again back");
         User user = new User();
         model.addAttribute("user", user);
         model.addAttribute("edit", false);
@@ -105,8 +104,9 @@ public class AppController {
     @RequestMapping(value = {"/makeRegister"}, method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("users") User user, BindingResult result,
                            ModelMap model) {
-    	System.err.println("Finally got here");
-        if (result.hasErrors()) {
+    	if (result.hasErrors()) {
+    		model.addAttribute("errors",result);
+            model.addAttribute("user",user);
             model.addAttribute("loggedinuser", getPrincipal());
             return "Register";
         }
@@ -114,6 +114,8 @@ public class AppController {
         if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
             FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
             result.addError(ssoError);
+            model.addAttribute("errors",result);
+            model.addAttribute("user",user);
             model.addAttribute("loggedinuser", getPrincipal());
             return "Register";
         }
@@ -122,7 +124,6 @@ public class AppController {
 
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
         return "redirect:/reg";
     }
 

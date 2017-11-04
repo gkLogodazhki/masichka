@@ -11,8 +11,8 @@
 .centerDiv{
 	float:left;
 }
-#submitButtonDiv{
-	text-align:center;
+.submitButton{
+	margin-left:90px;
 }
 .selectpicker{
 	width:100%;
