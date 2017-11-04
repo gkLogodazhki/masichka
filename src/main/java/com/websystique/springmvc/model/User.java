@@ -40,20 +40,10 @@ public class User implements Serializable {
     @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}", message = "not a valid")
     private String email;
 
-//    @Column(name = "reset_token")
-//    private String resetToken;
-
-
-    @NotNull
-    @ManyToOne
-    @Column(name = "reset_token")
-    private String resetToken;
-
     @NotNull
     @Column(name = "phone_number", nullable = false, length = 10)
     private String phoneNumber;
-    
-    
+
     @NotNull
     @ManyToOne 
     @JoinColumn(name = "user_type_id")
@@ -120,14 +110,6 @@ public class User implements Serializable {
         this.userType = userType;
     }
 
-//    public String getResetToken() {
-//        return resetToken;
-//    }
-//
-//    public void setResetToken(String resetToken) {
-//        this.resetToken = resetToken;
-//    }
-
     public City getCity() {
         return city;
     }
@@ -164,11 +146,18 @@ public class User implements Serializable {
 		this.phoneNumber = configuredNumer;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + ", resetToken=" + resetToken + ", phoneNumber="
-				+ phoneNumber + ", userType=" + userType + ", city=" + city + "]";
-	}
-	
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", ssoId='" + ssoId + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", userType=" + userType +
+                ", city=" + city +
+                '}';
+    }
 }

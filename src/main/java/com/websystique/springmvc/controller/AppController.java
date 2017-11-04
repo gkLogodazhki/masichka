@@ -126,39 +126,6 @@ public class AppController {
 		return "index";
     }
 
-    /**
-     * This method will be called on form submission, handling POST request for
-     * saving user in database. It also validates the user input
-     */
-    @RequestMapping(value = "/reg", method = RequestMethod.POST)
-    public String saveUser(@Valid User user, BindingResult result,
-                           ModelMap model) {
-        if (result.hasErrors()) {
-            model.addAttribute("loggedinuser", getPrincipal());
-            return "Register";
-        }
-
-        if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
-            FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-            result.addError(ssoError);
-            model.addAttribute("loggedinuser", getPrincipal());
-            return "Register";
-        }
-
-        userService.save(user);
-
-        model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "Register";
-    }
-
-    
-    
-    
-
-    /**
-     * This method will provide the medium to update an existing user.
-     */
     @RequestMapping(value = {"/edit-user-{ssoId}"}, method = RequestMethod.GET)
     public String editUser(@PathVariable String ssoId, ModelMap model) {
         User user = userService.findBySSO(ssoId);
@@ -212,7 +179,11 @@ public class AppController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-        return "index";
+        if (isCurrentAuthenticationAnonymous()) {
+            return "index";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -228,11 +199,10 @@ public class AppController {
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
-            //new SecurityContextLogoutHandler().logout(request, response, auth);
             persistentTokenBasedRememberMeServices.logout(request, response, auth);
             SecurityContextHolder.getContext().setAuthentication(null);
         }
-        return "redirect:/";
+        return "redirect:/login?logout";
     }
 
     /**
@@ -336,6 +306,14 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
         return "registrationsuccess";
+    }
+
+    /**
+     * This method returns true if users is already authenticated [logged-in], else false.
+     */
+    private boolean isCurrentAuthenticationAnonymous() {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authenticationTrustResolver.isAnonymous(authentication);
     }
 
 	/*
