@@ -66,7 +66,6 @@
                 aria-label="Toggle navigation">Menu<i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            </li>
         </div>
         <sec:authorize access="!hasRole('USER') AND !hasRole('ADMIN')">
             <ul class="nav navbar-nav navbar-right">
@@ -121,8 +120,6 @@
                                 <script>
                                     // This is called with the results from from FB.getLoginStatus().
                                     function statusChangeCallback(response) {
-                                        console.log('statusChangeCallback');
-                                        console.log(response);
                                         // The response object is returned with a status field that lets the
                                         // app know the current login status of the person.
                                         // Full docs on the response object can be found in the documentation
@@ -188,7 +185,6 @@
                                     function testAPI() {
                                         console.log('Welcome! Fetching your information.... ');
                                         FB.api('/me?fields=name,email', function (response) {
-                                            console.log('Successful login for: ' + response.name);
 
                                             document.getElementById("status").innerHTML = '<p>Welcome ' + response.name + '! <a href=index.jsp?user_name=' + response.name.replace(" ", "_") + '&user_email=' + response.email + '>Continue with facebook login</a></p>'
                                         });

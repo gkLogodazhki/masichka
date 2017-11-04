@@ -233,6 +233,11 @@ public class AppController {
         return "addPlace";
     }
     
+    @RequestMapping(value = "restaurantPage" , method = RequestMethod.GET)
+    public String goToRestaurantPage() {
+    	return "restaurantPage";
+    }
+    
     
 
     @ModelAttribute("placesRestaurants")
