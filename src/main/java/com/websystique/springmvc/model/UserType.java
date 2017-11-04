@@ -6,9 +6,14 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "user_types")
-public class UserType implements Serializable {
+public class UserType implements Serializable{
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -819491519228212002L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
