@@ -5,6 +5,11 @@ body{
 	height:auto;
 	background-color:#ebebe0;
 }
+#map{
+		float:left;
+		height:200px;
+		width:90%;
+	}
 
 .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
     position: absolute;
@@ -69,7 +74,7 @@ p {
 		flex-wrap:nowrap;
 	}
 .container{
-		max-width:960px;
+		max-width:1100px;
 	}
 #mainNav.navbar-shrink .navbar-brand{
 		font-size:1.25em;		
@@ -78,14 +83,22 @@ p {
 #mainNav .navbar-brand{
 		transition:all .3s;	
 	}
+#map{
+	display:block;
+	float:left;
+	height:200px;
+	width:90%;
+	clear:both;
 }
-@media (min-width: 768px){
+}
+@media (max-width: 1099px){
 .container{
 		max-width:720;		
 	}
+
 }
 
-@media (min-width: 576px){
+@media (max-width: 576px){
 .container{
 		max-width:540;	
 	}
@@ -124,8 +137,8 @@ p {
 }
 #wrapper{
 	padding-top:4.5%;
-	padding-left:10%;
-	width:100%;
+	padding-left:5%;
+	width:auto;
 	height:auto;
 	background-color:#ebebe0;
 }
@@ -137,6 +150,7 @@ p {
 	width:20px;
 }
 #detailInfo{
+	display:block;
 	margin-left:10px;
 	padding-left:1%;
 	height:auto;
@@ -157,12 +171,12 @@ p {
 }
 #smallLogo{
 	float:left;
-	width:30%;
+	width:40%;
 }
 #addToFavouriteDiv{
+	text-align:center;
 	padding:0;
 	margin:0;
-	text-align:left;
 }
 #addToFavourite{
 	margin-top:3%;
@@ -180,5 +194,87 @@ p {
 }
 #welcomeMessage{
 	border-bottom:1px solid #b7b795;
-	margin-bottom:15.7%;
+	margin-bottom:20%;
+}
+#bottomOptions{
+	float:left;
+	text-align:left;
+	padding-top:4.5%;
+	padding-left:5%;
+	padding-bottom:4.5%;
+	width:90%;
+	height:auto;
+	background-color:white;
+}
+#bottomForRestaurant{
+	margin:0;
+	float:left;
+	width:50%;
+	text-align:left;
+	border-right:1px solid #d6d6c2;
+	padding-right:5%;
+}
+p{
+	margin:0;
+}
+#bottomAdditionalInfo{
+	float:left;
+	width:50%;
+	padding-left:3%;
+	padding-right:5%;
+}
+.bottomTitle{
+	color:#fed136;
+	background-color:#212529;
+}
+.bottomInnerInfos{
+	margin-top:7%;
+	width:100%;
+	padding-left:10%;
+}
+#commentsSection{
+	float:left;
+	text-align:left;
+	padding-top:2%;
+	width:90%;
+	height:auto;
+}
+#commentsStraightLine{
+	width:100%;
+	border:1px solid #212529;
+}
+#addCommentButton{
+	margin-top:2%;
+	float:right;
+	width:15%;
+	background-color:#fed136;
+	border-radius:5px;
+	border:1px solid #fed136;
+	font-size:120%;
+}
+#commentDiv{
+	display:none;
+	position:fixed;
+	margin:0;
+	left:35%;
+	top:25%;
+	z-index = 1000;
+	text-align:center;
+	width:400px;
+	height:250px;
+	background-color:#212529;
+	border-radius:15px;
+}
+#closeCommentWindow{
+	text-align:center;
+	color:black;
+	text-size:120%;
+	float:right;
+	border-radius:0px 14px 0px 0px;
+}
+#commentBlankText{
+	padding-left:10%;
+	color:#fed136;
+	font-size:140%;
+	line-height:3;
 }
