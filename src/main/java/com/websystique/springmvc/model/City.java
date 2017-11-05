@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "cities")
+@Table(name = "cities", schema = "masichka", catalog = "")
 public class City implements Serializable {
 
     @Id
