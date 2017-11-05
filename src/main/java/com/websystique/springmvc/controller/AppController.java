@@ -6,6 +6,7 @@ import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionException;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -24,8 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 
 @Controller
@@ -83,6 +86,22 @@ public class AppController {
      * This method will list all existing users.
      */
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    public String home(ModelMap model) {
+//        try{
+//            PlaceType typeClub = placeTypeService.findByName("Клуб");
+//            PlaceType typeRestaurant = placeTypeService.findByName("Ресторант");
+//            List<Place> clubs = placeService.findByPlaceType(typeClub,10);
+//            List<Place> restaurants = placeService.findByPlaceType(typeRestaurant,10);
+//            model.addAttribute("clubs", clubs);
+//            model.addAttribute("restaurants", restaurants);
+//        } catch (HibernateException he){
+//            return "accessDenied";
+//        }
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "index";
+    }
+
+    @RequestMapping(value = {"/users"}, method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
@@ -113,6 +132,12 @@ public class AppController {
         if (result.hasErrors()) {
             model.addAttribute("loggedinuser", getPrincipal());
             return "Register";
+        }
+
+        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
+            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
+            result.addError(ssoError);
+            return "registration";
         }
 
         userService.save(user);
@@ -298,14 +323,16 @@ public class AppController {
                            ModelMap model) {
 
         if (result.hasErrors()) {
-            model.addAttribute("loggedinuser", getPrincipal());
             return "addPlace";
         }
-        try {
-            placeService.save(place);
-        } catch (HibernateException e){
-            return "accessDenied";
+        if(!placeService.isNameUnique(place.getId(), place.getName())){
+            FieldError ssoError =new FieldError("name","name",messageSource.getMessage("non.unique.name", new String[]{place.getName()}, Locale.getDefault()));
+            result.addError(ssoError);
+            return "registration";
         }
+
+        placeService.save(place);
+
 
         model.addAttribute("success", "Place " + place.getName() + " at " + place.getAddress() + " added successfully");
         model.addAttribute("loggedinuser", getPrincipal());
