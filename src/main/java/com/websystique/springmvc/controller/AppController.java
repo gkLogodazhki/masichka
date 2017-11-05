@@ -73,9 +73,6 @@ public class AppController {
     IIdNameDao<Setup> setupService;
 
     @Autowired
-    IIdNameDao<WeekDay> weekDayService;
-
-    @Autowired
     IIdNameDao<Hour> hourService;
     
     @Autowired
@@ -315,10 +312,6 @@ public class AppController {
         return payMethodService.findAll();
     }
 
-    @ModelAttribute("weekDays")
-    public List<WeekDay> initializeWeekDays() {
-        return weekDayService.findAll();
-    }
 
     @ModelAttribute("places")
     public List<Place> initializePlaces() {

@@ -79,7 +79,6 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
     }
 
     private void initialize(Place place){
-        Hibernate.initialize(place.getWeekDays());
         Hibernate.initialize(place.getSetups());
         Hibernate.initialize(place.getRegion());
         Hibernate.initialize(place.getPlaceType());

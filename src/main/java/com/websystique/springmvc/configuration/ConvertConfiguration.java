@@ -37,9 +37,6 @@ public class ConvertConfiguration extends WebMvcConfigurerAdapter {
     @Autowired
     SetupConverter setupConverter;
 
-    @Autowired
-    WeekDayConverter weekDayConverter;
-
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(userTypeConverter);
@@ -50,6 +47,5 @@ public class ConvertConfiguration extends WebMvcConfigurerAdapter {
         registry.addConverter(placeTypeConverter);
         registry.addConverter(regionConverter);
         registry.addConverter(setupConverter);
-        registry.addConverter(weekDayConverter);
     }
 }
