@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,8 +33,6 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
 	rel='stylesheet' type='text/css'>
-
-
 
 </head>
 <body>
@@ -129,10 +129,12 @@
 				</div>
 
 			</div>
-			<div id="addToFavouriteDiv">
-				<input id="addToFavourite" type="button" value="добави в любими"
-					name="addToFavourite">
-			</div>
+            <sec:authorize access="hasRole('USER')">
+                <div id="addToFavouriteDiv">
+                    <input id="addToFavourite" type="button" value="добави в любими"
+                           name="addToFavourite">
+                </div>
+            </sec:authorize>
 
 			<div id="moreInfo">
 				<span class="glyphicon glyphicon-cutlery"></span> <b>Кухня: </b> <span>видове
@@ -210,30 +212,32 @@
 			</div>
 		</div>
 
-		
+
 			<div id="commentsSection">
 				<h2 style="display: inline-block;">Коментари</h2>
-				<input type="button" name="addComent" value="Добави коментар" 
+                <sec:authorize access="hasRole('USER')">
+                    <input type="button" name="addComent" value="Добави коментар"
 					id="addCommentButton">
+                </sec:authorize>
 				<div id="commentsStraightLine"></div>
 			</div>
 	</div>
 
-	<div id="commentDiv">
-		<form>
-			<input type="button" id="closeCommentWindow" value = "Затвори"
-				class="btn-danger glyphicon glyphicon-remove-circle">
-			<span id = "commentBlankText">Поставете коментарат си тук</span>
-			<textarea style = "width:60%;" rows = 5 cols = 20></textarea>
-			<div style = "width:100%; padding-top:9%;">
-				<input type = "submit" value = "Добави коментар" name = "addComment" class =  "btn-success">
-			</div>
-			
-		</form>
-	</div>
-	
-	
-	<div style = "float:left; width:100%; height:100px"></div>
+    <div id="commentDiv">
+        <form>
+            <input type="button" id="closeCommentWindow" value="Затвори"
+                   class="btn-danger glyphicon glyphicon-remove-circle">
+            <span id="commentBlankText">Поставете коментарат си тук</span>
+            <textarea style="width:60%;" rows=5 cols=20></textarea>
+            <div style="width:100%; padding-top:9%;">
+                <input type="submit" value="Добави коментар" name="addComment" class="btn-success">
+            </div>
+
+        </form>
+    </div>
+
+
+    <div style = "float:left; width:100%; height:100px"></div>
 
 	
 	<script src = "static/js/restaurantPage/mapsAPI.js?2f"></script>
