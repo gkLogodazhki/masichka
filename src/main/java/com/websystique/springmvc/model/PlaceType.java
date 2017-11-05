@@ -6,12 +6,14 @@ import java.io.Serializable;
 @Entity
 @Table(name = "place_types", schema = "masichka", catalog = "")
 public class PlaceType implements Serializable {
-
-    private Integer id;
-    private String name;
-
     @Id
     @Column(name = "id", nullable = false)
+    private Integer id;
+
+    @Basic
+    @Column(name = "name", nullable = false, length = 45)
+    private String name;
+
     public Integer getId() {
         return id;
     }
@@ -20,8 +22,6 @@ public class PlaceType implements Serializable {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name", nullable = false, length = 45)
     public String getName() {
         return name;
     }

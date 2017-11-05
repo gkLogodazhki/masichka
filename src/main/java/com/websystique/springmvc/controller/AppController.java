@@ -130,12 +130,7 @@ public class AppController {
                            ModelMap model) {
     	if (result.hasErrors()) {
             model.addAttribute("loggedinuser", getPrincipal());
-            return "addPlace";
-        }
-        try {
-        	userService.save(user);
-        } catch (HibernateException e){
-            return "accessDenied";
+            return "Register";
         }
 
         model.addAttribute("success", "Place " + user.getFirstName() + " at " + user.getLastName() + " added successfully");

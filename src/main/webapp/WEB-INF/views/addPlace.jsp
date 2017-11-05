@@ -8,7 +8,6 @@
 <html lang="en">
 
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -33,6 +32,11 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
 
@@ -40,26 +44,12 @@
     <link href="/static/assets/css/agency.min.css" rel="stylesheet">
 
 </head>
-<%@ include file="authheader.jsp" %>
 <body id="page-top">
 <style>.text-muted {
     color: #fff !important;
 }</style>
 <!-- Header -->
-<header class="masthead">
-
-    <%--
-        <div class="container">
-            <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
-            &lt;%&ndash;<div class="video-background">
-                <div class="video-foreground">
-                    <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
-                            frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-    &ndash;%&gt;
-        </div>--%>
-</header>
+<%@ include file="authheader.jsp" %>
 
 <section class="bg-light" id="favoriteRestorant">
     <div class="container">
@@ -69,33 +59,33 @@
         <form:form method="POST" modelAttribute="place" class="form-horizontal">
         <form:input type="hidden" path="id" id="id"/>
             <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-4 col-sm-6 portfolio-item">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-md-3 control-lable" for="logo">Logo*</label>
+                            <label class="col-md-4 control-lable" for="logo">Logo*</label>
                             <div>
                                 <form:input type="text" path="logo" id="logo" class="form-control input-sm"/>
                                 <div class="has-error"><form:errors path="logo" class="help-inline"/></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-lable" for="name">Name*</label>
+                            <label class="col-md-4 control-lable" for="name">Name*</label>
                             <form:input type="text" path="name" id="name" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="name" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-lable" for="address">Address*</label>
+                            <label class="col-md-4 control-lable" for="address">Address*</label>
                             <form:input type="text" path="address" id="address" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="address" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-lable" for="placeType">Place Type*</label>
+                            <label class="col-md-4 control-lable" for="placeType">Place Type*</label>
                             <form:select path="placeType" items="${placeTypes}" multiple="false" itemValue="id" itemLabel="name" class="selectpicker" data-width="auto"/>
                             <div class="has-error"><form:errors path="placeType" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-lable" for="infoPlace">Information*</label>
+                            <label class="col-md-4 control-lable" for="infoPlace">Information*</label>
                             <form:input type="text" path="infoPlace" id="infoPlace" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="infoPlace" class="help-inline"/></div>
                         </div>
@@ -104,7 +94,7 @@
                 </div>
 
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-4 col-sm-6 portfolio-item">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group" >
@@ -132,14 +122,13 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-
-            <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-4 col-sm-6 portfolio-item">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <span class="badge">Extra*</span>
-                            <form:select path="setups" items="${setups}" itemValue="id" itemLabel="name"
-                                         class="selectpocker" multiple="true" data-width="auto"/>
+                            <form:select path="setups" items="${setups}" multiple="true" itemValue="id" itemLabel="name"
+                                         class="selectpocker" />
                             <div class="has-error"><form:errors path="setups" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
@@ -172,17 +161,17 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12 text-center">
-            <c:choose>
-                <c:when test="${edit}">
-                    <input type="submit" value="Update place" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
-                </c:when>
-                <c:otherwise>
-                    <input type="submit" value="Add place" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
+            </div>
+            <div class="col-sm-12 text-center">
+                <c:choose>
+                    <c:when test="${edit}">
+                        <input type="submit" value="Update place" class="btn btn-primary btn-sm"/> or<a href="<c:url value='/' />">Cancel</a>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="submit" value="Add place" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
                 </c:otherwise>
             </c:choose>
-        </div>
+            </div>
         </form:form>
     </div>
 </section>
