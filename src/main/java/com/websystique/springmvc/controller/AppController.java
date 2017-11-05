@@ -1,13 +1,9 @@
 package com.websystique.springmvc.controller;
 
-import com.websystique.springmvc.dao.IHourDao;
 import com.websystique.springmvc.dao.IIdNameDao;
 import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionException;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -24,13 +20,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.File;
-import java.security.Principal;
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 
 @Controller
@@ -41,9 +32,6 @@ public class AppController {
 
     @Autowired
     IUserDao userService;
-
-    @Autowired
-    IPlaceDao placeDao;
 
     @Autowired
     IPlaceDao placeService;

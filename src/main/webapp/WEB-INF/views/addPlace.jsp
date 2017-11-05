@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-lable" for="logo">Logo*</label>
                             <div>
-                                <form:input type="text" path="logo" id="logo" class="form-control input-sm"/>
+                                <form:input type="text" path="logo" id="logo" value="koko" class="form-control input-sm"/>
                                 <div class="has-error"><form:errors path="logo" class="help-inline"/></div>
                             </div>
                         </div>
@@ -173,6 +173,19 @@
             </c:choose>
             </div>
         </form:form>
+        <div class="col-lg-12 text-center">
+            <form action="uploadMultipleFile" method="get" enctype="multipart/form-data">
+                File1 to upload: <input type="file" name="file">
+
+                Name1: <input type="text" name="name">
+
+                File2 to upload: <input type="file" name="file">
+
+                Name2: <input type="text" name="name">
+
+                <input type="submit" value="Upload"> Press here to upload the file!
+            </form>
+        </div>
     </div>
 </section>
 
