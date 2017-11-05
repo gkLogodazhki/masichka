@@ -27,7 +27,7 @@ import java.util.Locale;
 @Controller
 @RequestMapping("/")
 @SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills"
-	, "options", "payMethods", "weekDays", "setups", "placesRestaurant", "hours"})
+	, "options", "payMethods", "setups", "placesRestaurant", "hours"})
 public class AppController {
 
     @Autowired
@@ -137,7 +137,7 @@ public class AppController {
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "/";
+        return "index";
     }
 
 
