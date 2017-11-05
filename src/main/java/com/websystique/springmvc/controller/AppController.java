@@ -1,5 +1,6 @@
 package com.websystique.springmvc.controller;
 
+import com.websystique.springmvc.dao.IHourDao;
 import com.websystique.springmvc.dao.IIdNameDao;
 import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.dao.IUserDao;
@@ -34,7 +35,8 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills", "options", "payMethods", "setups", "placesRestaurant"})
+@SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills"
+	, "options", "payMethods", "weekDays", "setups", "placesRestaurant", "hours"})
 public class AppController {
 
     @Autowired
@@ -70,6 +72,9 @@ public class AppController {
     @Autowired
     IIdNameDao<Setup> setupService;
 
+    @Autowired
+    IIdNameDao<Hour> hourService;
+    
     @Autowired
     MessageSource messageSource;
 
@@ -312,6 +317,11 @@ public class AppController {
     public List<Place> initializePlaces() {
         return placeService.findAll();
     }
+    @ModelAttribute("hours")
+    public List<Hour> initializeHours() {
+        return hourService.findAll();
+    }
+
 
     @RequestMapping(value = {"/addplace"}, method = RequestMethod.POST)
     public String saveUser(@Valid Place place, BindingResult result,
