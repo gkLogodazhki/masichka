@@ -94,13 +94,6 @@ public class Place implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "setup_id")})
     private Set<Setup> setups = new HashSet<Setup>();
 
-    //    @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "places_has_week_days",
-            joinColumns = {@JoinColumn(name = "place_id")},
-            inverseJoinColumns = {@JoinColumn(name = "week_day_id")})
-    private Set<WeekDay> weekDays = new HashSet<WeekDay>();
-
 //    @NotEmpty
 //    @ManyToMany(fetch = FetchType.LAZY)
 //    @JoinTable(name = "comments",
@@ -244,15 +237,6 @@ public class Place implements Serializable {
         this.setups = setups;
     }
 
-    public Set<WeekDay> getWeekDays() {
-        return weekDays;
-    }
-
-    public void setWeekDays(Set<WeekDay> weekDays) {
-        this.weekDays = weekDays;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -287,7 +271,6 @@ public class Place implements Serializable {
                 ", options=" + options +
                 ", payMethods=" + payMethods +
                 ", setups=" + setups +
-                ", weekDays=" + weekDays +
                 '}';
     }
 }

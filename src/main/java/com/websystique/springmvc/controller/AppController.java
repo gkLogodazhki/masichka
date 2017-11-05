@@ -34,7 +34,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills", "options", "payMethods", "weekDays", "setups", "placesRestaurant"})
+@SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills", "options", "payMethods", "setups", "placesRestaurant"})
 public class AppController {
 
     @Autowired
@@ -69,9 +69,6 @@ public class AppController {
 
     @Autowired
     IIdNameDao<Setup> setupService;
-
-    @Autowired
-    IIdNameDao<WeekDay> weekDayService;
 
     @Autowired
     MessageSource messageSource;
@@ -310,10 +307,6 @@ public class AppController {
         return payMethodService.findAll();
     }
 
-    @ModelAttribute("weekDays")
-    public List<WeekDay> initializeWeekDays() {
-        return weekDayService.findAll();
-    }
 
     @ModelAttribute("places")
     public List<Place> initializePlaces() {
