@@ -4,6 +4,8 @@ import com.websystique.springmvc.dao.IIdNameDao;
 import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
+import org.hibernate.HibernateException;
+import org.hibernate.SessionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.security.Principal;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Locale;
 
@@ -107,13 +111,6 @@ public class AppController {
                            ModelMap model) {
     	System.err.println("Finally got here");
         if (result.hasErrors()) {
-            model.addAttribute("loggedinuser", getPrincipal());
-            return "Register";
-        }
-
-        if (!userService.isSSOUnique(user.getId(), user.getSsoId())) {
-            FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-            result.addError(ssoError);
             model.addAttribute("loggedinuser", getPrincipal());
             return "Register";
         }
@@ -224,12 +221,13 @@ public class AppController {
      */
     @RequestMapping(value = {"/addplace"}, method = RequestMethod.GET)
     public String newPlace(ModelMap model) {
-        if (userService.findBySSO(getPrincipal()) == null) {
+        String principal = getPrincipal();
+        if (principal == null) {
             return "redirect:/logout";
         }
         Place place = new Place();
         model.addAttribute("place", place);
-        model.addAttribute("loggedinuser", getPrincipal());
+        model.addAttribute("loggedinuser", principal);
         return "addPlace";
     }
     
@@ -303,20 +301,16 @@ public class AppController {
             model.addAttribute("loggedinuser", getPrincipal());
             return "addPlace";
         }
-
-        if (!placeService.isUnique(place.getId(), place.getName())) {
-            FieldError ssoError = new FieldError("place", "name", messageSource.getMessage("non.unique.name", new String[]{place.getName()}, Locale.getDefault()));
-            result.addError(ssoError);
-            model.addAttribute("loggedinuser", getPrincipal());
-            return "addPlace";
+        try {
+            placeService.save(place);
+        } catch (HibernateException e){
+            return "accessDenied";
         }
-
-        placeService.save(place);
 
         model.addAttribute("success", "Place " + place.getName() + " at " + place.getAddress() + " added successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "registrationsuccess";
+        return "/";
     }
 
 	/*

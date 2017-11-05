@@ -60,210 +60,11 @@
     &ndash;%&gt;
         </div>--%>
 </header>
-<%--<form:form method="POST" modelAttribute="place" class="form-horizontal">
 
-    <form:input type="hidden" path="id" id="id"/>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-
-            <span class="badge">Logo</span>
-            <div class="col-md-12">
-                <form:input type="text" path="logo" id="logo" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="logo" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="name">Name</label>
-            <div class="col-md-12">
-                <form:input type="text" path="name" id="name" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="name" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="address">Address</label>
-            <div class="col-md-12">
-                <form:input type="text" path="address" id="address" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="address" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="mapLat">Map Lat</label>
-            <div class="col-md-12">
-                <form:input type="number" path="mapLat" id="mapLat" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="mapLat" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="mapLng">Map Lng</label>
-            <div class="col-md-12">
-                <form:input type="number" path="mapLng" id="mapLng" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="mapLng" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="spots">Spots</label>
-            <div class="col-md-12">
-                <form:input type="number" path="spots" id="spots" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="spots" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="placeType">Place Type</label>
-            <div class="col-md-12">
-                <form:select path="placeType" items="${placeTypes}" multiple="false" itemValue="id" itemLabel="name"
-                             class="selectpicker" data-width="auto"/>
-                <div class="has-error">
-                    <form:errors path="placeType" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="placeType">Setups</label>
-            <div class="col-md-12">
-                <form:select path="setups" items="${setups}" multiple="false" itemValue="id" itemLabel="name"
-                             class="selectpicker" data-width="auto"/>
-                <div class="has-error">
-                    <form:errors path="setups" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="region">Region</label>
-            <div class="col-md-12">
-                <form:select path="region" items="${regions}" multiple="false" itemValue="id" itemLabel="name"
-                             class="selectpicker" data-width="auto"/>
-                <div class="has-error">
-                    <form:errors path="region" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="avgBill">Avg Bill</label>
-            <div class="col-md-12">
-                <form:select path="avgBill" items="${avgBills}" multiple="false" itemValue="id" itemLabel="name"
-                             class="selectpicker" data-width="auto"/>
-                <div class="has-error">
-                    <form:errors path="avgBill" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="options">Options</label>
-            <div class="col-md-12">
-                <form:select path="options" items="${options}" multiple="true" itemValue="id" itemLabel="name"
-                             class="selectpicker" data-width="auto"/>
-                <div class="has-error">
-                    <form:errors path="options" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="payMethods">Pay Methods</label>
-            <div class="col-md-7">
-                <form:select path="payMethods" items="${payMethods}" multiple="true" itemValue="id" itemLabel="name"
-                             class="selectpicker" data-width="auto"/>
-                <div class="has-error">
-                    <form:errors path="payMethods" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="pathToGallery">Path to gallery</label>
-            <div class="col-md-7">
-                <form:input type="text" path="pathToGallery" id="pathToGallery" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="pathToGallery" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-group col-md-12">
-            <label class="col-md-3 control-lable" for="infoPlace">info place</label>
-            <div class="col-md-7">
-                <form:input type="text" path="infoPlace" id="infoPlace" class="form-control input-sm"/>
-                <div class="has-error">
-                    <form:errors path="infoPlace" class="help-inline"/>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="form-actions floatRight">
-            <c:choose>
-                <c:when test="${edit}">
-                    <input type="submit" value="Update" class="btn btn-primary btn-sm"/> or <a
-                        href="<c:url value='/list' />">Cancel</a>
-                </c:when>
-                <c:otherwise>
-                    <input type="submit" value="Register" class="btn btn-primary btn-sm"/> or <a
-                        href="<c:url value='/list' />">Cancel</a>
-                </c:otherwise>
-            </c:choose>
-        </div>
-    </div>
-
-
-</form:form>--%>
 <section class="bg-light" id="favoriteRestorant">
     <div class="container">
         <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Добави ресторант</h2>
-        </div>
-
-        <div class="generic-container">
-
         </div>
         <form:form method="POST" modelAttribute="place" class="form-horizontal">
         <form:input type="hidden" path="id" id="id"/>
@@ -272,28 +73,31 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="badge" for="logo">Лого*</label>
+                            <label class="col-md-3 control-lable" for="logo">Logo*</label>
                             <div>
                                 <form:input type="text" path="logo" id="logo" class="form-control input-sm"/>
-                                <div class="has-error">
-                                    <form:errors path="logo" class="help-inline"/>
-                                </div>
+                                <div class="has-error"><form:errors path="logo" class="help-inline"/></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Име*</span>
+                            <label class="col-md-3 control-lable" for="name">Name*</label>
                             <form:input type="text" path="name" id="name" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="name" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Адрес*</span>
+                            <label class="col-md-3 control-lable" for="address">Address*</label>
                             <form:input type="text" path="address" id="address" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="address" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Тип на мястото*</span>
+                            <label class="col-md-3 control-lable" for="placeType">Place Type*</label>
                             <form:select path="placeType" items="${placeTypes}" multiple="false" itemValue="id" itemLabel="name" class="selectpicker" data-width="auto"/>
                             <div class="has-error"><form:errors path="placeType" class="help-inline"/></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-lable" for="infoPlace">Information*</label>
+                            <form:input type="text" path="infoPlace" id="infoPlace" class="form-control input-sm"/>
+                            <div class="has-error"><form:errors path="infoPlace" class="help-inline"/></div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -303,24 +107,24 @@
             <div class="col-md-4 col-sm-6 portfolio-item">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group">
+                        <div class="form-group" >
                             <span class="badge">Брой места*</span>
-                            <form:input type="number" path="spots" id="spots" class="form-control input-sm"/>
+                            <form:input type="number" min="1" max="100" path="spots" id="spots" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="spots" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
                             <span class="badge">Map length*</span>
-                            <form:input type="number" path="mapLng" id="mapLng" class="form-control input-sm"/>
+                            <form:input type="number" min="-90" max="90" path="mapLng" id="mapLng" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="mapLng" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Фамилия</span>
-                            <form:input type="number" path="mapLat" id="mapLat" class="form-control input-sm"/>
+                            <span class="badge">Map Latitute</span>
+                            <form:input type="number" min="-180" max="180" path="mapLat" id="mapLat" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="mapLat" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Фамилия</span>
-                            <form:input type="text" path="pathToGallery" id="pathToGallery" class="form-control input-sm"/>
+                            <span class="badge">Path to gallary</span>
+                            <form:input type="text" pattern="[A-Za-z0-9/]+" path="pathToGallery" id="pathToGallery" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="pathToGallery" class="help-inline"/></div>
                         </div>
 
@@ -333,13 +137,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <span class="badge">Екстри*</span>
+                            <span class="badge">Extra*</span>
                             <form:select path="setups" items="${setups}" itemValue="id" itemLabel="name"
                                          class="selectpocker" multiple="true" data-width="auto"/>
                             <div class="has-error"><form:errors path="setups" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <span class="badge">Квартал*</span>
+                            <span class="badge">Region*</span>
                             <form:select path="region" items="${regions}" multiple="false" itemValue="id" itemLabel="name"
                                          class="selectpicker" data-width="auto"/>
                             <div class="has-error"><form:errors path="region" class="help-inline"/></div>
@@ -347,7 +151,7 @@
 
 
                         <div class="form-group">
-                            <span class="badge">Фамилия</span>
+                            <span class="badge" >Pay Methods</span>
                             <form:select path="payMethods" items="${payMethods}" multiple="true" itemValue="id" itemLabel="name"
                                          class="selectpicker" data-width="auto"/>
                             <div class="has-error"><form:errors path="payMethods" class="help-inline"/></div>
@@ -426,235 +230,6 @@
     </div>
 </footer>
 
-<!-- Portfolio Modals -->
-
-<!-- Modal 1 -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Threads</li>
-                                <li>Category: Illustration</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 2 -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Explore</li>
-                                <li>Category: Graphic Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 3 -->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Finish</li>
-                                <li>Category: Identity</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 4 -->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Lines</li>
-                                <li>Category: Branding</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 5 -->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Southwest</li>
-                                <li>Category: Website Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 6 -->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Window</li>
-                                <li>Category: Photography</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- Bootstrap core JavaScript -->

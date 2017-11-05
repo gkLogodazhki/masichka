@@ -3,7 +3,7 @@ package com.websystique.springmvc.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,35 +17,43 @@ public class Place implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotNull
+    @NotEmpty
+    @Pattern(regexp = "[A-Za-z0-9]+")
     @Column(name = "logo", nullable = false, length = 45)
     private String logo;
 
-    @NotNull
+    @NotEmpty
+    @Pattern(regexp = "[A-Za-z0-9_\\s]+")
     @Column(name = "name", nullable = false, length = 99, unique = true)
     private String name;
 
-    @NotNull
+    @NotEmpty
+    @Pattern(regexp = "[A-Za-z0-9_\\s]+")
     @Column(name = "address", nullable = false, length = 45)
     private String address;
 
-    @NotNull
+    @NotEmpty
+    @Pattern(regexp = "[A-Za-z0-9]+")
     @Column(name = "path_to_gallery", nullable = false, length = 45)
     private String pathToGallery;
 
     @NotNull
+    @Min(-90) @Max(90)
     @Column(name = "map_lat", nullable = false)
     private Integer mapLat;
 
     @NotNull
+    @Min(-180) @Max(180)
     @Column(name = "map_lng", nullable = false)
     private Integer mapLng;
 
-    @NotNull
+    @NotEmpty
+    @Pattern(regexp = "[A-Za-z0-9/]+")
     @Column(name = "info_place", nullable = false, length = 300)
     private String infoPlace;
 
     @NotNull
+    @Min(1) @Max(100)
     @Column(name = "spots", nullable = false)
     private Integer spots;
 
