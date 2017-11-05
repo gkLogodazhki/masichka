@@ -28,12 +28,6 @@ public class User implements Serializable {
     private String password;
     
     @NotEmpty
-    @Size(min = 6, max = 100)
-    private String confirmPassword;
-    
-    
-    
-    @NotEmpty
     @Pattern(regexp = "[a-zA-Zа-яА-Я]" , message = "Name cannot contain illegal symbols")
     @Size(min = 2, max = 50)
     @Column(name = "first_name", nullable = false)
@@ -55,15 +49,6 @@ public class User implements Serializable {
     @Pattern(regexp = "[0-9]" , message = "Must follow 08********")
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
-    
-/*    @NotEmpty
-=======
-    
-    @NotEmpty
->>>>>>> 7ae009ac2144c62f6a580f5fb21dc06957f9b22e
-    @Size(min = 10, max = 10)
-    @Column(name = "phone_number", nullable = false)
-    private String phoneNumber;*/
     
     @ManyToOne
     @JoinColumn(name = "user_type_id")
