@@ -14,8 +14,6 @@ public interface IUserDao extends IIdNameDao<User> {
 
     Optional findByResetToken(String resetToken);
 
-    boolean isSSOUnique(Integer id, String sso);
-
     void update(User user);
 
 }

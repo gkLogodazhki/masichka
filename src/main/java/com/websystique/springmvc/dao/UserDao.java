@@ -60,12 +60,6 @@ public class UserDao extends AbstractDao<Integer, User> implements IUserDao {
     }
 
     @Override
-    public boolean isSSOUnique(Integer id, String sso) {
-        User user = findBySSO(sso);
-        return (user == null || ((id != null) && (user.getId() == id)));
-    }
-
-    @Override
     public void save(User user) {
         persist(user);
     }

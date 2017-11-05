@@ -20,22 +20,31 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
 
     @Override
     public Place findByName(String name) {
+        logger.info("NAME : {}", name);
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("name", name));
-        return (Place) crit.uniqueResult();
+        Place place = (Place) crit.uniqueResult();
+        if (place!= null){
+            initialize(place);
+        }
+        return place;
+    }
+
+    private void initialize(Place place){
+        Hibernate.initialize(place.getWeekDays());
+        Hibernate.initialize(place.getSetups());
+        Hibernate.initialize(place.getRegion());
+        Hibernate.initialize(place.getPlaceType());
+        Hibernate.initialize(place.getPayMethods());
+//            Hibernate.initialize(place.getComments());
+        Hibernate.initialize(place.getAvgBill());
+        Hibernate.initialize(place.getOptions());
     }
 
     public Place findById(Integer id) {
         Place place = getByKey(id);
         if (place != null) {
-            Hibernate.initialize(place.getWeekDays());
-            Hibernate.initialize(place.getSetups());
-            Hibernate.initialize(place.getRegion());
-            Hibernate.initialize(place.getPlaceType());
-            Hibernate.initialize(place.getPayMethods());
-//            Hibernate.initialize(place.getComments());
-            Hibernate.initialize(place.getAvgBill());
-            Hibernate.initialize(place.getOptions());
+            initialize(place);
         }
         return place;
     }
@@ -52,11 +61,6 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
         persist(place);
     }
 
-    @Override
-    public boolean isUnique(Integer id, String name) {
-        Place place = findByName(name);
-        return (name == null || ((id != null) && (place.getId() == id)));
-    }
 
 }
 

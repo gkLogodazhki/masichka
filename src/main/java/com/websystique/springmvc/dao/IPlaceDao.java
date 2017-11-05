@@ -8,6 +8,4 @@ public interface IPlaceDao extends IIdNameDao<Place> {
 
     void delete(Place place);
 
-    boolean isUnique(Integer id, String name);
-
 }
