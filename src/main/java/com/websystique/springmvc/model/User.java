@@ -3,11 +3,9 @@ package com.websystique.springmvc.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 import java.io.Serializable;
 
@@ -28,28 +26,33 @@ public class User implements Serializable {
     @Column(name = "password", nullable = false)
     @Size(min = 6, max = 100)
     private String password;
-
+    
     @NotEmpty
-    @Pattern(regexp = "[a-zA-Zа-яА-Я]")
+    @Size(min = 6, max = 100)
+    private String confirmPassword;
+    
+    
+    
+    @NotEmpty
+    @Pattern(regexp = "[a-zA-Zа-яА-Я]" , message = "Name cannot contain illegal symbols")
     @Size(min = 2, max = 50)
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @NotEmpty
-    @Pattern(regexp = "[a-zA-Zа-яА-Я]")
+    @Pattern(regexp = "[a-zA-Zа-яА-Я]" , message = "Name cannot contain illegal symbols")
     @Size(min = 2, max = 50)
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
     @NotEmpty
     @Column(name = "email", nullable = false)
-    @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}")
+    @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}", message = "enter valid email address")
     private String email;
-<<<<<<< HEAD
 
     @NotEmpty
-    @Size(min = 10, max = 10, message = "���� �������� ������� �����")
-    @Pattern(regexp = "[0-9]")
+    @Size(min = 10, max = 10, message = "Enter valid number")
+    @Pattern(regexp = "[0-9]" , message = "Must follow 08********")
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
@@ -69,7 +72,6 @@ public class User implements Serializable {
     @Column(name = "reset_token")
     private String resetToken;
 
-    @NotEmpty
     @ManyToOne 
     @JoinColumn(name = "city_id")
     private City city;
