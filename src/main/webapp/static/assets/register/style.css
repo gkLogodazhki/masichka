@@ -17,3 +17,6 @@
 .selectpicker{
 	width:100%;
 }
+#confirmPassword{
+	cursor:default;
+}

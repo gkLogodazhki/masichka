@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    
 
     <title>Masichka.bg регистрация</title>
 
@@ -287,7 +288,7 @@
     </div>
 </nav>
 
-<body id="page-top" onload="refreshSecurityCode()">
+<body id="page-top" >
 <style>.text-muted {
     color: #fff !important;
 }</style>
@@ -326,7 +327,7 @@
                                 <form:input name="firstName" path="firstName"
                                    placeholder="Име" class="form-control" type="text"
                                    onkeyUp="checkForIllegalName('firstName')" tabindex="1" required="required" />
-                            		<div class="has-error">
+                            		<div class="has-error error">
 				                        <form:errors path="firstName" class="help-inline"/>
 				                    </div>
                             </div>
@@ -336,7 +337,7 @@
                                 <i class="glyphicon glyphicon-list"></i></span>
                                 <form:input name="email" path = "email"
                                    placeholder="E-Mail" class="form-control" type="text" tabindex="4" required="required"/>
-                            	<div class="has-error">
+                            	<div class="has-error error">
 			                        <form:errors path="email" class="help-inline"/>
 			                    </div>
                             </div>
@@ -345,7 +346,7 @@
                                 <span class="badge">Номер</span>
                                 <form:input  name="phoneNumber" placeholder="08********" class="form-control"  path = "phoneNumber" tabindex="7"
                                     type="text"  required="required"/> 
-                           		<div class="has-error">
+                           		<div class="has-error error">
 			                        <form:errors path="phoneNumber" class="help-inline"/>
 			                    </div>
                             </div>
@@ -367,7 +368,7 @@
                                 <form:input name="lastName"
                                    placeholder="Фамилия" class="form-control" type="text" path = "lastName" tabindex="2"
                                     required="required"/>
-                               		<div class="has-error">
+                               		<div class="has-error error">
 				                        <form:errors path="lastName" class="help-inline"/>
 				                    </div>
                                 <p class="help-block text-danger"></p>
@@ -376,8 +377,8 @@
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Парола</span>
-                                <form:input name="password" placeholder="Парола" class="form-control" type="password" path = "password" required="required" tabindex="5"/>
-                                <div class="has-error">
+                                <form:input id = "user_password" name="password" placeholder="Парола" class="form-control" type="password" path = "password" required="required" onkeyUp = "checkConfirmPassword()" tabindex="5"/>
+                                <div class="has-error error" >
 			                        <form:errors path="password" class="help-inline"/>
 			                    </div>
                                 <p class="help-block text-danger"></p>
@@ -396,7 +397,7 @@
                                 <span class="badge">Потребителско име(служи за вход)</span>
                                 <form:input name="ss_od"
                                    placeholder="потребителско име" class="form-control" type="text" path = "ssoId" required="required" tabindex="3"/>
-                               	<div class="has-error">
+                               	<div class="has-error error">
 			                        <form:errors path="ssoId" class="help-inline"/>
 			                    </div>	
                                 <p class="help-block text-danger"></p>
@@ -404,10 +405,10 @@
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Потвърди парола</span>
-                                <input name="confirm_password" placeholder="Потвърди парола" onClick="message()"
+                                <input name="confirm_password" placeholder="Потвърди парола" onkeyUp = "checkConfirmPassword()" id = "confirmPassword"
                                     class="form-control" type="password"  required="required" tabindex="6"/>
-                               	<div class="has-error">
-			                        <form:errors path="ssoId" class="help-inline"/>
+                               	<div class="has-error error">
+			                        <form:errors path="password" class="help-inline"/>
 			                    </div>
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -415,7 +416,7 @@
                                  <span class = "error">*</span>
                                 <span class="badge">Град</span>
                                 <i class="glyphicon glyphicon-user"></i></span>
-                                 <form:select style = "width:100%;" path="city" items="${cities}" multiple="false" itemValue="id" itemLabel="name" tabindex="8"
+                                 <form:select style = "width:100%;" name = "city" path="city" items="${cities}" multiple="false" itemValue="id" itemLabel="name" tabindex="8"
                                  class="selectpicker" data-width="auto"/>
                             </div>
                         </div>
@@ -489,7 +490,7 @@
 
 <!-- Custom scripts for this template -->
 <script src="static/js/agency.min.js"></script>
-<script src = "static/js/ajaxFunctions.js23"></script>
+<script src = "static/js/ajaxFunctions.js?231"></script>
 
 </body>
 

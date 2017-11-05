@@ -130,6 +130,7 @@ public class AppController {
                            ModelMap model) {
     	if (result.hasErrors()) {
             model.addAttribute("loggedinuser", getPrincipal());
+            System.out.println("Tuk sam na hasErrors");
             return "Register";
         }
 
@@ -137,11 +138,12 @@ public class AppController {
         if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
             FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
             result.addError(ssoError);
+            System.out.println("Takav potrebitel sashtestwuwa");
             return "Register";
         }
-
+        System.out.println("Ocelqh do tuk");
         userService.save(user);
-
+        
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
