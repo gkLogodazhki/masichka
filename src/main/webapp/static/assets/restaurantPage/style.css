@@ -1,3 +1,11 @@
+body{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:auto;
+	background-color:#ebebe0;
+}
+
 .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
     position: absolute;
     top: 83% !important;
@@ -18,7 +26,7 @@ p {
 }
 
 #carousel-custom {
-    margin: 20px auto;
+    margin:  auto;
     width: 400px;
 }
 #carousel-custom .carousel-indicators {
@@ -50,4 +58,127 @@ p {
 }
 #carousel-custom .carousel-outer {
     position: relative;
+}
+
+@media (min-width: 992px){
+#mainNav.navbar-shrink {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+.navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid{
+		flex-wrap:nowrap;
+	}
+.container{
+		max-width:960px;
+	}
+#mainNav.navbar-shrink .navbar-brand{
+		font-size:1.25em;		
+		padding:12px 0;
+	}
+#mainNav .navbar-brand{
+		transition:all .3s;	
+	}
+}
+@media (min-width: 768px){
+.container{
+		max-width:720;		
+	}
+}
+
+@media (min-width: 576px){
+.container{
+		max-width:540;	
+	}
+}
+#mainNav {
+	background-color: #212529;
+}
+.fixed-top{
+	position:fixed;
+	top:0;
+	right:0;
+	left:0;
+	z-index:1030;	
+}
+.navbar>.container, .navbar>.container-fluid{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+}
+#container{
+	width:100%;
+	padding-right:15px;
+	padding-left:15px;
+	margin-right:auto;
+	margin-left:auto;
+}
+#mainNav .navbar-brand{
+	float:left;
+	color:#fed136;
+	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+}
+#goToIndex{
+	float:rigth;
+	color:#fed136;
+	font-family:'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+}
+#wrapper{
+	padding-top:4.5%;
+	padding-left:10%;
+	width:100%;
+	height:auto;
+	background-color:#ebebe0;
+}
+#photoSection{
+	float:left;
+}
+.downImgSize{
+	height:100px;
+	width:20px;
+}
+#detailInfo{
+	margin-left:10px;
+	padding-left:1%;
+	height:auto;
+	float:left;
+	background-color:white;
+}
+#restNameDiv{
+	width:100%;	
+	text-align:center;
+}
+#restaurantName{
+	float:center;
+	font-size:170%;
+	font-family:serif;
+}
+#logoAndTitleRow{
+	height:auto;
+}
+#smallLogo{
+	float:left;
+	width:30%;
+}
+#addToFavouriteDiv{
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+#addToFavourite{
+	margin-top:3%;
+	background-color:#fed136;
+	border:1px solid #fed136;
+	font-family:serif;
+	font-size:120%;
+	border-radius:7px;
+}
+#moreInfo{
+	margin-top:10%;
+}
+.moreInfo-space{
+	margin-top:3%;
+}
+#welcomeMessage{
+	border-bottom:1px solid #b7b795;
+	margin-bottom:15.7%;
 }
