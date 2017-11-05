@@ -16,15 +16,24 @@
 	rel="stylesheet"
 	integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
 	crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css"
 	href="static/assets/restaurantPage/style.css?111">
-<link href="static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
-          type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+<link href="static/assets/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css'>
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
+	rel='stylesheet' type='text/css'>
+
+
+
 </head>
 <body>
 
@@ -45,10 +54,10 @@
 				<div class='carousel-outer'>
 					<!-- Wrapper for slides -->
 					<div class='carousel-inner'>
-						<div class='item active'>
+						<div class='item active imgSize'>
 							<img src='static/img/restaurantPage/resPhoto.jpg' alt='' />
 						</div>
-						<div class='item'>
+						<div class='item '>
 							<img src='static/img/restaurantPage/resPhoto.jpg' alt='' />
 						</div>
 						<div class='item'>
@@ -144,14 +153,35 @@
 				<div id = "welcomeMessage">
 					<h3>Заповядайте при нас</h3>
 				</div>
-				
 			</div>
 			
-		
-		
-		</div>
+			<div id = "">
+				<div style = "width:70%; height:10px; float:left;"></div>
+				<div id = "map"></div>
+			</div>
+			
+			
+			<div id = "bottomOptions">
+				<div id = "bottomTitle">
+					<h2>За ресторанта</h2>
+				</div>
+				<div id = "bottomRestInfo">
+					<p>Djanam Steak House Restaurant е единственият по рода си Steak House ресторант в София. Уютната и елегантна обстановка, в съчетание с ненатрапчив лукс, без излишна претрупаност, са предпоставка за комфортно и приятно преживяване по време на обяд или вечеря. Ресторантът не отстъпва по нищо на най-добрите стек ресторанти в световен мащаб – разполага с DRY AGED витрина, в която месото зрее 28 дни, преди да бъде приготвено от майстор готвачи
+Част от комплекс DJANAM е новооткритият Steak & Nargile Lounge. Почерпихме вдъхновение от ориенталската екзотиката, съчетахме го с модерна обстановка, удобни меки дивани, комфортни сепарета, автентични дървени маси и получихме истински градски оазис. Цялостната концепция за Djanam Steak & Nargile е изградена около идеята да съберем на едно място уникалната кухня на комплекса, включваща приготвените по неповторим начин меса, салати и десерти от нашите майстори и страхотните ориенталски наргилета, приготвени по начин , който ще гарантира пълното удоволствие от пушенето на ароматните димове и ще бъде уникален за Българският пазар. </p>
+				</div>
+			</div>
 
 
+	</div>
+
+
+	<script src = "static/js/restaurantPage/mapsAPI.js?2"></script>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp8-kC6BmMpDbH03rGS-PTAYxHiXdlTZM&callback=initMap">
+    </script>
+	
+	
+	
 
 </body>
 </html>
