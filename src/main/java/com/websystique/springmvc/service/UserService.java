@@ -78,4 +78,9 @@ public class UserService implements IUserDao {
         return userDao.findByName(type);
     }
 
+    public boolean isUserSSOUnique(Integer id, String sso) {
+        User user = findBySSO(sso);
+        return ( user == null || ((id != null) && (user.getId() == id)));
+    }
+
 }

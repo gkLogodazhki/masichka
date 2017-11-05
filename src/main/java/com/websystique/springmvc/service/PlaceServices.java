@@ -2,6 +2,8 @@ package com.websystique.springmvc.service;
 
 import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.model.Place;
+import com.websystique.springmvc.model.PlaceType;
+import com.websystique.springmvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +28,11 @@ public class PlaceServices implements IPlaceDao {
     }
 
     @Override
+    public List<Place> findByPlaceType(PlaceType placeType, Integer count) {
+        return placeDao.findByPlaceType(placeType,count);
+    }
+
+    @Override
     public List<Place> findAll() {
         return placeDao.findAll();
     }
@@ -39,4 +46,10 @@ public class PlaceServices implements IPlaceDao {
     public Place findById(Integer id) {
         return placeDao.findById(id);
     }
+
+    public boolean isNameUnique(Integer id, String name) {
+        Place place = findByName(name);
+        return ( place == null || ((id != null) && (place.getId() == id)));
+    }
+
 }

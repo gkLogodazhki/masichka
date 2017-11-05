@@ -60,6 +60,11 @@ public class UserDao extends AbstractDao<Integer, User> implements IUserDao {
     }
 
     @Override
+    public boolean isUserSSOUnique(Integer id, String sso) {
+        return true;
+    }
+
+    @Override
     public void save(User user) {
         persist(user);
     }

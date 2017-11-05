@@ -1,12 +1,14 @@
 package com.websystique.springmvc.dao;
 
 import com.websystique.springmvc.model.Place;
+import com.websystique.springmvc.model.PlaceType;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,9 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
 
     static final Logger logger = LoggerFactory.getLogger(PlaceDao.class);
 
+    @Autowired
+    IIdNameDao<PlaceType> placeTypeDao;
+
     @Override
     public Place findByName(String name) {
         logger.info("NAME : {}", name);
@@ -28,17 +33,6 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
             initialize(place);
         }
         return place;
-    }
-
-    private void initialize(Place place){
-        Hibernate.initialize(place.getWeekDays());
-        Hibernate.initialize(place.getSetups());
-        Hibernate.initialize(place.getRegion());
-        Hibernate.initialize(place.getPlaceType());
-        Hibernate.initialize(place.getPayMethods());
-//            Hibernate.initialize(place.getComments());
-        Hibernate.initialize(place.getAvgBill());
-        Hibernate.initialize(place.getOptions());
     }
 
     public Place findById(Integer id) {
@@ -59,6 +53,40 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
     @Override
     public void save(Place place) {
         persist(place);
+    }
+
+    @Override
+    public List<Place> findByPlaceType(PlaceType placeType, Integer count) {
+        if (placeType == null){
+            return null;
+        }
+        logger.info("PLACETYPE : {}", placeType);
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("placeType",placeType.getId()));
+        crit.setMaxResults(count);
+        List<Place> places = (List<Place>) crit.uniqueResult();
+        if (places!= null){
+            for (Place place : places){
+                initialize(place);
+            }
+        }
+        return places;
+    }
+
+    @Override
+    public boolean isNameUnique(Integer id, String name) {
+        return false;
+    }
+
+    private void initialize(Place place){
+        Hibernate.initialize(place.getWeekDays());
+        Hibernate.initialize(place.getSetups());
+        Hibernate.initialize(place.getRegion());
+        Hibernate.initialize(place.getPlaceType());
+        Hibernate.initialize(place.getPayMethods());
+//            Hibernate.initialize(place.getComments());
+        Hibernate.initialize(place.getAvgBill());
+        Hibernate.initialize(place.getOptions());
     }
 
 

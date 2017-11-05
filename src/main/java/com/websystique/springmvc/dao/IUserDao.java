@@ -16,5 +16,6 @@ public interface IUserDao extends IIdNameDao<User> {
 
     void update(User user);
 
+    public boolean isUserSSOUnique(Integer id, String sso);
 }
 
