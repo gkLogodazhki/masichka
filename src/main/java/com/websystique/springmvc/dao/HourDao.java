@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.websystique.springmvc.model.Hour;
 
-@Repository("cityDao")
+@Repository("hourDao")
 @Transactional
-public class HourDao extends AbstractDao<Integer, Hour> implements IHourDao{
+public class HourDao extends AbstractDao<Integer, Hour> implements IIdNameDao<Hour>{
 
 	@Override
 	@SuppressWarnings("unchecked")

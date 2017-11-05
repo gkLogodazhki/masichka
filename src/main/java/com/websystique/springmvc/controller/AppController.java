@@ -1,6 +1,5 @@
 package com.websystique.springmvc.controller;
 
-import com.websystique.springmvc.dao.IHourDao;
 import com.websystique.springmvc.dao.IIdNameDao;
 import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.dao.IUserDao;
@@ -36,14 +35,11 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 @SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills"
-	, "options", "payMethods", "weekDays", "setups", "placesRestaurant", "hours"})
+	, "options", "payMethods", "setups", "placesRestaurant", "hours"})
 public class AppController {
 
     @Autowired
     IUserDao userService;
-
-    @Autowired
-    IPlaceDao placeDao;
 
     @Autowired
     IPlaceDao placeService;
@@ -149,7 +145,7 @@ public class AppController {
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "/";
+        return "index";
     }
 
 
