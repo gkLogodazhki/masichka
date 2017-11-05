@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="war" name="masichka:war">
-    <output-path>$PROJECT_DIR$/classes/artifacts/masichka_war</output-path>
+    <output-path>$PROJECT_DIR$/../test/artifacts/masichka_war</output-path>
     <root id="archive" name="masichka_war.war">
       <element id="artifact" artifact-name="masichka:war exploded" />
     </root>

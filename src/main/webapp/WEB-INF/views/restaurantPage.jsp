@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+>>>>>>> a790fcc2deb25be12c0b9a6e07e85e18972ad627
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,8 +37,6 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
 	rel='stylesheet' type='text/css'>
-
-
 
 </head>
 <body>
@@ -160,11 +163,49 @@
 		
 		
 
+<<<<<<< HEAD
 		<div id = "makeRegForRest">
 			<form>
 				<input type="text" name = "">
 			
 			</form>
+=======
+		<div id="detailInfo">
+			<div id="logoAndTitleRow">
+				<img id="smallLogo" src="static/img/restaurantPage/logo.jpg"
+					alt="logo">
+				<div id="restNameDiv">
+					<p id="restaurantName">Име на ресторанта</p>
+					<b>адрес</b>
+				</div>
+
+			</div>
+            <sec:authorize access="hasRole('USER')">
+                <div id="addToFavouriteDiv">
+                    <input id="addToFavourite" type="button" value="добави в любими"
+                           name="addToFavourite">
+                </div>
+            </sec:authorize>
+
+			<div id="moreInfo">
+				<span class="glyphicon glyphicon-cutlery"></span> <b>Кухня: </b> <span>видове
+					кухня</span>
+			</div>
+			<div class="moreInfo-space">
+				<span class="glyphicon glyphicon-home"></span> <b>Район: </b> <span>да
+					речем Перник</span>
+			</div>
+			<div class="moreInfo-space">
+				<span class="glyphicon glyphicon-euro"></span> <b>Средна сметка:
+				</b> <span>от 50 до 100лв</span>
+			</div>
+			<div>
+				<span style="font-size: 90%;">(цената е само ориентировъчна)</span>
+			</div>
+			<div id="welcomeMessage">
+				<h3>Заповядайте при нас</h3>
+			</div>
+>>>>>>> a790fcc2deb25be12c0b9a6e07e85e18972ad627
 		</div>
 		
 
@@ -224,30 +265,32 @@
 			</div>
 		</div>
 
-		
+
 			<div id="commentsSection">
 				<h2 style="display: inline-block;">Коментари</h2>
-				<input type="button" name="addComent" value="Добави коментар" 
+                <sec:authorize access="hasRole('USER')">
+                    <input type="button" name="addComent" value="Добави коментар"
 					id="addCommentButton">
+                </sec:authorize>
 				<div id="commentsStraightLine"></div>
 			</div>
 	</div>
 
-	<div id="commentDiv">
-		<form>
-			<input type="button" id="closeCommentWindow" value = "Затвори"
-				class="btn-danger glyphicon glyphicon-remove-circle">
-			<span id = "commentBlankText">Поставете коментарат си тук</span>
-			<textarea style = "width:60%;" rows = 5 cols = 20></textarea>
-			<div style = "width:100%; padding-top:9%;">
-				<input type = "submit" value = "Добави коментар" name = "addComment" class =  "btn-success">
-			</div>
-			
-		</form>
-	</div>
-	
-	
-	<div style = "float:left; width:100%; height:100px"></div>
+    <div id="commentDiv">
+        <form>
+            <input type="button" id="closeCommentWindow" value="Затвори"
+                   class="btn-danger glyphicon glyphicon-remove-circle">
+            <span id="commentBlankText">Поставете коментарат си тук</span>
+            <textarea style="width:60%;" rows=5 cols=20></textarea>
+            <div style="width:100%; padding-top:9%;">
+                <input type="submit" value="Добави коментар" name="addComment" class="btn-success">
+            </div>
+
+        </form>
+    </div>
+
+
+    <div style = "float:left; width:100%; height:100px"></div>
 
 	
 	<script src = "static/js/restaurantPage/mapsAPI.js?2f"></script>

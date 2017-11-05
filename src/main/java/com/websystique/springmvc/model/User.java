@@ -1,5 +1,7 @@
 package com.websystique.springmvc.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -19,23 +21,35 @@ public class User implements Serializable {
 
     @NotEmpty
     @Column(name = "sso_id", unique = true, nullable = false)
-    @Size(min = 3, max = 30, message = "���� 3 �������")
+    @Size(min = 3, max = 30)
     private String ssoId;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> a790fcc2deb25be12c0b9a6e07e85e18972ad627
     @NotEmpty
     @Column(name = "password", nullable = false)
-    @Size(min = 6, max = 100, message = "�������� ������ �� ���� ���� 6 �������")
+    @Size(min = 6, max = 100)
     private String password;
 
     @NotEmpty
+<<<<<<< HEAD
     @Size(min = 2, max = 50, message = "��������� ���")
     @Pattern(regexp = "[a-zA-Zа-яА-Я]")
+=======
+    @Size(min = 2, max = 50)
+>>>>>>> a790fcc2deb25be12c0b9a6e07e85e18972ad627
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @NotEmpty
+<<<<<<< HEAD
     @Size(min = 2, max = 50, message = "��������� �������")
     @Pattern(regexp = "[a-zA-Zа-яА-Я]")
+=======
+    @Size(min = 2, max = 50)
+>>>>>>> a790fcc2deb25be12c0b9a6e07e85e18972ad627
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
@@ -45,6 +59,7 @@ public class User implements Serializable {
     private String email;
 
     @NotEmpty
+<<<<<<< HEAD
     @Size(min = 10, max = 10, message = "���� �������� ������� �����")
     @Pattern(regexp = "[0-9]")
     @Column(name = "phone_number", nullable = false)
@@ -52,6 +67,13 @@ public class User implements Serializable {
     
     @NotEmpty
     @ManyToOne 
+=======
+    @Size(min = 10, max = 10)
+    @Column(name = "phone_number", nullable = false)
+    private String phoneNumber;
+    
+    @ManyToOne
+>>>>>>> a790fcc2deb25be12c0b9a6e07e85e18972ad627
     @JoinColumn(name = "user_type_id")
     private UserType userType;
 
@@ -84,10 +106,7 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-    	if(password.startsWith("08") && password.length() == 10) {
-    		this.password = password;
-    	}
-        
+        this.password = password;
     }
 
     public String getFirstName() {
