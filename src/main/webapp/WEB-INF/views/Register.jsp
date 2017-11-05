@@ -395,7 +395,7 @@
                             <div class="form-group">
                                 <span class = "error">*</span>
                                 <span class="badge">Потребителско име(служи за вход)</span>
-                                <form:input name="ss_od"
+                                <form:input name="ssoId"
                                    placeholder="потребителско име" class="form-control" type="text" path = "ssoId" required="required" tabindex="3"/>
                                	<div class="has-error error">
 			                        <form:errors path="ssoId" class="help-inline"/>
@@ -405,7 +405,7 @@
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Потвърди парола</span>
-                                <input name="confirm_password" placeholder="Потвърди парола" onkeyUp = "checkConfirmPassword()" id = "confirmPassword"
+                                <input name="password" placeholder="Потвърди парола" onkeyUp = "checkConfirmPassword()" id = "password"
                                     class="form-control" type="password"  required="required" tabindex="6"/>
                                	<div class="has-error error">
 			                        <form:errors path="password" class="help-inline"/>
