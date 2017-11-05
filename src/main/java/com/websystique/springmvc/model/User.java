@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "masichka", catalog = "")
 public class User implements Serializable {
 
     @Id
@@ -45,6 +45,7 @@ public class User implements Serializable {
     @Column(name = "email", nullable = false)
     @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}")
     private String email;
+<<<<<<< HEAD
 
     @NotEmpty
     @Size(min = 10, max = 10, message = "���� �������� ������� �����")
@@ -53,6 +54,10 @@ public class User implements Serializable {
     private String phoneNumber;
     
 /*    @NotEmpty
+=======
+    
+    @NotEmpty
+>>>>>>> 7ae009ac2144c62f6a580f5fb21dc06957f9b22e
     @Size(min = 10, max = 10)
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;*/

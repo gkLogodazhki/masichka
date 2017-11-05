@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "user_types")
+@Table(name = "user_types", schema = "masichka", catalog = "")
 public class UserType implements Serializable {
 
     @Id
