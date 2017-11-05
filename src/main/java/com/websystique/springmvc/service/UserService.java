@@ -78,10 +78,4 @@ public class UserService implements IUserDao {
         return userDao.findByName(type);
     }
 
-    @Override
-    public boolean isSSOUnique(Integer id, String sso) {
-        User user = userDao.findBySSO(sso);
-        return (user == null || ((id != null) && (user.getId() == id)));
-    }
-
 }
