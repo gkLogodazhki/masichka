@@ -1,6 +1,6 @@
 function checkConfirmPassword(){
 	var password = $('#user_password').val();
-	var confirmPassword = $('[name = "confirm_password"]');
+	var confirmPassword = $('#confirmPassword');
 	if(password.length  >= 6 || confirmPassword.val() >= 6){
 		var flag = password === confirmPassword.val();
 		if(flag){

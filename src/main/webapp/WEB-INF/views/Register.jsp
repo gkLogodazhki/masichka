@@ -405,11 +405,8 @@
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Потвърди парола</span>
-                                <input name="password" placeholder="Потвърди парола" onkeyUp = "checkConfirmPassword()" id = "password"
+                                <input name="password" placeholder="Потвърди парола" onkeyUp = "checkConfirmPassword()" id = "confirmPassword"
                                     class="form-control" type="password"  required="required" tabindex="6"/>
-                               	<div class="has-error error">
-			                        <form:errors path="password" class="help-inline"/>
-			                    </div>
                                 <p class="help-block text-danger"></p>
                             </div>
                            <div class="form-group">
