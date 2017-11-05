@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "hours", schema = "masichka", catalog = "")
-public class Hours {
+public class Hour {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,11 @@ public class Hours {
 	@Column(name = "name", length = 15, unique = true, nullable = false)
 	private String name;
 	
-	public Hours() {
+	public Hour() {
 		
 	}
 	
-	public Hours(Integer id, String name) {
+	public Hour(Integer id, String name) {
 		setId(id);
 		setName(name);
 	}
@@ -62,7 +62,7 @@ public class Hours {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Hours other = (Hours) obj;
+		Hour other = (Hour) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
