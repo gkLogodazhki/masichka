@@ -4,6 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.io.Serializable;
 
 @Entity
@@ -14,39 +17,40 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "sso_id", unique = true, nullable = false)
     @Size(min = 3, max = 30, message = "���� 3 �������")
     private String ssoId;
-
+    
+    @NotEmpty
     @Column(name = "password", nullable = false)
     @Size(min = 6, max = 100, message = "�������� ������ �� ���� ���� 6 �������")
     private String password;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 2, max = 50, message = "��������� ���")
     @Pattern(regexp = "[a-zA-Zа-яА-Я]")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 2, max = 50, message = "��������� �������")
     @Pattern(regexp = "[a-zA-Zа-яА-Я]")
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "email", nullable = false)
     @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}")
     private String email;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 10, max = 10, message = "���� �������� ������� �����")
     @Pattern(regexp = "[0-9]")
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
-    @NotNull
+    @NotEmpty
     @ManyToOne 
     @JoinColumn(name = "user_type_id")
     private UserType userType;
@@ -54,7 +58,7 @@ public class User implements Serializable {
     @Column(name = "reset_token")
     private String resetToken;
 
-    @NotNull
+    @NotEmpty
     @ManyToOne 
     @JoinColumn(name = "city_id")
     private City city;

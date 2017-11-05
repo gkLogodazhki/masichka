@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +19,7 @@
 	crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css"
-	href="static/assets/restaurantPage/style.css?351">
+	href="static/assets/restaurantPage/style.css?51">
 <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -41,15 +42,53 @@
     <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Masichka.bg</a>
             <ul class="nav navbar-nav navbar-right">
-                <li><a id = "goToIndex" href="<c:url value='/login' />">Начало </a></li>
+                <li><a id = "goToIndex" href="<c:url value = "/"/>">Начало </a></li>
 			</ul>
 		</div>
 	</nav>
 
 
 	<div id="wrapper">
-		<div id="photoSection">
+		
 
+		<div id="detailInfo">
+			<div id="logoAndTitleRow">
+				<img id="smallLogo" src="static/img/restaurantPage/logo.jpg"
+					alt="logo">
+				<div id="restNameDiv">
+					<p id="restaurantName">Име на ресторанта</p>
+					<b>адрес</b>
+				</div>
+
+			</div>
+			<div id="addToFavouriteDiv">
+				<input id="addToFavourite" type="button" value="добави в любими"
+					name="addToFavourite">
+			</div>
+
+			<div id="moreInfo">
+				<span class="glyphicon glyphicon-cutlery"></span> <b>Кухня: </b> <span>видове
+					кухня</span>
+			</div>
+			<div class="moreInfo-space">
+				<span class="glyphicon glyphicon-home"></span> <b>Район: </b> <span>да
+					речем Перник</span>
+			</div>
+			<div class="moreInfo-space">
+				<span class="glyphicon glyphicon-euro"></span> <b>Средна сметка:
+				</b> <span>от 50 до 100лв</span>
+			</div>
+			<div>
+				<span style="font-size: 90%;">(цената е само ориентировъчна)</span>
+			</div>
+			<div id="welcomeMessage">
+				<h3>Заповядайте при нас</h3>
+			</div>
+		</div>
+		
+		
+		
+		<div id="photoSection">
 			<div id='carousel-custom' class='carousel slide' data-ride='carousel'>
 				<div class='carousel-outer'>
 					<!-- Wrapper for slides -->
@@ -118,41 +157,16 @@
 				</ol>
 			</div>
 		</div>
+		
+		
 
-		<div id="detailInfo">
-			<div id="logoAndTitleRow">
-				<img id="smallLogo" src="static/img/restaurantPage/logo.jpg"
-					alt="logo">
-				<div id="restNameDiv">
-					<p id="restaurantName">Име на ресторанта</p>
-					<b>адрес</b>
-				</div>
-
-			</div>
-			<div id="addToFavouriteDiv">
-				<input id="addToFavourite" type="button" value="добави в любими"
-					name="addToFavourite">
-			</div>
-
-			<div id="moreInfo">
-				<span class="glyphicon glyphicon-cutlery"></span> <b>Кухня: </b> <span>видове
-					кухня</span>
-			</div>
-			<div class="moreInfo-space">
-				<span class="glyphicon glyphicon-home"></span> <b>Район: </b> <span>да
-					речем Перник</span>
-			</div>
-			<div class="moreInfo-space">
-				<span class="glyphicon glyphicon-euro"></span> <b>Средна сметка:
-				</b> <span>от 50 до 100лв</span>
-			</div>
-			<div>
-				<span style="font-size: 90%;">(цената е само ориентировъчна)</span>
-			</div>
-			<div id="welcomeMessage">
-				<h3>Заповядайте при нас</h3>
-			</div>
+		<div id = "makeRegForRest">
+			<form>
+				<input type="text" name = "">
+			
+			</form>
 		</div>
+		
 
 		<div id="">
 			<div style="width: 70%; height: 10px; float: left;"></div>

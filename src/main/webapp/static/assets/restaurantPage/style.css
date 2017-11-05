@@ -151,7 +151,7 @@ p {
 }
 #detailInfo{
 	display:block;
-	margin-left:10px;
+	margin-right:10px;
 	padding-left:1%;
 	height:auto;
 	float:left;
@@ -277,4 +277,7 @@ p{
 	color:#fed136;
 	font-size:140%;
 	line-height:3;
+}
+#makeRegForRest{
+	margin-left:1%;
 }

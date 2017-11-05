@@ -112,7 +112,6 @@ public class AppController {
 
     @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
     public String reg(ModelMap model) {
-    	System.err.println("Again back");
         User user = new User();
         model.addAttribute("user", user);
         model.addAttribute("edit", false);
