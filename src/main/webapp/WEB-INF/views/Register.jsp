@@ -313,6 +313,7 @@
         <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Регистрация</h2>
         </div>
+        
         <div class="row">
         <form:form id="editProfile" name="sentMessage" modelAttribute="user" action="makeRegister">
         <form:input type="hidden" path="id" id="id"/>
@@ -489,7 +490,7 @@
 
 <!-- Custom scripts for this template -->
 <script src="static/js/agency.min.js"></script>
-
+<script src = "static/js/ajaxFunctions.js23"></script>
 
 </body>
 

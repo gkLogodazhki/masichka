@@ -16,20 +16,22 @@ public class User implements Serializable {
 
     @NotNull
     @Column(name = "sso_id", unique = true, nullable = false)
-    @Size(min = 3, max = 30, message = "Поне 3 символа")
+    @Size(min = 3, max = 30, message = "пїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")
     private String ssoId;
 
     @Column(name = "password", nullable = false)
-    @Size(min = 6, max = 100, message = "Паролата трябва да бъде поне 6 символа")
+    @Size(min = 6, max = 100, message = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 6 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")
     private String password;
 
     @NotNull
-    @Size(min = 2, max = 50, message = "Невалидно име")
+    @Size(min = 2, max = 50, message = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ")
+    @Pattern(regexp = "[a-zA-ZР°-СЏРђ-РЇ]")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @NotNull
-    @Size(min = 2, max = 50, message = "Невалидна фамилия")
+    @Size(min = 2, max = 50, message = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")
+    @Pattern(regexp = "[a-zA-ZР°-СЏРђ-РЇ]")
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
@@ -39,7 +41,8 @@ public class User implements Serializable {
     private String email;
 
     @NotNull
-    @Size(min = 10, max = 10, message = "Моля въведете валиден номер")
+    @Size(min = 10, max = 10, message = "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ")
+    @Pattern(regexp = "[0-9]")
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
@@ -77,7 +80,10 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+    	if(password.startsWith("08") && password.length() == 10) {
+    		this.password = password;
+    	}
+        
     }
 
     public String getFirstName() {

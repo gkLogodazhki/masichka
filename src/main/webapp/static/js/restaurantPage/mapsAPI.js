@@ -1,14 +1,14 @@
 function initMap(){
 	var options = {
-			zoom:12,
-			center:{lat:42.69751,lng:23.32415}	
+			zoom:15,
+			center:{lat:42.664141,lng:23.287983}	
 	};
 	var map = new google.maps.Map(document.getElementById('map'),options);
 	
 	var marker = new google.maps.Marker({
-		position:{lat:42.6, lng:23.03333},
+		position:{lat:42.664141,lng:23.287983},
 		map:map,
-		icon:'http://i.imgur.com/xNLs83T.png'
+		//icon:'http://i.imgur.com/xNLs83T.png'
 	});
 	
 	var infoWindow = new google.maps.InfoWindow({

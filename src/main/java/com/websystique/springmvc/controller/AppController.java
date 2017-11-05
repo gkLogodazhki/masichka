@@ -128,12 +128,17 @@ public class AppController {
     @RequestMapping(value = {"/makeRegister"}, method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("users") User user, BindingResult result,
                            ModelMap model) {
-    	System.err.println("Finally got here");
-        if (result.hasErrors()) {
+    	if (result.hasErrors()) {
             model.addAttribute("loggedinuser", getPrincipal());
-            return "Register";
+            return "addPlace";
+        }
+        try {
+        	userService.save(user);
+        } catch (HibernateException e){
+            return "accessDenied";
         }
 
+        model.addAttribute("success", "Place " + user.getFirstName() + " at " + user.getLastName() + " added successfully");
         if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
             FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
             result.addError(ssoError);
@@ -145,7 +150,7 @@ public class AppController {
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "redirect:/reg";
+        return "/";
     }
 
 
