@@ -62,99 +62,365 @@
 <!-- Portfolio Grid -->
 <section class="bg-light" id="myRezervation">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Моите резервации</h2>
+        <div class="well well-sm">
+            <strong>Display</strong>
+            <div class="btn-group">
+                <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                    class="glyphicon glyphicon-th"></span>Grid</a>
             </div>
         </div>
+        <div id="products" class="row list-group">
+            <div class="item  col-lg-12 list-group-item">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-lg-12 list-group-item">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-lg-12 list-group-item">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-lg-12 list-group-item">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-lg-12 list-group-item">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item  col-lg-12 list-group-item">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            Product title</h4>
+                        <p class="group inner list-group-item-text">
+                            Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    $21.000</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
+            <div class="container">
+                <div class="well well-sm">
+                    <strong>Display</strong>
+                    <div class="btn-group">
+                        <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                            class="glyphicon glyphicon-th"></span>Grid</a>
                     </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/1288/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>SASA Asian Pub Radisson</h4>
-                    <p class="text-muted">Graphic Design</p>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                <div id="products" class="row list-group">
+                    <div class="item  col-lg-12 list-group-item">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                            <div class="caption">
+                                <h4 class="group inner list-group-item-heading">
+                                    Product title</h4>
+                                <p class="group inner list-group-item-text">
+                                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.</p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <p class="lead">
+                                            $21.000</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/3918/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Aтлантик</h4>
-                    <p class="text-muted">Graphic Design</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                    <div class="item  col-lg-12 list-group-item">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                            <div class="caption">
+                                <h4 class="group inner list-group-item-heading">
+                                    Product title</h4>
+                                <p class="group inner list-group-item-text">
+                                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.</p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <p class="lead">
+                                            $21.000</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/2697/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Raffy Bar & Gelato Park</h4>
-                    <p class="text-muted">Identity</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                    <div class="item  col-lg-12 list-group-item">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                            <div class="caption">
+                                <h4 class="group inner list-group-item-heading">
+                                    Product title</h4>
+                                <p class="group inner list-group-item-text">
+                                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.</p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <p class="lead">
+                                            $21.000</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/117/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Captain Cook Хотел Marinela</h4>
-                    <p class="text-muted">Branding</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                    <div class="item  col-lg-12 list-group-item">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                            <div class="caption">
+                                <h4 class="group inner list-group-item-heading">
+                                    Product title</h4>
+                                <p class="group inner list-group-item-text">
+                                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.</p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <p class="lead">
+                                            $21.000</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/3515/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Account Bar and Dinner</h4>
-                    <p class="text-muted">Website Design</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                    <div class="item  col-lg-12 list-group-item">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                            <div class="caption">
+                                <h4 class="group inner list-group-item-heading">
+                                    Product title</h4>
+                                <p class="group inner list-group-item-text">
+                                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.</p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <p class="lead">
+                                            $21.000</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <img class="img-fluid" src="https://rezzo.bg/files/images/3516/fit_431_304.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Emotion Kitchen</h4>
-                    <p class="text-muted">Photography</p>
+                    <div class="item  col-lg-12 list-group-item">
+                        <div class="thumbnail">
+                            <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt=""/>
+                            <div class="caption">
+                                <h4 class="group inner list-group-item-heading">
+                                    Product title</h4>
+                                <p class="group inner list-group-item-text">
+                                    Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                                    volutpat.</p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <p class="lead">
+                                            $21.000</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<style>
+
+    .glyphicon {
+        margin-right: 5px;
+    }
+
+    .thumbnail {
+        margin-bottom: 20px;
+        padding: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+    }
+
+    .item.list-group-item {
+        float: none;
+        width: 100%;
+        background-color: #fff;
+        margin-bottom: 10px;
+    }
+
+    .item.list-group-item:nth-of-type(odd):hover, .item.list-group-item:hover {
+        background: #428bca;
+    }
+
+    .item.list-group-item .list-group-image {
+        margin-right: 10px;
+    }
+
+    .item.list-group-item .thumbnail {
+        margin-bottom: 0px;
+    }
+
+    .item.list-group-item .caption {
+        padding: 9px 9px 0px 9px;
+    }
+
+    .item.list-group-item:nth-of-type(odd) {
+        background: #eeeeee;
+    }
+
+    .item.list-group-item:before, .item.list-group-item:after {
+        display: table;
+        content: " ";
+    }
+
+    .item.list-group-item img {
+        float: left;
+    }
+
+    .list-group-item-text {
+        margin: 0 0 11px;
+    }
+
+    .item.grid-group-item {
+        width: 30% !important;
+    }
+
+    #products.list-group {
+        flex-direction: row !important;
+    }
+
+    .grid-group-item > .thumbnail > img {
+        width: 90%;
+        padding: 5%;
+    }
+
+    .grid-group-item > .thumbnail > caption {
+        width: 90%;
+        padding: 5%;
+    }
+</style>
 <!-- Portfolio Grid -->
 <section class="bg-light" id="favoriteRestorant">
     <div class="container">
@@ -964,6 +1230,22 @@
 <!-- Custom scripts for this template -->
 <script src="/static/js/agency.min.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#list').click(function (event) {
+            event.preventDefault();
+            $('#products .item').addClass('list-group-item').addClass('col-lg-12').removeClass('col-lg-4');
+            $('#products .item').removeClass('grid-group-item');
+
+        });
+
+        $('#grid').click(function (event) {
+            event.preventDefault();
+            $('#products .item').removeClass('list-group-item');
+            $('#products .item').addClass('grid-group-item').removeClass('col-lg-12').addClass('.col-lg-4');
+        });
+    });
+</script>
 </body>
 
 </html>
