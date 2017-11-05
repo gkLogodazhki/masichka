@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
->>>>>>> a790fcc2deb25be12c0b9a6e07e85e18972ad627
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,7 +21,7 @@
 	crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css"
-	href="static/assets/restaurantPage/style.css?51">
+	href="static/assets/restaurantPage/style.css?34">
 <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -165,6 +162,11 @@
 
 			<div id="makeRegForRest">
 				<form>
+					<div id = "reservationInfoDiv">
+						<p style = "font-size:130%;">Искате да направите резервация при нас?</p>
+						<p>направете го още сега попълвайки кратката форма</p>
+					</div>
+					
 					<input type="text" name="">
 	
 				</form>
