@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.File;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -125,8 +126,8 @@ public class AppController {
      * saving user in database. It also validates the user input
      */
     
-    @RequestMapping(value = {"/makeRegister"}, method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute("users") User user, BindingResult result,
+    @RequestMapping(value = {"/reg"}, method = RequestMethod.POST)
+    public String saveUser(@Valid User user, BindingResult result,
                            ModelMap model) {
     	System.err.println("Finally got here");
         if (result.hasErrors()) {
@@ -137,7 +138,7 @@ public class AppController {
         if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
             FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
             result.addError(ssoError);
-            return "registration";
+            return "Register";
         }
 
         userService.save(user);
@@ -332,7 +333,8 @@ public class AppController {
         }
 
         placeService.save(place);
-
+//        File imgDir = new File("/static/img/" + place.getId());
+//        imgDir.mkdirs();
 
         model.addAttribute("success", "Place " + place.getName() + " at " + place.getAddress() + " added successfully");
         model.addAttribute("loggedinuser", getPrincipal());

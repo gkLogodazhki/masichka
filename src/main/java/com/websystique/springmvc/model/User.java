@@ -1,5 +1,7 @@
 package com.websystique.springmvc.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -14,37 +16,37 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "sso_id", unique = true, nullable = false)
-    @Size(min = 3, max = 30, message = "Поне 3 символа")
+    @Size(min = 3, max = 30)
     private String ssoId;
 
+    @NotEmpty
     @Column(name = "password", nullable = false)
-    @Size(min = 6, max = 100, message = "Паролата трябва да бъде поне 6 символа")
+    @Size(min = 6, max = 100)
     private String password;
 
-    @NotNull
-    @Size(min = 2, max = 50, message = "Невалидно име")
+    @NotEmpty
+    @Size(min = 2, max = 50)
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @NotNull
-    @Size(min = 2, max = 50, message = "Невалидна фамилия")
+    @NotEmpty
+    @Size(min = 2, max = 50)
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @NotNull
+    @NotEmpty
     @Column(name = "email", nullable = false)
     @Pattern(regexp = "[A-Za-z0-9._%-+]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}")
     private String email;
 
-    @NotNull
-    @Size(min = 10, max = 10, message = "Моля въведете валиден номер")
+    @NotEmpty
+    @Size(min = 10, max = 10)
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
-    @NotNull
-    @ManyToOne 
+    @ManyToOne
     @JoinColumn(name = "user_type_id")
     private UserType userType;
 

@@ -314,7 +314,7 @@
             <h2 class="section-heading text-uppercase">Регистрация</h2>
         </div>
         <div class="row">
-        <form:form id="editProfile" name="sentMessage" modelAttribute="user" action="makeRegister">
+        <form:form method="POST" name="sentMessage" modelAttribute="user">
         <form:input type="hidden" path="id" id="id"/>
             <div class="col-md-4 col-sm-6 portfolio-item centerDiv">
                     <div class="row">
@@ -342,7 +342,7 @@
                             <div class="form-group">
                                 <span class = "error">*</span>
                                 <span class="badge">Номер</span>
-                                <form:input  name="contact_no" placeholder="08********" class="form-control"  path = "phoneNumber" tabindex="7"
+                                <form:input  name="phoneNumber" placeholder="08********" class="form-control"  path = "phoneNumber" tabindex="7"
                                     type="text"  required="required"/> 
                            		<div class="has-error">
 			                        <form:errors path="phoneNumber" class="help-inline"/>
@@ -363,7 +363,7 @@
                             <div class="form-group">
                                 <span class = "error">*</span>
                                 <span class="badge">Фамилия</span>
-                                <form:input name="last_name"
+                                <form:input name="lastName"
                                    placeholder="Фамилия" class="form-control" type="text" path = "lastName" tabindex="2"
                                     required="required"/>
                                		<div class="has-error">
@@ -375,7 +375,7 @@
                             <div class="form-group">
                                  <span class = "error">*</span>
                                 <span class="badge">Парола</span>
-                                <form:input name="user_password" placeholder="Парола" class="form-control" type="password" path = "password" required="required" tabindex="5"/>
+                                <form:input name="password" placeholder="Парола" class="form-control" type="password" path = "password" required="required" tabindex="5"/>
                                 <div class="has-error">
 			                        <form:errors path="password" class="help-inline"/>
 			                    </div>
@@ -396,7 +396,6 @@
                                 <form:input name="ss_od"
                                    placeholder="потребителско име" class="form-control" type="text" path = "ssoId" required="required" tabindex="3"/>
                                	<div class="has-error">
-                               		
 			                        <form:errors path="ssoId" class="help-inline"/>
 			                    </div>	
                                 <p class="help-block text-danger"></p>
