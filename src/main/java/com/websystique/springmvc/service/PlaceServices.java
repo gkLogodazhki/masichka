@@ -26,11 +26,6 @@ public class PlaceServices implements IPlaceDao {
     }
 
     @Override
-    public boolean isUnique(Integer id, String name) {
-        return placeDao.isUnique(id, name);
-    }
-
-    @Override
     public List<Place> findAll() {
         return placeDao.findAll();
     }
