@@ -279,5 +279,14 @@ p{
 	line-height:3;
 }
 #makeRegForRest{
-	margin-left:1%;
+	background-color:#212529;
+	color:#fed136;
+	float:left;
+	margin-left:10px;
+}
+#reservationInfoDiv{
+	text-align:center;
+	padding-top:3%;
+	padding-left:5%;
+	padding-right:5%;
 }

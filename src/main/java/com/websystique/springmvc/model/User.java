@@ -2,6 +2,9 @@ package com.websystique.springmvc.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.websystique.springmvc.dao.UserDao;
+import com.websystique.springmvc.dao.UserTypeDao;
+
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -28,13 +31,13 @@ public class User implements Serializable {
     private String password;
     
     @NotEmpty
-    @Pattern(regexp = "[a-zA-Zа-яА-Я]" , message = "Name cannot contain illegal symbols")
+    @Pattern(regexp = "[a-zA-Zа-яА-Я]+" , message = "Name cannot contain illegal symbols")
     @Size(min = 2, max = 50)
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @NotEmpty
-    @Pattern(regexp = "[a-zA-Zа-яА-Я]" , message = "Name cannot contain illegal symbols")
+    @Pattern(regexp = "[a-zA-Zа-яА-Я]+" , message = "Name cannot contain illegal symbols")
     @Size(min = 2, max = 50)
     @Column(name = "last_name", nullable = false)
     private String lastName;
@@ -46,16 +49,14 @@ public class User implements Serializable {
 
     @NotEmpty
     @Size(min = 10, max = 10, message = "Enter valid number")
-    @Pattern(regexp = "[0-9]" , message = "Must follow 08********")
+    @Pattern(regexp = "[0-9]+" , message = "Must follow 08********")
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     
     @ManyToOne
     @JoinColumn(name = "user_type_id")
-    private UserType userType;
+    private UserType userType = new UserType(2, "USER");
 
-    @Column(name = "reset_token")
-    private String resetToken;
 
     @ManyToOne 
     @JoinColumn(name = "city_id")
@@ -114,7 +115,7 @@ public class User implements Serializable {
     }
 
     public void setUserType(UserType userType) {
-        this.userType = userType;
+    	this.userType = userType;
     }
 
     public String getResetToken() {
@@ -137,9 +138,6 @@ public class User implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-    public void setResetToken(String resetToken) {
-        this.resetToken = resetToken;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -168,7 +166,6 @@ public class User implements Serializable {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", resetToken='" + resetToken + '\'' +
                 ", userType=" + userType +
                 ", city=" + city +
                 '}';

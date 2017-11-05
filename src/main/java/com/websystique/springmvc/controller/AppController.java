@@ -4,9 +4,6 @@ import com.websystique.springmvc.dao.IIdNameDao;
 import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionException;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -23,25 +20,18 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.File;
-import java.security.Principal;
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills", "options", "payMethods", "setups", "placesRestaurant"})
+@SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills"
+	, "options", "payMethods", "setups", "placesRestaurant", "hours"})
 public class AppController {
 
     @Autowired
     IUserDao userService;
-
-    @Autowired
-    IPlaceDao placeDao;
 
     @Autowired
     IPlaceDao placeService;
@@ -70,6 +60,9 @@ public class AppController {
     @Autowired
     IIdNameDao<Setup> setupService;
 
+    @Autowired
+    IIdNameDao<Hour> hourService;
+    
     @Autowired
     MessageSource messageSource;
 
@@ -144,7 +137,7 @@ public class AppController {
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "/";
+        return "index";
     }
 
 
@@ -312,6 +305,11 @@ public class AppController {
     public List<Place> initializePlaces() {
         return placeService.findAll();
     }
+    @ModelAttribute("hours")
+    public List<Hour> initializeHours() {
+        return hourService.findAll();
+    }
+
 
     @RequestMapping(value = {"/addplace"}, method = RequestMethod.POST)
     public String saveUser(@Valid Place place, BindingResult result,
