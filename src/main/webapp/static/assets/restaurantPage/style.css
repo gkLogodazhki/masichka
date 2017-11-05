@@ -40,7 +40,7 @@ p {
     position: static;
     text-align: left;
     white-space: nowrap;
-    width: 50%;
+    width: 100%;
 }
 #carousel-custom .carousel-indicators li {
     background-color: transparent;
@@ -171,12 +171,12 @@ p {
 }
 #smallLogo{
 	float:left;
-	width:30%;
+	width:40%;
 }
 #addToFavouriteDiv{
+	text-align:center;
 	padding:0;
 	margin:0;
-	text-align:left;
 }
 #addToFavourite{
 	margin-top:3%;
@@ -253,6 +253,7 @@ p{
 	font-size:120%;
 }
 #commentDiv{
+	display:none;
 	position:fixed;
 	margin:0;
 	left:35%;
@@ -269,10 +270,11 @@ p{
 	color:black;
 	text-size:120%;
 	float:right;
+	border-radius:0px 14px 0px 0px;
 }
 #commentBlankText{
-	padding-top:30px;
 	padding-left:10%;
 	color:#fed136;
 	font-size:140%;
+	line-height:3;
 }

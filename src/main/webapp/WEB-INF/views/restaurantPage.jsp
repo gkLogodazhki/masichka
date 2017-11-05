@@ -223,7 +223,11 @@
 		<form>
 			<input type="button" id="closeCommentWindow" value = "Затвори"
 				class="btn-danger glyphicon glyphicon-remove-circle">
-			<span id = "commentBlankText">Дайте своят коментар</span>
+			<span id = "commentBlankText">Поставете коментарат си тук</span>
+			<textarea style = "width:60%;" rows = 5 cols = 20></textarea>
+			<div style = "width:100%; padding-top:9%;">
+				<input type = "submit" value = "Добави коментар" name = "addComment" class =  "btn-success">
+			</div>
 			
 		</form>
 	</div>
