@@ -1,0 +1,10 @@
+$(function(){
+	$('#closeCommentWindow').on('click',function(){
+		$('#commentDiv').css('display','none');
+	});
+});
+$(function(){
+	$('#addCommentButton').on('click',function(){
+		$('#commentDiv').css('display','block');
+	});
+});

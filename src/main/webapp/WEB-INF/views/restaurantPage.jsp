@@ -18,7 +18,7 @@
 	crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css"
-	href="static/assets/restaurantPage/style.css?111">
+	href="static/assets/restaurantPage/style.css?351">
 <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -45,10 +45,10 @@
 			</ul>
 		</div>
 	</nav>
-	
+
 
 	<div id="wrapper">
-		<div id = "photoSection">
+		<div id="photoSection">
 
 			<div id='carousel-custom' class='carousel slide' data-ride='carousel'>
 				<div class='carousel-outer'>
@@ -119,68 +119,124 @@
 			</div>
 		</div>
 
-		<div id = "detailInfo">
-			<div id= "logoAndTitleRow">
-				<img id = "smallLogo" src="static/img/restaurantPage/logo.jpg" alt = "logo">
-				<div id = "restNameDiv">
-					<p id = "restaurantName">Име на ресторанта</p>
+		<div id="detailInfo">
+			<div id="logoAndTitleRow">
+				<img id="smallLogo" src="static/img/restaurantPage/logo.jpg"
+					alt="logo">
+				<div id="restNameDiv">
+					<p id="restaurantName">Име на ресторанта</p>
 					<b>адрес</b>
 				</div>
-				 	
-				</div>
-				<div id = "addToFavouriteDiv">
-					<input id="addToFavourite"  type="button" value = "добави в любими" name = "addToFavourite">
-				</div>
-				
-				<div id = "moreInfo">
-					<span class = "glyphicon glyphicon-cutlery"></span>
-					<b>Кухня: </b> 
-					<span>видове кухня</span>
-				</div>
-				<div class = "moreInfo-space">
-					<span class = "glyphicon glyphicon-home"></span>
-					<b>Район: </b> 
-					<span>да речем Перник</span>
-				</div>
-				<div class = "moreInfo-space">
-					<span class = "glyphicon glyphicon-euro"></span>
-					<b>Средна сметка: </b> 
-					<span>от 50 до 100лв</span>
-				</div>
-				<div >
-					<span style =  "font-size:90%;">(цената е само ориентировъчна)</span>
-				</div>
-				<div id = "welcomeMessage">
-					<h3>Заповядайте при нас</h3>
-				</div>
+
 			</div>
-			
-			<div id = "">
-				<div style = "width:70%; height:10px; float:left;"></div>
-				<div id = "map"></div>
-			</div>
-			
-			
-			<div id = "bottomOptions">
-				<div id = "bottomTitle">
-					<h2>За ресторанта</h2>
-				</div>
-				<div id = "bottomRestInfo">
-					<p>Djanam Steak House Restaurant е единственият по рода си Steak House ресторант в София. Уютната и елегантна обстановка, в съчетание с ненатрапчив лукс, без излишна претрупаност, са предпоставка за комфортно и приятно преживяване по време на обяд или вечеря. Ресторантът не отстъпва по нищо на най-добрите стек ресторанти в световен мащаб – разполага с DRY AGED витрина, в която месото зрее 28 дни, преди да бъде приготвено от майстор готвачи
-Част от комплекс DJANAM е новооткритият Steak & Nargile Lounge. Почерпихме вдъхновение от ориенталската екзотиката, съчетахме го с модерна обстановка, удобни меки дивани, комфортни сепарета, автентични дървени маси и получихме истински градски оазис. Цялостната концепция за Djanam Steak & Nargile е изградена около идеята да съберем на едно място уникалната кухня на комплекса, включваща приготвените по неповторим начин меса, салати и десерти от нашите майстори и страхотните ориенталски наргилета, приготвени по начин , който ще гарантира пълното удоволствие от пушенето на ароматните димове и ще бъде уникален за Българският пазар. </p>
-				</div>
+			<div id="addToFavouriteDiv">
+				<input id="addToFavourite" type="button" value="добави в любими"
+					name="addToFavourite">
 			</div>
 
+			<div id="moreInfo">
+				<span class="glyphicon glyphicon-cutlery"></span> <b>Кухня: </b> <span>видове
+					кухня</span>
+			</div>
+			<div class="moreInfo-space">
+				<span class="glyphicon glyphicon-home"></span> <b>Район: </b> <span>да
+					речем Перник</span>
+			</div>
+			<div class="moreInfo-space">
+				<span class="glyphicon glyphicon-euro"></span> <b>Средна сметка:
+				</b> <span>от 50 до 100лв</span>
+			</div>
+			<div>
+				<span style="font-size: 90%;">(цената е само ориентировъчна)</span>
+			</div>
+			<div id="welcomeMessage">
+				<h3>Заповядайте при нас</h3>
+			</div>
+		</div>
 
+		<div id="">
+			<div style="width: 70%; height: 10px; float: left;"></div>
+			<div id="map"></div>
+		</div>
+		<div style="width: 70%; height: 10px; float: left;"></div>
+
+		<div id="bottomOptions">
+
+
+
+			<div id="bottomForRestaurant">
+				<h2 class="bottomTitle">За ресторанта</h2>
+				<p>Djanam Steak House Restaurant е единственият по рода си Steak
+					House ресторант в София. Уютната и елегантна обстановка, в
+					съчетание с ненатрапчив лукс, без излишна претрупаност, са
+					предпоставка за комфортно и приятно преживяване по време на обяд
+					или вечеря. Ресторантът не отстъпва по нищо на най-добрите стек
+					ресторанти в световен мащаб – разполага с DRY AGED витрина, в която
+					месото зрее 28 дни, преди да бъде приготвено от майстор готвачи
+					Част от комплекс DJANAM е новооткритият Steak & Nargile Lounge.
+					Почерпихме вдъхновение от ориенталската екзотиката, съчетахме го с
+					модерна обстановка, удобни меки дивани, комфортни сепарета,
+					автентични дървени маси и получихме истински градски оазис.
+					Цялостната концепция за Djanam Steak & Nargile е изградена около
+					идеята да съберем на едно място уникалната кухня на комплекса,
+					включваща приготвените по неповторим начин меса, салати и десерти
+					от нашите майстори и страхотните ориенталски наргилета, приготвени
+					по начин , който ще гарантира пълното удоволствие от пушенето на
+					ароматните димове и ще бъде уникален за Българският пазар.</p>
+			</div>
+			<div id="bottomAdditionalInfo">
+				<h2 class="bottomTitle">Удобства</h2>
+				<div class="bottomInnerInfos">
+					<span class="	glyphicon glyphicon-plus"></span> <b>Допълнителни
+						опции: </b> <span>Домашни любимци, Бебешко столче, Телевизор и
+						Лятна градина/тераса</span>
+				</div>
+
+				<div class="bottomInnerInfos">
+					<span class="	glyphicon glyphicon-usd"></span> <b>Начини за
+						плащане: </b> <span>American Express, Borica, Maestro,
+						MasterCard, V Pay, VISA Eletron, VISA и в брой</span>
+				</div>
+
+				<div class="bottomInnerInfos">
+					<span class="	glyphicon glyphicon-list-alt"></span> <b>Разполага
+						с: </b> <span>Wi-Fi, Лятна градина, Паркинг</span>
+				</div>
+
+				<div class="bottomInnerInfos">
+					<span class="	glyphicon glyphicon-play-circle"></span> <b>Работно
+						време: </b> <span>10:00 - 23:00</span>
+				</div>
+			</div>
+		</div>
+
+		
+			<div id="commentsSection">
+				<h2 style="display: inline-block;">Коментари</h2>
+				<input type="button" name="addComent" value="Добави коментар" 
+					id="addCommentButton">
+				<div id="commentsStraightLine"></div>
+			</div>
 	</div>
 
+	<div id="commentDiv">
+		<form>
+			<input type="button" id="closeCommentWindow" value = "Затвори"
+				class="btn-danger glyphicon glyphicon-remove-circle">
+			<span id = "commentBlankText">Дайте своят коментар</span>
+			
+		</form>
+	</div>
+	
+	
+	<div style = "float:left; width:100%; height:100px"></div>
 
-	<script src = "static/js/restaurantPage/mapsAPI.js?2"></script>
+	
+	<script src = "static/js/restaurantPage/mapsAPI.js?2f"></script>
 	<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp8-kC6BmMpDbH03rGS-PTAYxHiXdlTZM&callback=initMap">
     </script>
-	
-	
+	<script src = "static/js/restaurantPage/functionality.js?12"></script>
 	
 
 </body>

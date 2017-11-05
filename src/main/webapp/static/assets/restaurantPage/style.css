@@ -194,20 +194,85 @@ p {
 }
 #welcomeMessage{
 	border-bottom:1px solid #b7b795;
-	margin-bottom:15.7%;
+	margin-bottom:20%;
 }
 #bottomOptions{
 	float:left;
 	text-align:left;
 	padding-top:4.5%;
 	padding-left:5%;
+	padding-bottom:4.5%;
 	width:90%;
 	height:auto;
 	background-color:white;
 }
-#bottomTitle{
-	
+#bottomForRestaurant{
+	margin:0;
+	float:left;
+	width:50%;
+	text-align:left;
+	border-right:1px solid #d6d6c2;
+	padding-right:5%;
 }
-#bottomRestInfo{
-	
+p{
+	margin:0;
+}
+#bottomAdditionalInfo{
+	float:left;
+	width:50%;
+	padding-left:3%;
+	padding-right:5%;
+}
+.bottomTitle{
+	color:#fed136;
+	background-color:#212529;
+}
+.bottomInnerInfos{
+	margin-top:7%;
+	width:100%;
+	padding-left:10%;
+}
+#commentsSection{
+	float:left;
+	text-align:left;
+	padding-top:2%;
+	width:90%;
+	height:auto;
+}
+#commentsStraightLine{
+	width:100%;
+	border:1px solid #212529;
+}
+#addCommentButton{
+	margin-top:2%;
+	float:right;
+	width:15%;
+	background-color:#fed136;
+	border-radius:5px;
+	border:1px solid #fed136;
+	font-size:120%;
+}
+#commentDiv{
+	position:fixed;
+	margin:0;
+	left:35%;
+	top:25%;
+	z-index = 1000;
+	text-align:center;
+	width:400px;
+	height:250px;
+	background-color:#212529;
+	border-radius:15px;
+}
+#closeCommentWindow{
+	text-align:center;
+	color:black;
+	text-size:120%;
+	float:right;
+}
+#commentBlankText{
+	padding-top:30px;
+	padding-left:10%;
+	color:#fed136;
+	font-size:140%;
 }
