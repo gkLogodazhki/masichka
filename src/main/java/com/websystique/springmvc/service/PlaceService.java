@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+
 @Service("placeService")
 @Transactional
 public class PlaceService extends AbstractDao<Integer, Place> implements IPlaceDao {
@@ -93,4 +94,8 @@ public class PlaceService extends AbstractDao<Integer, Place> implements IPlaceD
         Hibernate.initialize(place.getOptions());
     }
 
+    @Override
+    public void update(Place entity) {
+        super.update(entity);
+    }
 }
