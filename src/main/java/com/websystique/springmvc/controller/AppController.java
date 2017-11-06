@@ -4,6 +4,7 @@ import com.websystique.springmvc.dao.IIdNameDao;
 import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -78,107 +80,29 @@ public class AppController {
      */
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String home(ModelMap model) {
-//        try{
-//            PlaceType typeClub = placeTypeService.findByName("Клуб");
-//            PlaceType typeRestaurant = placeTypeService.findByName("Ресторант");
-//            List<Place> clubs = placeService.findByPlaceType(typeClub,10);
-//            List<Place> restaurants = placeService.findByPlaceType(typeRestaurant,10);
-//            model.addAttribute("clubs", clubs);
-//            model.addAttribute("restaurants", restaurants);
-//        } catch (HibernateException he){
-//            return "accessDenied";
-//        }
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "index";
-    }
-
-    @RequestMapping(value = {"/users"}, method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
-        List<User> users = userService.findAll();
-        model.addAttribute("users", users);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "index";
-    }
-
-
-    @RequestMapping(value = {"/reg"}, method = RequestMethod.GET)
-    public String reg(ModelMap model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "Register";
-    }
-
-    /**
-     * This method will be called on form submission, handling POST request for
-     * saving user in database. It also validates the user input
-     */
-    
-    @RequestMapping(value = {"/reg"}, method = RequestMethod.POST)
-    public String saveUser(@Valid User user, BindingResult result,
-                           ModelMap model) {
-    	if (result.hasErrors()) {
-            model.addAttribute("loggedinuser", getPrincipal());
-            System.out.println("Tuk sam na hasErrors");
-            return "Register";
+        String principal = getPrincipal();
+        if (principal == null){
+            return "redirect:login?logout";
+        }
+        User user = userService.findBySSO(principal);
+        model.addAttribute("loggedinuser", principal);
+        if (user.getUserType().getName().equals("ADMIN")){
+            return "redirect:/admin";
         }
 
-        model.addAttribute("success", "Place " + user.getFirstName() + " at " + user.getLastName() + " added successfully");
-        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
-            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-            result.addError(ssoError);
-            System.out.println("Takav potrebitel sashtestwuwa");
-            return "Register";
-        }
-        System.out.println("Ocelqh do tuk");
-        userService.save(user);
-        
-        model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
+        PlaceType club = placeTypeService.findByName("клуб");
+        PlaceType restaurants = placeTypeService.findByName("ресторант");
+
+        model.addAttribute("clubs", placeService.findAll());
+        model.addAttribute("restaurants", placeService.findAll());
+
+        model.addAttribute("newClubs", placeService.find(club, Order.desc("date")));
+        model.addAttribute("newRestaurants",placeService.find(restaurants, Order.desc("date")));
+
+        model.addAttribute("discountsClubs", placeService.find(club, Order.desc("discount")));
+        model.addAttribute("discountsRestaurants", placeService.find(restaurants, Order.desc("discount")));
+
         return "index";
-    }
-
-
-    /**
-     * This method will provide the medium to update an existing user.
-     */
-    @RequestMapping(value = {"/edit-user-{ssoId}"}, method = RequestMethod.GET)
-    public String editUser(@PathVariable String ssoId, ModelMap model) {
-        User user = userService.findBySSO(ssoId);
-        model.addAttribute("user", user);
-        model.addAttribute("edit", true);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "Register";
-    }
-
-    /**
-     * This method will be called on form submission, handling POST request for
-     * updating user in database. It also validates the user input
-     */
-    @RequestMapping(value = {"/edit-user-{ssoId}"}, method = RequestMethod.POST)
-    public String updateUser(@Valid User user, BindingResult result,
-                             ModelMap model, @PathVariable String ssoId) {
-        if (result.hasErrors()) {
-            return "Register";
-        }
-
-        userService.update(user);
-
-        model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " updated successfully");
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "registrationsuccess";
-    }
-
-
-    /**
-     * This method will delete an user by it's SSOID value.
-     */
-    @RequestMapping(value = {"/delete-user-{ssoId}"}, method = RequestMethod.GET)
-    public String deleteUser(@PathVariable String ssoId) {
-        userService.deleteBySSO(ssoId);
-        return "redirect:/list";
     }
 
 
@@ -200,9 +124,8 @@ public class AppController {
         if (isCurrentAuthenticationAnonymous()) {
             return "index";
         } else {
-            return "index";
+            return "redirect:/";
         }
-
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -228,7 +151,7 @@ public class AppController {
     /**
      * This method returns the principal[user-name] of logged-in user.
      */
-    private String getPrincipal() {
+    protected String getPrincipal() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return (principal instanceof UserDetails) ? ((UserDetails) principal).getUsername() : principal.toString();
     }
@@ -236,17 +159,6 @@ public class AppController {
     /**
      * ADD NEW PLACE BEGIN
      */
-    @RequestMapping(value = {"/addplace"}, method = RequestMethod.GET)
-    public String newPlace(ModelMap model) {
-        String principal = getPrincipal();
-        if (principal == null) {
-            return "redirect:/logout";
-        }
-        Place place = new Place();
-        model.addAttribute("place", place);
-        model.addAttribute("loggedinuser", principal);
-        return "addPlace";
-    }
     
     @RequestMapping(value = "restaurantPage" , method = RequestMethod.GET)
     public String goToRestaurantPage() {
@@ -310,30 +222,6 @@ public class AppController {
         return hourService.findAll();
     }
 
-
-    @RequestMapping(value = {"/addplace"}, method = RequestMethod.POST)
-    public String saveUser(@Valid Place place, BindingResult result,
-                           ModelMap model) {
-
-        if (result.hasErrors()) {
-            return "addPlace";
-        }
-        if(!placeService.isNameUnique(place.getId(), place.getName())){
-            FieldError ssoError =new FieldError("name","name",messageSource.getMessage("non.unique.name", new String[]{place.getName()}, Locale.getDefault()));
-            result.addError(ssoError);
-            return "registration";
-        }
-
-        placeService.save(place);
-//        File imgDir = new File("/static/img/" + place.getId());
-//        imgDir.mkdirs();
-
-        model.addAttribute("success", "Place " + place.getName() + " at " + place.getAddress() + " added successfully");
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
-        return "/";
-    }
-
 	/*
         ADD NEW PLACE END
 	 */
@@ -341,7 +229,7 @@ public class AppController {
     /**
      * This method returns true if users is already authenticated [logged-in], else false.
      */
-    private boolean isCurrentAuthenticationAnonymous() {
+    protected boolean isCurrentAuthenticationAnonymous() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authenticationTrustResolver.isAnonymous(authentication);
     }
