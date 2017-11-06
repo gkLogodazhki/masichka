@@ -10,12 +10,14 @@
 
     <div class="container">
         <link rel="stylesheet" href="/static/assets/startPage/style.css?123">
-        <div class="video-background">
-            <div class="video-foreground">
-                <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
-                        frameborder="0" allowfullscreen></iframe>
+        <%--
+                <div class="video-background">
+                    <div class="video-foreground">
+                        <iframe src="https://www.youtube.com/embed/8S8bHhXjqVw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8S8bHhXjqVw"
+                                frameborder="0" allowfullscreen></iframe>
+                    </div>
             </div>
-    </div>
+        --%>
 
 
 </div>
@@ -210,11 +212,7 @@
                                                                                  aria-hidden="true"></i>&nbsp;Ресторанти
                             дневник</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#comments"><i class="fa fa-commenting-o"
-                                                                                  aria-hidden="true"></i>&nbsp;Оставете
-                            коментар</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#lastReservation"><i class="fa fa-clock-o"
                                                                                          aria-hidden="true"></i>&nbsp;Минали
@@ -225,6 +223,11 @@
                                                                                      aria-hidden="true"></i>&nbsp;Промяна
                             профил</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="<c:url value="/" />">
+                            <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Начало</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="<c:url value="/logout" />"><i
                                 class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Изход</a>

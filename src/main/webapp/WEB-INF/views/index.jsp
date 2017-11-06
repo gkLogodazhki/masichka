@@ -109,7 +109,18 @@
 <%@ include file="headerUser.jsp" %>
 <style>.text-muted {
     color: #fff !important;
-}</style>
+}
+
+.show-description {
+    display: none;
+    background-color: #5e5e5e;
+    background: #5e5e5e;
+    color: white;
+    font-weight: bolder;
+    height: 100%;
+    opacity: 0.5;
+}
+</style>
 <!-- Header -->
 <header class="masthead">
 
@@ -198,9 +209,11 @@
                             <img src="http://fakeimg.pl/365x365/" class="img-responsive">
                         </div>
 
-                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                            <img src="http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg"
-                                 class="img-responsive">
+                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle"
+                             style="background-image: url('http://ledbg.net/wp-content/uploads/2012/11/LED-%D0%BE%D1%81%D0%B2%D0%B5%D1%82%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D1%82%D0%B0-365x365.jpg')">
+                            <div class="show-description">
+                                Some more text here
+                            </div>
                         </div>
 
                         <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
@@ -429,7 +442,8 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm" name="sentMessage" path="emailTest" method="post" novalidate>
+                <form id="contactForm" name="sentMessage" path="emailTest" method="post" enctype="text/plain"
+                      action="mailto:i.margichev@gmail.com" novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -559,13 +573,29 @@
 <script type="text/javascript">
     $('#myTab a').click(function (e) {
         var tab = $(this);
+        console.log("vutre e ");
+        $('button').each(function () {
+            if (jQuery(this).attr('data-filter') == 'hdpe') {
+                jQuery(this).click();
+            }
+        });
         if (tab.parent('li').hasClass('active')) {
+            console.log("vutre e ");
+
             window.setTimeout(function () {
                 $(".tab-pane").removeClass('active');
                 tab.parent('li').removeClass('active');
             }, 1);
         }
     });
+    $('.gallery_product').hover(function () {
+            jQuery(this).children('.show-description').slideDown(500);
+        }
+        ,
+        function () {
+            jQuery(this).children('.show-description').slideUp(50);
+
+        })
 
 </script>
 
