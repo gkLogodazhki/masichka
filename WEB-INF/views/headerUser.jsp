@@ -223,15 +223,6 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="<c:url value="/addplace" />"><i
-                                    class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Добави ресторант</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#MyReservation"><i class="fa fa-calendar"
-                                                                                           aria-hidden="true"></i>&nbsp;Редактирай
-                                ресторанти</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="<c:url value="/logout" />"><i
                                     class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Изход</a>
                         </li>

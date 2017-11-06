@@ -16,4 +16,5 @@ public interface IPlaceDao extends IIdNameDao<Place> {
 
     List<Place> find(PlaceType placeType, Order order);
 
+    void update(Place place);
 }

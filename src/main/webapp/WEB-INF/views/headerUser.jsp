@@ -32,7 +32,7 @@
 			</div>
 			<sec:authorize access="!hasRole('USER') AND !hasRole('ADMIN')">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<c:url value="/user/reg"/>">Регистрация</a></li>
+					<li><a href="<c:url value="/reg"/>">Регистрация</a></li>
 					<li class="dropdown">
 						<a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">&nbsp;|
 							Вход <b

@@ -442,7 +442,8 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm" name="sentMessage" path="emailTest" method="post" novalidate>
+                <form id="contactForm" name="sentMessage" path="emailTest" method="post" enctype="text/plain"
+                      action="mailto:i.margichev@gmail.com" novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

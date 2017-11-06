@@ -63,7 +63,8 @@ public final class AdminContoller extends AppController {
 
         model.addAttribute("success", "Place " + place.getName() + " at " + place.getAddress() + " added successfully");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "placelist";
+        return "redirect:/admin";
+
     }
 
 
@@ -73,39 +74,13 @@ public final class AdminContoller extends AppController {
     @RequestMapping(value = {"/delete-user-{ssoId}"}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable String ssoId) {
         userService.deleteBySSO(ssoId);
-        return "redirect:/admin/users";
+        return "redirect:/admin";
     }
 
     @RequestMapping(value = {"/delete-place-{name}"}, method = RequestMethod.GET)
     public String deletePlace(@PathVariable String name) {
         placeService.delete(placeService.findByName(name));
-        return "redirect:/admin/places";
-    }
-
-    @RequestMapping(value = "/users",method = RequestMethod.GET)
-    public String users(ModelMap model) {
-        String principal = getPrincipal();
-        if (principal == null) {
-            return "redirect:/login?logout";
-        }
-        List<User> users = userService.findAll();
-
-        model.addAttribute("users", users);
-        model.addAttribute("loggedinuser", principal);
-        return "userlist";
-    }
-
-    @RequestMapping(value = "/places",method = RequestMethod.GET)
-    public String places(ModelMap model) {
-        String principal = getPrincipal();
-        if (principal == null) {
-            return "redirect:/login?logout";
-        }
-        List<Place> places = placeService.findAll();
-
-        model.addAttribute("places", places);
-        model.addAttribute("loggedinuser", principal);
-        return "placelist";
+        return "redirect:/admin";
     }
 
     @RequestMapping(value = {"/edit-place-{name}"}, method = RequestMethod.GET)
@@ -129,7 +104,7 @@ public final class AdminContoller extends AppController {
 
         model.addAttribute("success", "Place: " + place.getName() + " " + place.getAddress() + " updated successfully");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "placelist";
+        return "redirect:/admin";
     }
 
 }

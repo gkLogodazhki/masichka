@@ -27,6 +27,9 @@ public class PlaceService extends AbstractDao<Integer, Place> implements IPlaceD
     @Autowired
     IIdNameDao<PlaceType> placeTypeDao;
 
+    @Autowired
+    private IPlaceDao placeDao;
+
     public Place findById(Integer id) {
         Place place = getByKey(id);
         if (place != null) {
@@ -95,7 +98,22 @@ public class PlaceService extends AbstractDao<Integer, Place> implements IPlaceD
     }
 
     @Override
-    public void update(Place entity) {
-        super.update(entity);
+    public void update(Place place) {
+        Place entity = placeDao.findById(place.getId());
+        if (entity != null) {
+            entity.setName(place.getName());
+            entity.setAddress(place.getAddress());
+            entity.setAvgBill(place.getAvgBill());
+            entity.setLogo(place.getLogo());
+            entity.setInfoPlace(place.getInfoPlace());
+            entity.setMapLat(place.getMapLat());
+            entity.setMapLng(place.getMapLng());
+            entity.setOptions(place.getOptions());
+            entity.setPathToGallery(place.getPathToGallery());
+            entity.setRegion(place.getRegion());
+            entity.setSetups(place.getSetups());
+            entity.setSpots(place.getSpots());
+            entity.setPlaceType(place.getPlaceType());
+        }
     }
 }

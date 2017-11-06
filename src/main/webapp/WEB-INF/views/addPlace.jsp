@@ -63,29 +63,29 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="col-md-4 control-lable" for="logo">Logo*</label>
+                            <span class="badge">Logo*</span>
                             <div>
                                 <form:input type="text" path="logo" id="logo" value="koko" class="form-control input-sm"/>
                                 <div class="has-error"><form:errors path="logo" class="help-inline"/></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-lable" for="name">Name*</label>
+                            <span class="badge">Name*</span>
                             <form:input type="text" path="name" id="name" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="name" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-lable" for="address">Address*</label>
+                            <span class="badge">Address*</span>
                             <form:input type="text" path="address" id="address" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="address" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-lable" for="placeType">Place Type*</label>
+                            <span class="badge">Place Type*</span>
                             <form:select path="placeType" items="${placeTypes}" multiple="false" itemValue="id" itemLabel="name" class="selectpicker" data-width="auto"/>
                             <div class="has-error"><form:errors path="placeType" class="help-inline"/></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-lable" for="infoPlace">Information*</label>
+                            <span class="badge">Information*</span>
                             <form:input type="text" path="infoPlace" id="infoPlace" class="form-control input-sm"/>
                             <div class="has-error"><form:errors path="infoPlace" class="help-inline"/></div>
                         </div>
