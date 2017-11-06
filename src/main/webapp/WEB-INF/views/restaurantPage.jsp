@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -163,15 +164,68 @@
 
 
 			<div id="makeRegForRest">
-				<form>
+				<form:form method = "post" name="sentMessage" modelAttribute="reservation">
 					<div id = "reservationInfoDiv">
 						<p style = "font-size:130%;">Искате да направите резервация при нас?</p>
 						<p>направете го още сега попълвайки кратката форма</p>
 					</div>
 					
-					<input type="text" name="">
-					<p>Date: <input type="text" id="datepicker"></p>
-				</form>
+					<div style = "width:100%; padding-top:8%;"></div>
+						
+					<div class = "reservationDivWrapper">
+						<div class = "reservationDivText">
+							<p>Дата на резервацията:</p>
+						</div>
+						<div class = "reservationDivInput">
+							<form:input type="text" id="datepicker" class = "reservationInputSize" path = "date" name = "date"/>
+							<div class="has-error error">
+			                        <form:errors path="date" class="help-inline"/>
+			                    </div>	
+						</div>
+					</div>
+					
+					<div class = "spaceMaker"></div>
+					
+					<div class = "reservationDivWrapper">
+						<div class = "reservationDivText">
+							<p>Час на резервазията:</p>
+						</div>
+						<div class = "reservationDivInput">
+							<form:select name = "hour" path="hour" items="${hour}" multiple="false" itemValue="id" itemLabel="name" 
+                                 class="selectPicker reservationInputSize" data-width="auto"/>
+						</div>
+					</div>
+					
+					<div class = "spaceMaker"></div>
+					
+					<div class = "reservationDivWrapper">
+						<div class = "reservationDivText">
+							<p>Брой хора: </p>
+						</div>
+						<div class = "reservationDivInput">
+							 <form:input type = "number" class = "reservationInputSize" path = "spots" name = "spots" />
+							<div class="has-error error">
+			                        <form:errors path="spots" class="help-inline"/>
+			                    </div>	
+						</div>
+					</div>
+					
+					<div class = "spaceMaker"></div>
+					
+					<div class = "reservationDivWrapper">
+						<div class = "reservationDivText">
+							<p>Отстъпка при резервация: </p>
+						</div>
+						<div class = "reservationDivText">
+							 <p>30%</p>
+						</div>
+					</div>
+					
+					<div id = "reservationSubmitDiv">
+						<input type = "submit" name = "submit" value = "РЕЗЕРВИРАЙ" id = "reservationId"/>
+					</div>
+					
+				</form:form>
 			</div>
 
 

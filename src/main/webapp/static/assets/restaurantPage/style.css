@@ -290,3 +290,45 @@ p{
 	padding-left:5%;
 	padding-right:5%;
 }
+
+#reservationDataFields{
+	text-align:center;
+}
+.spaceMaker{
+	width:100%;
+	padding-top:10%;
+}
+.reservationDivWrapper{
+	width:100%;
+}
+.reservationDivText{
+	padding-left:5%;
+	float:left;
+	width:50%;
+}
+.reservationDivInput{
+	color:#212529;
+	float:left;
+	width:50%;
+}
+.reservationInputSize{
+	width:80%;
+	height:15%;
+}
+#reservationSubmitDiv{
+	width:100%;
+	text-align:center;
+	padding-top:17.5%;
+	padding-bottom:10%;
+	
+}
+#reservationId{
+	background-color:#fed136;
+	color:#212529;
+	border-radius: 7px;
+	border:1px solid #212529;
+	width:50%;
+}
+.error{
+	color:red;
+}

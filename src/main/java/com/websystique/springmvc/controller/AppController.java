@@ -2,6 +2,7 @@ package com.websystique.springmvc.controller;
 
 import com.websystique.springmvc.dao.IIdNameDao;
 import com.websystique.springmvc.dao.IPlaceDao;
+import com.websystique.springmvc.dao.IReservationDao;
 import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,12 @@ import java.util.Locale;
 @Controller
 @RequestMapping("/")
 @SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills"
-	, "options", "payMethods", "setups", "placesRestaurant", "hours"})
+	, "options", "payMethods", "setups", "placesRestaurant", "hour"})
 public class AppController {
 
+	@Autowired
+	IReservationDao reservationService;
+	
     @Autowired
     IUserDao userService;
 
@@ -120,7 +124,6 @@ public class AppController {
                            ModelMap model) {
     	if (result.hasErrors()) {
             model.addAttribute("loggedinuser", getPrincipal());
-            System.out.println("Tuk sam na hasErrors");
             return "Register";
         }
 
@@ -128,10 +131,8 @@ public class AppController {
         if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
             FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
             result.addError(ssoError);
-            System.out.println("Takav potrebitel sashtestwuwa");
             return "Register";
         }
-        System.out.println("Ocelqh do tuk");
         userService.save(user);
         
         model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
@@ -248,12 +249,36 @@ public class AppController {
         return "addPlace";
     }
     
-    @RequestMapping(value = "restaurantPage" , method = RequestMethod.GET)
-    public String goToRestaurantPage() {
-    	return "restaurantPage";
+    @RequestMapping(value = "/restaurantPage" , method = RequestMethod.GET)
+    public String goToRestaurantPage(ModelMap model) {
+    	Reservation reservation = new Reservation();
+    	model.addAttribute("reservation", reservation);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "restaurantPage";    
+       }
+    
+    
+    @RequestMapping(value = "/restaurantPage", method = RequestMethod.POST)
+    public String makeReservation(@Valid Reservation reservation, BindingResult result,
+                           ModelMap model) {
+    	System.out.println("HERE");
+    	if (result.hasErrors()) {
+            model.addAttribute("loggedinuser", getPrincipal());
+            return "restaurantPage";
+        }
+
+        model.addAttribute("success", reservation + " added successfully");
+        
+        reservationService.save(reservation);
+
+        model.addAttribute("success", reservation + " added successfully");
+        model.addAttribute("loggedinuser", getPrincipal());
+        //return "success";
+        return "restaurantPage";
     }
-    
-    
+
+
 
     @ModelAttribute("placesRestaurants")
     public List<Place> initializePlacesRestaurants() {
@@ -305,7 +330,7 @@ public class AppController {
     public List<Place> initializePlaces() {
         return placeService.findAll();
     }
-    @ModelAttribute("hours")
+    @ModelAttribute("hour")
     public List<Hour> initializeHours() {
         return hourService.findAll();
     }
