@@ -73,13 +73,13 @@ public final class AdminContoller extends AppController {
     @RequestMapping(value = {"/delete-user-{ssoId}"}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable String ssoId) {
         userService.deleteBySSO(ssoId);
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
 
     @RequestMapping(value = {"/delete-place-{name}"}, method = RequestMethod.GET)
     public String deletePlace(@PathVariable String name) {
         placeService.delete(placeService.findByName(name));
-        return "redirect:/places";
+        return "redirect:/admin/places";
     }
 
     @RequestMapping(value = "/users",method = RequestMethod.GET)
