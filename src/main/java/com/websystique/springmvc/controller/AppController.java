@@ -5,6 +5,7 @@ import com.websystique.springmvc.dao.IPlaceDao;
 import com.websystique.springmvc.dao.IReservationDao;
 import com.websystique.springmvc.dao.IUserDao;
 import com.websystique.springmvc.model.*;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -83,6 +85,7 @@ public class AppController {
      */
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String home(ModelMap model) {
+<<<<<<< HEAD
 //        try{
 //            PlaceType typeClub = placeTypeService.findByName("Клуб");
 //            PlaceType typeRestaurant = placeTypeService.findByName("Ресторант");
@@ -154,33 +157,31 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         return "Register";
     }
-
-    /**
-     * This method will be called on form submission, handling POST request for
-     * updating user in database. It also validates the user input
-     */
-    @RequestMapping(value = {"/edit-user-{ssoId}"}, method = RequestMethod.POST)
-    public String updateUser(@Valid User user, BindingResult result,
-                             ModelMap model, @PathVariable String ssoId) {
-        if (result.hasErrors()) {
-            return "Register";
+=======
+        String principal = getPrincipal();
+        if (principal == null){
+            return "redirect:login?logout";
         }
+        User user = userService.findBySSO(principal);
+        model.addAttribute("loggedinuser", principal);
+        if (user.getUserType().getName().equals("ADMIN")){
+            return "redirect:/admin";
+        }
+>>>>>>> 79b18c2912e035a9233fdf0d6ca6e52b3d836e3b
 
-        userService.update(user);
+        PlaceType club = placeTypeService.findByName("клуб");
+        PlaceType restaurants = placeTypeService.findByName("ресторант");
 
-        model.addAttribute("success", "User " + user.getFirstName() + " " + user.getLastName() + " updated successfully");
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "registrationsuccess";
-    }
+        model.addAttribute("clubs", placeService.findAll());
+        model.addAttribute("restaurants", placeService.findAll());
 
+        model.addAttribute("newClubs", placeService.find(club, Order.desc("date")));
+        model.addAttribute("newRestaurants",placeService.find(restaurants, Order.desc("date")));
 
-    /**
-     * This method will delete an user by it's SSOID value.
-     */
-    @RequestMapping(value = {"/delete-user-{ssoId}"}, method = RequestMethod.GET)
-    public String deleteUser(@PathVariable String ssoId) {
-        userService.deleteBySSO(ssoId);
-        return "redirect:/list";
+        model.addAttribute("discountsClubs", placeService.find(club, Order.desc("discount")));
+        model.addAttribute("discountsRestaurants", placeService.find(restaurants, Order.desc("discount")));
+
+        return "index";
     }
 
 
@@ -202,9 +203,8 @@ public class AppController {
         if (isCurrentAuthenticationAnonymous()) {
             return "index";
         } else {
-            return "index";
+            return "redirect:/";
         }
-
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -230,7 +230,7 @@ public class AppController {
     /**
      * This method returns the principal[user-name] of logged-in user.
      */
-    private String getPrincipal() {
+    protected String getPrincipal() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return (principal instanceof UserDetails) ? ((UserDetails) principal).getUsername() : principal.toString();
     }
@@ -238,17 +238,6 @@ public class AppController {
     /**
      * ADD NEW PLACE BEGIN
      */
-    @RequestMapping(value = {"/addplace"}, method = RequestMethod.GET)
-    public String newPlace(ModelMap model) {
-        String principal = getPrincipal();
-        if (principal == null) {
-            return "redirect:/logout";
-        }
-        Place place = new Place();
-        model.addAttribute("place", place);
-        model.addAttribute("loggedinuser", principal);
-        return "addPlace";
-    }
     
     @RequestMapping(value = "/restaurantPage-{name}" , method = RequestMethod.GET)
     public String goToRestaurantPage(ModelMap model, @PathVariable String name) {
@@ -343,30 +332,6 @@ public class AppController {
         return hourService.findAll();
     }
 
-
-    @RequestMapping(value = {"/addplace"}, method = RequestMethod.POST)
-    public String saveUser(@Valid Place place, BindingResult result,
-                           ModelMap model) {
-
-        if (result.hasErrors()) {
-            return "addPlace";
-        }
-        if(!placeService.isNameUnique(place.getId(), place.getName())){
-            FieldError ssoError =new FieldError("name","name",messageSource.getMessage("non.unique.name", new String[]{place.getName()}, Locale.getDefault()));
-            result.addError(ssoError);
-            return "registration";
-        }
-
-        placeService.save(place);
-//        File imgDir = new File("/static/img/" + place.getId());
-//        imgDir.mkdirs();
-
-        model.addAttribute("success", "Place " + place.getName() + " at " + place.getAddress() + " added successfully");
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
-        return "/";
-    }
-
 	/*
         ADD NEW PLACE END
 	 */
@@ -374,7 +339,7 @@ public class AppController {
     /**
      * This method returns true if users is already authenticated [logged-in], else false.
      */
-    private boolean isCurrentAuthenticationAnonymous() {
+    protected boolean isCurrentAuthenticationAnonymous() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authenticationTrustResolver.isAnonymous(authentication);
     }

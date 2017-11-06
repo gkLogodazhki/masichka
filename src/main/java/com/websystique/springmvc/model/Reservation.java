@@ -1,5 +1,7 @@
 package com.websystique.springmvc.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -17,6 +19,21 @@ public class Reservation implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer id;
 
+<<<<<<< HEAD
+=======
+    @NotEmpty
+    @Column(name = "date", nullable = false)
+    private Timestamp date;
+
+    @NotEmpty
+    @Column(name = "spots", nullable = false)
+    private Integer spots;
+
+    @NotEmpty
+    @Column(name = "discount", nullable = false)
+    private Integer discount;
+
+>>>>>>> 79b18c2912e035a9233fdf0d6ca6e52b3d836e3b
     @Id
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
@@ -51,6 +68,56 @@ public class Reservation implements Serializable {
         this.id = id;
     }
 
+<<<<<<< HEAD
+=======
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+
+    public Integer getSpots() {
+        return spots;
+    }
+
+    public void setSpots(Integer spots) {
+        this.spots = spots;
+    }
+
+
+    public Integer getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Reservation that = (Reservation) o;
+
+        if (id != that.id) return false;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (spots != null ? !spots.equals(that.spots) : that.spots != null) return false;
+        return discount != null ? discount.equals(that.discount) : that.discount == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (spots != null ? spots.hashCode() : 0);
+        result = 31 * result + (discount != null ? discount.hashCode() : 0);
+        return result;
+    }
+
+>>>>>>> 79b18c2912e035a9233fdf0d6ca6e52b3d836e3b
     public User getUser() {
         return user;
     }
@@ -67,6 +134,7 @@ public class Reservation implements Serializable {
         this.place = place;
     }
 
+<<<<<<< HEAD
 	
 
 	public Integer getSpots() {
@@ -162,4 +230,17 @@ public class Reservation implements Serializable {
 		this.date = date;
 	}
 	
+=======
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", date=" + date +
+                ", spots=" + spots +
+                ", discount=" + discount +
+                ", user=" + user +
+                ", place=" + place +
+                '}';
+    }
+>>>>>>> 79b18c2912e035a9233fdf0d6ca6e52b3d836e3b
 }

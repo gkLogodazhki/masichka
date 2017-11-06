@@ -165,27 +165,14 @@
             <div class="col-sm-12 text-center">
                 <c:choose>
                     <c:when test="${edit}">
-                        <input type="submit" value="Update place" class="btn btn-primary btn-sm"/> or<a href="<c:url value='/' />">Cancel</a>
+                        <input type="submit" value="Update place" class="btn btn-primary btn-sm"/> or<a href="<c:url value='/admin' />">Cancel</a>
                     </c:when>
                     <c:otherwise>
-                        <input type="submit" value="Add place" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/' />">Cancel</a>
+                        <input type="submit" value="Add place" class="btn btn-primary btn-sm"/> or <a href="<c:url value='/admin' />">Cancel</a>
                 </c:otherwise>
             </c:choose>
             </div>
         </form:form>
-        <div class="col-lg-12 text-center">
-            <form action="uploadMultipleFile" method="get" enctype="multipart/form-data">
-                File1 to upload: <input type="file" name="file">
-
-                Name1: <input type="text" name="name">
-
-                File2 to upload: <input type="file" name="file">
-
-                Name2: <input type="text" name="name">
-
-                <input type="submit" value="Upload"> Press here to upload the file!
-            </form>
-        </div>
     </div>
 </section>
 
