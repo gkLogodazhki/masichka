@@ -1,5 +1,7 @@
 package com.websystique.springmvc.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "hours", schema = "masichka", catalog = "")
-public class Hour {
+public class Hour implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

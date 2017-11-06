@@ -24,7 +24,7 @@
 	crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css"
-	href="static/assets/restaurantPage/style.css?34">
+	href="static/assets/restaurantPage/style.css?14">
 <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -59,7 +59,7 @@
 				<img id="smallLogo" src="static/img/restaurantPage/logo.jpg"
 					alt="logo">
 				<div id="restNameDiv">
-					<p id="restaurantName">Име на ресторанта</p>
+					<p id="restaurantName">${place.name}</p>
 					<b>адрес</b>
 				</div>
 
@@ -70,16 +70,17 @@
 			</div>
 
 			<div id="moreInfo">
-				<span class="glyphicon glyphicon-cutlery"></span> <b>Кухня: </b> <span>видове
-					кухня</span>
+				<span class="glyphicon glyphicon-cutlery"></span> <b>Кухня: </b> 
+				<c:forEach items="${place.options}" var="option">
+				${option.name} ,
+				</c:forEach>
 			</div>
 			<div class="moreInfo-space">
-				<span class="glyphicon glyphicon-home"></span> <b>Район: </b> <span>да
-					речем Перник</span>
+				<span class="glyphicon glyphicon-home"></span> <b>Район: </b> <span>${place.region.name}</span>
 			</div>
 			<div class="moreInfo-space">
 				<span class="glyphicon glyphicon-euro"></span> <b>Средна сметка:
-				</b> <span>от 50 до 100лв</span>
+				</b> <span>${place.avgBill.name}</span>
 			</div>
 			<div>
 				<span style="font-size: 90%;">(цената е само ориентировъчна)</span>
@@ -191,7 +192,7 @@
 							<p>Час на резервазията:</p>
 						</div>
 						<div class = "reservationDivInput">
-							<form:select name = "hour" path="hour" items="${hour}" multiple="false" itemValue="id" itemLabel="name" 
+							<form:select name = "hour" path="hour" items="${hours}" multiple="false" itemValue="id" itemLabel="name" 
                                  class="selectPicker reservationInputSize" data-width="auto"/>
 						</div>
 					</div>
@@ -217,7 +218,7 @@
 							<p>Отстъпка при резервация: </p>
 						</div>
 						<div class = "reservationDivText">
-							 <p>30%</p>
+							 <p>$(place.discount)</p>
 						</div>
 					</div>
 					
@@ -241,31 +242,15 @@
 
 				<div id="bottomForRestaurant">
 					<h2 class="bottomTitle">За ресторанта</h2>
-					<p>Djanam Steak House Restaurant е единственият по рода си
-						Steak House ресторант в София. Уютната и елегантна обстановка, в
-						съчетание с ненатрапчив лукс, без излишна претрупаност, са
-						предпоставка за комфортно и приятно преживяване по време на обяд
-						или вечеря. Ресторантът не отстъпва по нищо на най-добрите стек
-						ресторанти в световен мащаб – разполага с DRY AGED витрина, в
-						която месото зрее 28 дни, преди да бъде приготвено от майстор
-						готвачи Част от комплекс DJANAM е новооткритият Steak & Nargile
-						Lounge. Почерпихме вдъхновение от ориенталската екзотиката,
-						съчетахме го с модерна обстановка, удобни меки дивани, комфортни
-						сепарета, автентични дървени маси и получихме истински градски
-						оазис. Цялостната концепция за Djanam Steak & Nargile е изградена
-						около идеята да съберем на едно място уникалната кухня на
-						комплекса, включваща приготвените по неповторим начин меса, салати
-						и десерти от нашите майстори и страхотните ориенталски наргилета,
-						приготвени по начин , който ще гарантира пълното удоволствие от
-						пушенето на ароматните димове и ще бъде уникален за Българският
-						пазар.</p>
+					<p>$(place.infoPlace)</p>
 				</div>
 				<div id="bottomAdditionalInfo">
 					<h2 class="bottomTitle">Удобства</h2>
 					<div class="bottomInnerInfos">
 						<span class="	glyphicon glyphicon-plus"></span> <b>Допълнителни
-							опции: </b> <span>Домашни любимци, Бебешко столче, Телевизор и
-							Лятна градина/тераса</span>
+							опции: </b> 
+							<c:forEach items="$(place.setups)" var="setup"><span> ${setup} ,</span> </c:forEach>
+						
 					</div>
 
 					<div class="bottomInnerInfos">
@@ -281,7 +266,7 @@
 
 					<div class="bottomInnerInfos">
 						<span class="	glyphicon glyphicon-play-circle"></span> <b>Работно
-							време: </b> <span>10:00 - 23:00</span>
+							време: </b> <span>09:00 - 23:00</span>
 					</div>
 				</div>
 			</div>

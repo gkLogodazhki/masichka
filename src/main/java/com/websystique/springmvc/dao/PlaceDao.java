@@ -30,15 +30,26 @@ public class PlaceDao extends AbstractDao<Integer, Place> implements IPlaceDao {
         crit.add(Restrictions.eq("name", name));
         Place place = (Place) crit.uniqueResult();
         if (place!= null){
-            initialize(place);
-        }
+        	Hibernate.initialize(place.getSetups());
+            Hibernate.initialize(place.getRegion());
+            Hibernate.initialize(place.getPlaceType());
+            Hibernate.initialize(place.getPayMethods());
+//                Hibernate.initialize(place.getComments());
+            Hibernate.initialize(place.getAvgBill());
+            Hibernate.initialize(place.getOptions());        }
         return place;
     }
 
     public Place findById(Integer id) {
         Place place = getByKey(id);
         if (place != null) {
-            initialize(place);
+        	Hibernate.initialize(place.getSetups());
+            Hibernate.initialize(place.getRegion());
+            Hibernate.initialize(place.getPlaceType());
+            Hibernate.initialize(place.getPayMethods());
+//                Hibernate.initialize(place.getComments());
+            Hibernate.initialize(place.getAvgBill());
+            Hibernate.initialize(place.getOptions());
         }
         return place;
     }

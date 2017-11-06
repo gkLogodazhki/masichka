@@ -23,12 +23,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 
 @Controller
 @RequestMapping("/")
 @SessionAttributes({"userTypes", "cities", "placeTypes", "regions", "avgBills"
-	, "options", "payMethods", "setups", "placesRestaurant", "hour"})
+	, "options", "payMethods", "setups", "placesRestaurant", "hours"})
 public class AppController {
 
 	@Autowired
@@ -249,10 +250,17 @@ public class AppController {
         return "addPlace";
     }
     
-    @RequestMapping(value = "/restaurantPage" , method = RequestMethod.GET)
-    public String goToRestaurantPage(ModelMap model) {
+    @RequestMapping(value = "/restaurantPage-{name}" , method = RequestMethod.GET)
+    public String goToRestaurantPage(ModelMap model, @PathVariable String name) {
+    	Place place = placeService.findByName(name);
     	Reservation reservation = new Reservation();
+    	Set<Option> options = place.getOptions();
+    	System.out.println(options.size());
+    	
     	model.addAttribute("reservation", reservation);
+    	model.addAttribute("place", place);
+    	model.addAttribute("options", options);
+
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
         return "restaurantPage";    
@@ -330,7 +338,7 @@ public class AppController {
     public List<Place> initializePlaces() {
         return placeService.findAll();
     }
-    @ModelAttribute("hour")
+    @ModelAttribute("hours")
     public List<Hour> initializeHours() {
         return hourService.findAll();
     }

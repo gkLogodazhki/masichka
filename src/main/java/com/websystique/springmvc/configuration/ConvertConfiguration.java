@@ -23,6 +23,9 @@ public class ConvertConfiguration extends WebMvcConfigurerAdapter {
     CityConverter cityConverter;
 
     @Autowired
+    HourConverter hourConverter;
+    
+    @Autowired
     OptionConverter optionConverter;
 
     @Autowired
@@ -41,6 +44,7 @@ public class ConvertConfiguration extends WebMvcConfigurerAdapter {
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(userTypeConverter);
         registry.addConverter(avgBillConverter);
+        registry.addConverter(hourConverter);
         registry.addConverter(cityConverter);
         registry.addConverter(optionConverter);
         registry.addConverter(payMethodConverter);
