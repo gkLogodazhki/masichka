@@ -1,5 +1,7 @@
 package com.websystique.springmvc.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -15,21 +17,17 @@ public class Reservation implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Basic
+    @NotEmpty
     @Column(name = "date", nullable = false)
     private Timestamp date;
 
-    @Basic
-    @Column(name = "reservation_status", nullable = false)
-    private boolean reservationStatus;
+    @NotEmpty
+    @Column(name = "spots", nullable = false)
+    private Integer spots;
 
-    @Basic
-    @Column(name = "spots", nullable = false, precision = 0)
-    private BigInteger spots;
-
-    @Basic
-    @Column(name = "discount", nullable = true, precision = 2)
-    private BigDecimal discount;
+    @NotEmpty
+    @Column(name = "discount", nullable = false)
+    private Integer discount;
 
     @Id
     @ManyToOne
@@ -58,30 +56,20 @@ public class Reservation implements Serializable {
         this.date = date;
     }
 
-
-    public boolean getReservationStatus() {
-        return reservationStatus;
-    }
-
-    public void setReservationStatus(boolean reservationStatus) {
-        this.reservationStatus = reservationStatus;
-    }
-
-
-    public BigInteger getSpots() {
+    public Integer getSpots() {
         return spots;
     }
 
-    public void setSpots(BigInteger spots) {
+    public void setSpots(Integer spots) {
         this.spots = spots;
     }
 
 
-    public BigDecimal getDiscount() {
+    public Integer getDiscount() {
         return discount;
     }
 
-    public void setDiscount(BigDecimal discount) {
+    public void setDiscount(Integer discount) {
         this.discount = discount;
     }
 
@@ -128,7 +116,6 @@ public class Reservation implements Serializable {
         return "Reservation{" +
                 "id=" + id +
                 ", date=" + date +
-                ", reservationStatus=" + reservationStatus +
                 ", spots=" + spots +
                 ", discount=" + discount +
                 ", user=" + user +
